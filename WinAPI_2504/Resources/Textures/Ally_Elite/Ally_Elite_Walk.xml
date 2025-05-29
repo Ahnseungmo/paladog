@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:b1d06bb711a59087feb6de177cf3faf9:bb19280c3ef2d172170b71ae58d9e442:c1f128bcb9180a1622fc26b896120be8$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+pX => x pos of the pivot point (relative to sprite width)
+pY => y pos of the pivot point (relative to sprite height)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+with polygon mode enabled:
+vertices   => points in sprite coordinate system (x0,y0,x1,y1,x2,y2, ...)
+verticesUV => points in sheet coordinate system (x0,y0,x1,y1,x2,y2, ...)
+triangles  => sprite triangulation, 3 vertex indices per triangle
+-->
+<TextureAtlas imagePath="Ally_Elite_Walk.png" width="1768" height="1026">
+    <sprite n="u07_walk_0001.png" x="1" y="1" w="440" h="340" pX="0.5" pY="0.5"/>
+    <sprite n="u07_walk_0002.png" x="443" y="1" w="440" h="340" pX="0.5" pY="0.5"/>
+    <sprite n="u07_walk_0003.png" x="885" y="1" w="440" h="340" pX="0.5" pY="0.5"/>
+    <sprite n="u07_walk_0004.png" x="1327" y="1" w="440" h="340" pX="0.5" pY="0.5"/>
+    <sprite n="u07_walk_0005.png" x="1" y="343" w="440" h="340" pX="0.5" pY="0.5"/>
+    <sprite n="u07_walk_0006.png" x="443" y="343" w="440" h="340" pX="0.5" pY="0.5"/>
+    <sprite n="u07_walk_0007.png" x="885" y="343" w="440" h="340" pX="0.5" pY="0.5"/>
+    <sprite n="u07_walk_0008.png" x="1327" y="343" w="440" h="340" pX="0.5" pY="0.5"/>
+    <sprite n="u07_walk_0009.png" x="1" y="685" w="440" h="340" pX="0.5" pY="0.5"/>
+    <sprite n="u07_walk_0010.png" x="443" y="685" w="440" h="340" pX="0.5" pY="0.5"/>
+    <sprite n="u07_walk_0011.png" x="885" y="685" w="440" h="340" pX="0.5" pY="0.5"/>
+    <sprite n="u07_walk_0012.png" x="1327" y="685" w="440" h="340" pX="0.5" pY="0.5"/>
+</TextureAtlas>

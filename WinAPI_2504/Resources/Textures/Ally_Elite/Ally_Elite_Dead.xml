@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:e87c04b8e90d99b69ff0b3a140a84502:2209e77c0c4d6fecf98c7d90a6ac3d9a:a16d04201259592e00259a7ff92476d0$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+pX => x pos of the pivot point (relative to sprite width)
+pY => y pos of the pivot point (relative to sprite height)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+with polygon mode enabled:
+vertices   => points in sprite coordinate system (x0,y0,x1,y1,x2,y2, ...)
+verticesUV => points in sheet coordinate system (x0,y0,x1,y1,x2,y2, ...)
+triangles  => sprite triangulation, 3 vertex indices per triangle
+-->
+<TextureAtlas imagePath="Ally_Elite_Dead.png" width="1768" height="1368">
+    <sprite n="u07_dead_0001.png" x="1" y="1" w="440" h="340" pX="0.5" pY="0.5"/>
+    <sprite n="u07_dead_0002.png" x="443" y="1" w="440" h="340" pX="0.5" pY="0.5"/>
+    <sprite n="u07_dead_0003.png" x="885" y="1" w="440" h="340" pX="0.5" pY="0.5"/>
+    <sprite n="u07_dead_0004.png" x="1327" y="1" w="440" h="340" pX="0.5" pY="0.5"/>
+    <sprite n="u07_dead_0005.png" x="1" y="343" w="440" h="340" pX="0.5" pY="0.5"/>
+    <sprite n="u07_dead_0006.png" x="443" y="343" w="440" h="340" pX="0.5" pY="0.5"/>
+    <sprite n="u07_dead_0007.png" x="885" y="343" w="440" h="340" pX="0.5" pY="0.5"/>
+    <sprite n="u07_dead_0008.png" x="1327" y="343" w="440" h="340" pX="0.5" pY="0.5"/>
+    <sprite n="u07_dead_0009.png" x="1" y="685" w="440" h="340" pX="0.5" pY="0.5"/>
+    <sprite n="u07_dead_0010.png" x="443" y="685" w="440" h="340" pX="0.5" pY="0.5"/>
+    <sprite n="u07_dead_0011.png" x="885" y="685" w="440" h="340" pX="0.5" pY="0.5"/>
+    <sprite n="u07_dead_0012.png" x="1327" y="685" w="440" h="340" pX="0.5" pY="0.5"/>
+    <sprite n="u07_dead_0013.png" x="1" y="1027" w="440" h="340" pX="0.5" pY="0.5"/>
+    <sprite n="u07_dead_0014.png" x="443" y="1027" w="440" h="340" pX="0.5" pY="0.5"/>
+    <sprite n="u07_dead_0015.png" x="885" y="1027" w="440" h="340" pX="0.5" pY="0.5"/>
+    <sprite n="u07_dead_0016.png" x="1327" y="1027" w="440" h="340" pX="0.5" pY="0.5"/>
+</TextureAtlas>

@@ -3,22 +3,37 @@
 
 BattleScene::BattleScene()
 {
-	ally = new Ally_Knight();
-	ally->SetLocalPosition(Vector2(200, 600));
-	allies.push_back(ally);
+	/*allyK = new Ally_Knight();
+	allyK->SetLocalPosition(Vector2(200, 600));
+	allies.push_back(allyK);
 
-	ally1 = new Ally_Knight();
-	ally1->SetLocalPosition(Vector2(100, 580));
-	UnitStat stat = { 100,20,100,1.0f,500,1 };
-	ally1->SetStat(stat);
-	allies.push_back(ally1);
+	allyL = new Ally_Lancer();
+	allyL->SetLocalPosition(Vector2(100, 550));
+	allies.push_back(allyL);
 
-	enemy1 = new EnemyUnit();
+	allyT = new Ally_Tanker();
+	allyT->SetLocalPosition(Vector2(100, 500));
+	allies.push_back(allyT);
+
+	allyA = new Ally_Archer();
+	allyA->SetLocalPosition(Vector2(100, 450));
+	allies.push_back(allyA);
+
+	allyE = new Ally_Elite();
+	allyE->SetLocalPosition(Vector2(100, 400));
+	allies.push_back(allyE);*/
+
+	allyB = new Ally_Boxer();
+	allyB->SetLocalPosition(Vector2(100, 500));
+	allies.push_back(allyB);
+
+
+	/*enemy1 = new EnemyUnit();
 	enemy1->SetLocalPosition(Vector2(1200, 500));
-	enemies.push_back(enemy1);
+	enemies.push_back(enemy1);*/
 
 	enemy = new EnemyUnit();
-	enemy->SetLocalPosition(Vector2(1100, 520));
+	enemy->SetLocalPosition(Vector2(1100, 500));
 	enemies.push_back(enemy);
 
 	for (Character* unit : allies)

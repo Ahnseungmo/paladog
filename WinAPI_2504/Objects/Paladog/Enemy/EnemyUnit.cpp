@@ -21,25 +21,8 @@ EnemyUnit::~EnemyUnit()
 
 void EnemyUnit::CreateClips()
 {
-	vector<Frame*> frames;
-	frames.push_back(new Frame(L"Resources/Textures/Cookie/cookie0034z03_run01.png"));
-	frames.push_back(new Frame(L"Resources/Textures/Cookie/cookie0034z03_run02.png"));
-	frames.push_back(new Frame(L"Resources/Textures/Cookie/cookie0034z03_run03.png"));
-	frames.push_back(new Frame(L"Resources/Textures/Cookie/cookie0034z03_run04.png"));
-
-	clips.push_back(new Clip(frames, true));
-
-	frames.clear();
-	for (int i = 0; i < 7; i++)
-	{
-		wstring file = L"Resources/Textures/Cookie/cookie0034z03x2_000" + to_wstring(i + 1);
-		file += L".png";
-
-		frames.push_back(new Frame(file));
-	}
-
-	clips.push_back(new Clip(frames, true));
-
-	LoadClip("Resources/Textures/RedHat/", "RedHat_Dead.xml", false);
+	LoadClip("Resources/Textures/Ally_Knight/", "Ally_Knight_Walk.xml", true);
+	LoadClip("Resources/Textures/Ally_Knight/", "Ally_Knight_Attack.xml", true);
+	LoadClip("Resources/Textures/Ally_Knight/", "Ally_Knight_Dead.xml", false);
 }
 

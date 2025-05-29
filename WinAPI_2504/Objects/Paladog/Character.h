@@ -50,10 +50,11 @@ public:
 protected:
     virtual void CreateClips() = 0;
     virtual void LoadClip(string path, string file, bool isLoop, float speed = 1.0f);
+    virtual void LoadClip(string path, string file, string file2, bool isLoop, float speed = 1.0f);
 
     void Move();
     void State();
-    void Animation();
+    virtual void Animation();
 
     virtual void FindTarget();
     virtual void AttackTarget();

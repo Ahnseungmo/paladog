@@ -80,6 +80,55 @@ void Character::LoadClip(string path, string file, bool isLoop, float speed)
     delete document;
 }
 
+void Character::LoadClip(string path, string file, string file2, bool isLoop, float speed)
+{
+    tinyxml2::XMLDocument* document = new tinyxml2::XMLDocument();
+    tinyxml2::XMLDocument* document2 = new tinyxml2::XMLDocument();
+    document->LoadFile((path + file).c_str());
+    document2->LoadFile((path + file2).c_str());
+
+    tinyxml2::XMLElement* atlas = document->FirstChildElement();
+    tinyxml2::XMLElement* atlas2 = document2->FirstChildElement();
+    string textureFile = path + atlas->Attribute("imagePath");
+    string textureFile2 = path + atlas2->Attribute("imagePath");
+
+    vector<Frame*> frames;
+    tinyxml2::XMLElement* sprite = atlas->FirstChildElement();
+    tinyxml2::XMLElement* sprite2 = atlas2->FirstChildElement();
+
+    while (sprite != nullptr)
+    {
+        float x, y, w, h;
+        x = sprite->FloatAttribute("x");
+        y = sprite->FloatAttribute("y");
+        w = sprite->FloatAttribute("w");
+        h = sprite->FloatAttribute("h");
+
+        wstring file = Utility::ToWString(textureFile);
+        frames.push_back(new Frame(file, x, y, w, h));
+
+        sprite = sprite->NextSiblingElement();
+    }
+
+    while (sprite2 != nullptr)
+    {
+        float x, y, w, h;
+        x = sprite2->FloatAttribute("x");
+        y = sprite2->FloatAttribute("y");
+        w = sprite2->FloatAttribute("w");
+        h = sprite2->FloatAttribute("h");
+
+        wstring file = Utility::ToWString(textureFile2);
+        frames.push_back(new Frame(file, x, y, w, h));
+
+        sprite2 = sprite2->NextSiblingElement();
+    }
+
+    clips.push_back(new Clip(frames, isLoop, speed));
+
+    delete document;
+}
+
 void Character::Move()
 {
     if (team == TeamType::Ally)

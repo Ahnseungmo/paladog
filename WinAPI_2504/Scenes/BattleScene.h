@@ -10,10 +10,14 @@ public:
 	void Render() override;
 
 private:
-	Ally_Knight* ally = nullptr;
-	EnemyUnit* enemy = nullptr;
+	Ally_Knight* allyK = nullptr;
+	Ally_Lancer* allyL = nullptr;
+	Ally_Tanker* allyT = nullptr;
+	Ally_Archer* allyA = nullptr;
+	Ally_Elite* allyE = nullptr;
+	Ally_Boxer* allyB = nullptr;
 
-	Ally_Knight* ally1 = nullptr;
+	EnemyUnit* enemy = nullptr;
 	EnemyUnit* enemy1 = nullptr;
 
 	vector<Character*> allies;
