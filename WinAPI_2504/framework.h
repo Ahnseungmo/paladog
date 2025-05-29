@@ -123,7 +123,7 @@ typedef XMFLOAT4X4 Float4x4;
 #include "Objects/Paladog/Enemy/Enemy_Witch.h"
 #include "Objects/Paladog/Enemy/Enemy_Zombie.h"
 
-
+#include "Objects/Paladog/Manager/EnemyManager.h"
 
 
 #include "Scenes/Scene.h"

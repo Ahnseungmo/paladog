@@ -17,15 +17,25 @@ public:
 	void SetTargetList(vector<Character*>* unit);
 	vector<Character*> GetTargetEnemy();
 
-	void CreateZombie();
-	void CreateWitch();
-	void CreateLadySkeleton();
-	void CreateFrankenstein();
+	void SpawnEnemy(string key);
+
+private:
+	template<typename T>
+	void CreateEnemy(string key)
+	{
+		for (int i = 0; i < ENEMY_POOL_SIZE; i++)
+		{
+			T* enemy = new T;
+			enemy->SetActive(false);
+			enemies[key].push_back(enemy);
+		}
+	}
+
 
 private:
 	Vector2 RendomPos();
 
 
 private:
-	unordered_map<string, vector<EnemyUnit*>> enemies;
+	unordered_map<string, vector<Character*>> enemies;
 };

@@ -3,6 +3,7 @@
 
 BattleScene::BattleScene()
 {
+
 	/*allyK = new Ally_Knight();
 	allyK->SetLocalPosition(Vector2(200, 600));
 	allies.push_back(allyK);
@@ -32,15 +33,24 @@ BattleScene::BattleScene()
 	enemy1->SetLocalPosition(Vector2(1200, 500));
 	enemies.push_back(enemy1);*/
 
-	enemy = new Enemy_Witch();
-	enemy->SetLocalPosition(Vector2(1100, 500));
-	enemies.push_back(enemy);
+	//enemy = new Enemy_Witch();
+	//enemy->SetLocalPosition(Vector2(1100, 500));
+	//enemies.push_back(enemy);
+
+	EnemyManager::Get();
+	EnemyManager::Get()->SpawnEnemy("Zombie");
+	EnemyManager::Get()->SpawnEnemy("Witch");
+	EnemyManager::Get()->SpawnEnemy("LadySkeleton");
+	EnemyManager::Get()->SpawnEnemy("Frankenstein");
+
+	enemies = EnemyManager::Get()->GetTargetEnemy(); // 활성화 된 애들 가져오기
+	EnemyManager::Get()->SetTargetList(&allies); // 에너미의 타겟 설정
 
 	for (Character* unit : allies)
 		unit->SetTargetList(&enemies);
 
-	for (Character* unit : enemies)
-		unit->SetTargetList(&allies);
+	//for (Character* unit : enemies)
+	//	unit->SetTargetList(&allies);
 }
 
 BattleScene::~BattleScene()
@@ -50,6 +60,8 @@ BattleScene::~BattleScene()
 
 	for (Character* unit : enemies)
 		delete unit;
+
+	EnemyManager::Delete();
 }
 
 void BattleScene::Update()
@@ -61,6 +73,8 @@ void BattleScene::Update()
 	for (Character* unit : enemies)
 		if (unit->IsActive())
 			unit->Update();
+
+	EnemyManager::Get()->Update();
 }
 
 void BattleScene::Render()
@@ -72,4 +86,6 @@ void BattleScene::Render()
 	for (Character* unit : enemies)
 		if (unit->IsActive())
 			unit->Render();
+
+	EnemyManager::Get()->Render();
 }
