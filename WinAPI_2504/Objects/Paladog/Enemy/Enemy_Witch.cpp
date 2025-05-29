@@ -1,0 +1,32 @@
+#include "Framework.h"
+
+Enemy_Witch::Enemy_Witch()
+{
+	UnitStat stat;
+	stat.maxHp = 100;
+	stat.attack = 50;
+	stat.moveSpeed = 90;
+	stat.attackSpeed = 1.5f;
+	stat.attackRange = 300;
+	stat.attackCount = 1;
+
+	SetStat(stat);
+	SetTeam(TeamType::Enemy);
+	CreateClips();
+}
+
+Enemy_Witch::~Enemy_Witch()
+{
+}
+
+void Enemy_Witch::CreateClips()
+{
+	float setY = Size().y * 0.5f;
+	Vector2 thisPos = GetLocalPosition();
+
+	LoadClip("Resources/Textures/Enemy/", "Witch_Walk.xml", true);
+	LoadClip("Resources/Textures/Enemy/", "Witch_Attack.xml", true);
+	LoadClip("Resources/Textures/Enemy/", "Witch_Dead.xml", false);
+
+	clipTransform->SetLocalPosition({ thisPos.x,thisPos.y + setY });
+}

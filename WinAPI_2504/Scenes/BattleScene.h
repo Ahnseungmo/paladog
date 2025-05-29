@@ -17,8 +17,7 @@ private:
 	Ally_Elite* allyE = nullptr;
 	Ally_Boxer* allyB = nullptr;
 
-	EnemyUnit* enemy = nullptr;
-	EnemyUnit* enemy1 = nullptr;
+	Enemy_Witch* enemy = nullptr;
 
 	vector<Character*> allies;
 	vector<Character*> enemies;

@@ -32,7 +32,7 @@ BattleScene::BattleScene()
 	enemy1->SetLocalPosition(Vector2(1200, 500));
 	enemies.push_back(enemy1);*/
 
-	enemy = new EnemyUnit();
+	enemy = new Enemy_Witch();
 	enemy->SetLocalPosition(Vector2(1100, 500));
 	enemies.push_back(enemy);
 

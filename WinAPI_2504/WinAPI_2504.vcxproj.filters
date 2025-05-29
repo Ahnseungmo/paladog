@@ -171,9 +171,6 @@
     <ClInclude Include="Objects\Paladog\Ally\Ally_Knight.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Objects\Paladog\Enemy\EnemyUnit.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Scenes\BattleScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -190,6 +187,18 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Objects\Paladog\Ally\Ally_Tanker.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\Paladog\Enemy\Enemy_Witch.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\Paladog\Enemy\Enemy_Zombie.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\Paladog\Enemy\Enemy_Frankenstein.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\Paladog\Enemy\Enemy_LadySkeleton.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -329,9 +338,6 @@
     <ClCompile Include="Objects\Paladog\Ally\Ally_Knight.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Objects\Paladog\Enemy\EnemyUnit.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Scenes\BattleScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -348,6 +354,18 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Objects\Paladog\Ally\Ally_Tanker.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\Paladog\Enemy\Enemy_Zombie.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\Paladog\Enemy\Enemy_Witch.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\Paladog\Enemy\Enemy_LadySkeleton.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\Paladog\Enemy\Enemy_Frankenstein.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

@@ -47,6 +47,8 @@ public:
 
     void SetTargetList(vector<Character*>* targets) { this->targetList = targets; }
 
+    void SetClipTransform(Vector2 pos){ clipTransform->SetLocalPosition(pos); }
+
 protected:
     virtual void CreateClips() = 0;
     virtual void LoadClip(string path, string file, bool isLoop, float speed = 1.0f);

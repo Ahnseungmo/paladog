@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:a85efd969f338f054afd4cd55c8f3010:fa43f90a6dfa5317879f781c94615654:89252ca5665029529b554da424f31ed4$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+pX => x pos of the pivot point (relative to sprite width)
+pY => y pos of the pivot point (relative to sprite height)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+with polygon mode enabled:
+vertices   => points in sprite coordinate system (x0,y0,x1,y1,x2,y2, ...)
+verticesUV => points in sheet coordinate system (x0,y0,x1,y1,x2,y2, ...)
+triangles  => sprite triangulation, 3 vertex indices per triangle
+-->
+<TextureAtlas imagePath="Warrior_Dead.png" width="1776" height="344">
+    <sprite n="e36_down_0001.png" x="1" y="1" w="220" h="170" pX="0.5" pY="0.5"/>
+    <sprite n="e36_down_0002.png" x="1" y="173" w="220" h="170" pX="0.5" pY="0.5"/>
+    <sprite n="e36_down_0003.png" x="223" y="1" w="220" h="170" pX="0.5" pY="0.5"/>
+    <sprite n="e36_down_0004.png" x="223" y="173" w="220" h="170" pX="0.5" pY="0.5"/>
+    <sprite n="e36_down_0005.png" x="445" y="1" w="220" h="170" pX="0.5" pY="0.5"/>
+    <sprite n="e36_down_0006.png" x="445" y="173" w="220" h="170" pX="0.5" pY="0.5"/>
+    <sprite n="e36_down_0007.png" x="667" y="1" w="220" h="170" pX="0.5" pY="0.5"/>
+    <sprite n="e36_down_0008.png" x="667" y="173" w="220" h="170" pX="0.5" pY="0.5"/>
+    <sprite n="e36_down_0009.png" x="889" y="1" w="220" h="170" pX="0.5" pY="0.5"/>
+    <sprite n="e36_down_0010.png" x="889" y="173" w="220" h="170" pX="0.5" pY="0.5"/>
+    <sprite n="e36_down_0011.png" x="1111" y="1" w="220" h="170" pX="0.5" pY="0.5"/>
+    <sprite n="e36_down_0012.png" x="1111" y="173" w="220" h="170" pX="0.5" pY="0.5"/>
+    <sprite n="e36_down_0013.png" x="1333" y="1" w="220" h="170" pX="0.5" pY="0.5"/>
+    <sprite n="e36_down_0014.png" x="1333" y="173" w="220" h="170" pX="0.5" pY="0.5"/>
+    <sprite n="e36_down_0015.png" x="1555" y="1" w="220" h="170" pX="0.5" pY="0.5"/>
+    <sprite n="e36_down_0016.png" x="1555" y="173" w="220" h="170" pX="0.5" pY="0.5"/>
+</TextureAtlas>

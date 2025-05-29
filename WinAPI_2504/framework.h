@@ -116,7 +116,14 @@ typedef XMFLOAT4X4 Float4x4;
 #include "Objects/Paladog/Ally/Ally_Tanker.h"
 #include "Objects/Paladog/Ally/Ally_Elite.h"
 #include "Objects/Paladog/Ally/Ally_Boxer.h"
-#include "Objects/Paladog/Enemy/EnemyUnit.h"
+
+//#include "Objects/Paladog/Enemy/EnemyUnit.h"
+#include "Objects/Paladog/Enemy/Enemy_Frankenstein.h"
+#include "Objects/Paladog/Enemy/Enemy_LadySkeleton.h"
+#include "Objects/Paladog/Enemy/Enemy_Witch.h"
+#include "Objects/Paladog/Enemy/Enemy_Zombie.h"
+
+
 
 
 #include "Scenes/Scene.h"
