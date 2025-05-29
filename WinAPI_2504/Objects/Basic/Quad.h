@@ -11,6 +11,13 @@ public:
 
 	Vector2 GetSize() const { return size; }
 
+	void SetSize(Vector2 resize) {
+		size = resize;
+		mesh->GetVertices().clear();
+		MakeMesh();
+		mesh->UpdateVertices();
+	}
+
 private:
 	void MakeMesh() override;
 

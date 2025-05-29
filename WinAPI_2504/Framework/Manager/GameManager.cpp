@@ -7,7 +7,7 @@
 #include "Scenes/AnimationScene.h"
 #include "Scenes/LobbyScene.h"
 #include "Scenes/IntroScene.h"
-
+#include "Scenes/BattleScene.h"
 
 GameManager::GameManager()
 {
@@ -16,9 +16,10 @@ GameManager::GameManager()
 	//SCENE->AddScene("Game", new TutorialScene());	
 	//SCENE->AddScene("Game", new ShootingScene());
 	//SCENE->AddScene("Game", new CollisionScene());
-	SCENE->AddScene("Game", new AnimationScene());
-	SCENE->AddScene("Intro", new IntroScene());
-	SCENE->AddScene("Lobby", new LobbyScene());
+	//SCENE->AddScene("Game", new AnimationScene());
+	//SCENE->AddScene("Intro", new IntroScene());
+	//SCENE->AddScene("Lobby", new LobbyScene());
+	SCENE->AddScene("Intro", new BattleScene());
 
 	SCENE->ChangeScene("Intro");
 }

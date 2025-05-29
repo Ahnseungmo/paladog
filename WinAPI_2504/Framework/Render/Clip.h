@@ -12,6 +12,7 @@ public:
     void Update();
     void Render();
 
+    bool IsPlay() const { return isPlay; }
     void Play();
     void Stop() { isPlay = false; }
 

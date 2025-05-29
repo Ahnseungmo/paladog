@@ -108,6 +108,11 @@ typedef XMFLOAT4X4 Float4x4;
 
 #include "Objects/Character/Cookie.h"
 
+#include "Objects/Paladog/Character.h"
+#include "Objects/Paladog/Ally/Ally_Knight.h"
+#include "Objects/Paladog/Enemy/EnemyUnit.h"
+
+
 #include "Scenes/Scene.h"
 #include "Framework/Manager/SceneManager.h"
 #include "Framework/Manager/GameManager.h"
