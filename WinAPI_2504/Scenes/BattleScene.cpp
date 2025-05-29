@@ -38,19 +38,27 @@ BattleScene::BattleScene()
 	//enemies.push_back(enemy);
 
 	EnemyManager::Get();
-	EnemyManager::Get()->SpawnEnemy("Zombie");
-	EnemyManager::Get()->SpawnEnemy("Witch");
-	EnemyManager::Get()->SpawnEnemy("LadySkeleton");
-	EnemyManager::Get()->SpawnEnemy("Frankenstein");
+	//EnemyManager::Get()->SpawnEnemy("Zombie");
+	//EnemyManager::Get()->SpawnEnemy("Witch");
+	//EnemyManager::Get()->SpawnEnemy("LadySkeleton");
+	//EnemyManager::Get()->SpawnEnemy("Frankenstein");
+	EnemyManager::Get()->SpawnEnemy("IronMan");
+	//EnemyManager::Get()->SpawnEnemy("Warrior");
+	//EnemyManager::Get()->SpawnEnemy("Warrior");
 
 	enemies = EnemyManager::Get()->GetTargetEnemy(); // 활성화 된 애들 가져오기
 	EnemyManager::Get()->SetTargetList(&allies); // 에너미의 타겟 설정
 
+	castle = new Enemy_Castle();
+
+	enemies.push_back(castle);
 	for (Character* unit : allies)
 		unit->SetTargetList(&enemies);
 
 	//for (Character* unit : enemies)
 	//	unit->SetTargetList(&allies);
+
+
 }
 
 BattleScene::~BattleScene()
@@ -62,6 +70,8 @@ BattleScene::~BattleScene()
 		delete unit;
 
 	EnemyManager::Delete();
+
+	delete castle;
 }
 
 void BattleScene::Update()
@@ -75,6 +85,18 @@ void BattleScene::Update()
 			unit->Update();
 
 	EnemyManager::Get()->Update();
+
+	castle->Update();
+
+	if (castle->GetHP() <= 0) // 성 체력기반으로 죽었는지 확인하고 죽으면 무너진 성 내비두고 타겟 해제돼요
+	{
+		auto it = find(enemies.begin(), enemies.end(), castle);
+		if (it != enemies.end())
+		{
+			enemies.erase(it);
+		}
+	}
+
 }
 
 void BattleScene::Render()
@@ -88,4 +110,6 @@ void BattleScene::Render()
 			unit->Render();
 
 	EnemyManager::Get()->Render();
+
+	castle->Render();
 }

@@ -204,6 +204,18 @@
     <ClInclude Include="Objects\Paladog\Manager\EnemyManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Objects\Paladog\Enemy\Enemy_Boss.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\Paladog\Enemy\Enemy_Castle.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\Paladog\Enemy\Enemy_IronMan.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\Paladog\Enemy\Enemy_Warrior.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinAPI_2504.cpp">
@@ -372,6 +384,15 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Objects\Paladog\Manager\EnemyManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\Paladog\Enemy\Enemy_IronMan.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\Paladog\Enemy\Enemy_Warrior.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\Paladog\Enemy\Enemy_Castle.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

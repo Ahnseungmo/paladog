@@ -8,6 +8,8 @@ EnemyManager::EnemyManager()
 	CreateEnemy<Enemy_Frankenstein>("Frankenstein");
 	CreateEnemy<Enemy_Witch>("Witch");
 	CreateEnemy<Enemy_LadySkeleton>("LadySkeleton");
+	CreateEnemy<Enemy_Warrior>("Warrior");
+	CreateEnemy<Enemy_IronMan>("IronMan");
 	
 	//성이랑 보스몬스터 만들기
 }

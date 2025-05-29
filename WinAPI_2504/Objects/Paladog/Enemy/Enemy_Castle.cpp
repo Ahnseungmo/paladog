@@ -1,0 +1,74 @@
+#include "Framework.h"
+
+Enemy_Castle::Enemy_Castle() :Character({ 200,200 })
+{
+	SetStat({ 200, 0, 0, 0, 0 });
+	SetTeam(TeamType::Enemy);
+
+	CreateQuad(Alive, L"Resources/Textures/Enemy_Castle/enemy_base_full_front.png", L"Resources/Textures/Enemy_Castle/enemy_base_full_back.png");
+	CreateQuad(Damage, L"Resources/Textures/Enemy_Castle/enemy_base_damaged_front.png", L"Resources/Textures/Enemy_Castle/enemy_base_damaged_back.png");
+	CreateQuad(Broken, L"Resources/Textures/Enemy_Castle/enemy_base_broken_front.png", L"Resources/Textures/Enemy_Castle/enemy_base_broken_back.png");
+	
+	SetLocalPosition(CENTER); //위치설정하기
+	UpdateWorld();
+	for (auto& frame : frames)
+	{
+		for (Quad* f : frame.second)
+		{
+			f->UpdateWorld();
+		}
+	}
+}
+
+Enemy_Castle::~Enemy_Castle()
+{
+	for (auto& frame : frames)
+	{
+		for (Quad* f : frame.second)
+		{
+			delete f;
+		}
+	}
+}
+
+void Enemy_Castle::Update()
+{
+	CheckHP();
+}
+
+void Enemy_Castle::Render()
+{
+	for (Quad* frame : frames[state])
+	{
+		frame->Render();
+	}
+
+	RectCollider::Render();
+	RenderHPBar();
+}
+
+void Enemy_Castle::CreateQuad(CastleStatus status, wstring frontPath, wstring backPath)
+{
+	Quad* front = new Quad(frontPath);
+	Quad* back = new Quad(backPath);
+
+	front->SetParent(this);
+	back->SetParent(this);
+
+	front->SetLocalPosition(Vector2(-150, -60));
+	back->SetLocalPosition(Vector2(-150, -60));
+
+	frames[status].push_back(back);
+	frames[status].push_back(front);
+}
+
+void Enemy_Castle::CheckHP()
+{
+
+	if (hp <= 0.0f)
+		state = Broken;
+	else if (hp < MAX_HP * 0.5f)
+		state = Damage;
+}
+
+

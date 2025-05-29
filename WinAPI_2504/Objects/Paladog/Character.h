@@ -41,6 +41,7 @@ public:
         this->hp = stat.maxHp;
     }
     const UnitStat& GetStat() const { return stat; }
+    int GetHP() { return hp; }
 
     void SetTeam(TeamType team) { this->team = team; }
     TeamType GetTeam() const { return team; }

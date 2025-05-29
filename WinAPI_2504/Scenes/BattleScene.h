@@ -19,6 +19,8 @@ private:
 
 	Enemy_Witch* enemy = nullptr;
 
+	Enemy_Castle* castle = nullptr;
+
 	vector<Character*> allies;
 	vector<Character*> enemies;
 };

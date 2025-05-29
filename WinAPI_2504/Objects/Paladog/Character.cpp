@@ -207,7 +207,8 @@ void Character::TakeDamage(float damage)
     {
         hp = 0.0f;
         curState = Dead;
-        clips[Dead]->Play();
+        if (clips.size() > Dead && clips[Dead])
+            clips[Dead]->Play();
     }
 }
 
