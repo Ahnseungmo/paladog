@@ -3,7 +3,7 @@
 #include "targetver.h"
 #define WIN32_LEAN_AND_MEAN
 
-#define SCREEN_WIDTH 600
+#define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 800
 
 #define CENTER_X (SCREEN_WIDTH >> 1)
@@ -111,6 +111,8 @@ typedef XMFLOAT4X4 Float4x4;
 #include "Scenes/Scene.h"
 #include "Framework/Manager/SceneManager.h"
 #include "Framework/Manager/GameManager.h"
+
+#include "Objects/UI/Button.h"
 
 extern HWND hWnd;
 extern Vector2 mousePos;

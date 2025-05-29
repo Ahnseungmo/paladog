@@ -178,9 +178,12 @@
     <ClInclude Include="Objects\Manger\EventManager.h" />
     <ClInclude Include="Objects\Shooting\Bullet.h" />
     <ClInclude Include="Objects\Shooting\Plane.h" />
+    <ClInclude Include="Objects\UI\Button.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scenes\AnimationScene.h" />
     <ClInclude Include="Scenes\CollisionScene.h" />
+    <ClInclude Include="Scenes\IntroScene.h" />
+    <ClInclude Include="Scenes\LobbyScene.h" />
     <ClInclude Include="Scenes\Scene.h" />
     <ClInclude Include="Scenes\ShootingScene.h" />
     <ClInclude Include="Scenes\TextureScene.h" />
@@ -227,8 +230,11 @@
     <ClCompile Include="Objects\Manger\EventManager.cpp" />
     <ClCompile Include="Objects\Shooting\Bullet.cpp" />
     <ClCompile Include="Objects\Shooting\Plane.cpp" />
+    <ClCompile Include="Objects\UI\Button.cpp" />
     <ClCompile Include="Scenes\AnimationScene.cpp" />
     <ClCompile Include="Scenes\CollisionScene.cpp" />
+    <ClCompile Include="Scenes\IntroScene.cpp" />
+    <ClCompile Include="Scenes\LobbyScene.cpp" />
     <ClCompile Include="Scenes\ShootingScene.cpp" />
     <ClCompile Include="Scenes\TextureScene.cpp" />
     <ClCompile Include="Scenes\TutorialScene.cpp">

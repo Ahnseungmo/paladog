@@ -3,9 +3,9 @@
 class Input : public Singleton<Input>
 {
 	friend class Singleton;
-private:
+public:
 	static const int KEY_MAX = 256;
-
+private:
 	enum KeyState
 	{
 		None, Down, Up, Press

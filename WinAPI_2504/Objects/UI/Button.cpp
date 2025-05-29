@@ -1,107 +1,43 @@
 #include "Framework.h"
 
-Button::Button(Vector2 center, Vector2 size)
-	: Rect(center, size)
+Button::Button(wstring imagePath,Vector2 size,Vector2 pos) : RectCollider(size)
 {
-	hFont = CreateFont(20, 0, 0, 0, FW_BOLD, false, false, false,
-		DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS,
-		DEFAULT_QUALITY, DEFAULT_PITCH | FF_SWISS, L"배달의민족 꾸불림 TTF");
+	quad = new Quad(imagePath, Vector2(0,0), Vector2(1.0f, 1.0f));
+	SetLocalPosition(pos);
+	quad->SetParent(this);
+	quad->SetColor(1.0f, 1.0f, 1.0f, 1.0f);
+	UpdateWorld();
+	quad->UpdateWorld();
 }
 
 Button::~Button()
 {
-	DeleteObject(hFont);
-	if (hNormalBrush)
-		DeleteObject(hNormalBrush);
-	if (hOverBrush)
-		DeleteObject(hOverBrush);
-	if (hDownBrush)
-		DeleteObject(hDownBrush);
+	delete quad;
 }
 
 void Button::Update()
 {
-	if (!isActive) return;
-
-	if (IsCollisionPoint(mousePos))
-	{
-		state = OVER;
-
-		if (Input::Get()->IsKeyPress(VK_LBUTTON))
-		{
-			state = DOWN;
-			isMouseDown = true;
+	if (IsPointCollision(mousePos)) {
+		if (Input::Get()->IsKeyPress(VK_LBUTTON)) {
+			quad->SetColor(0.5f, 0.5f, 0.5f, 1.0f);
 		}
-
-		if (Input::Get()->IsKeyUp(VK_LBUTTON) && isMouseDown)
-		{
-			isMouseDown = false;
-
-			if (onClick)
-			{
-				onClick();
-			}
-
-			if (onClickInt)
-			{
-				onClickInt(intParameter);
-			}
-
-			if (onClickObject)
-			{
-				onClickObject(objectParameter);
-			}
+		else if (Input::Get()->IsKeyUp(VK_LBUTTON)) {
+			quad->SetColor(1.0f, 1.0f, 1.0f, 1.0f);
+			if (onClick) onClick();
+		}
+		else {
+			quad->SetColor(0.8f, 0.8f, 0.8f, 1.0f);
 		}
 	}
-	else
-	{
-		state = NORMAL;
+	else {
+		quad->SetColor(1.0f, 1.0f, 1.0f, 1.0f);
 	}
-
-	switch (state)
-	{
-	case Button::NORMAL:
-		hSelectBrush = hNormalBrush;
-		break;
-	case Button::OVER:
-		hSelectBrush = hOverBrush;
-		break;
-	case Button::DOWN:
-		hSelectBrush = hDownBrush;
-		break;
-	}
+//	quad->UpdateWorld();
+//	RectCollider::UpdateWorld();
 }
 
-void Button::Render(HDC hdc)
+void Button::Render()
 {
-	if (!isActive) return;
-	
-	HBRUSH defaultBrush = (HBRUSH)SelectObject(hdc, hSelectBrush);
-
-	Rect::Render(hdc);
-
-	SelectObject(hdc, defaultBrush);
-	
-	RECT rect = { Left(), Top(), Right(), Bottom() };
-
-	HFONT defalutFont = (HFONT)SelectObject(hdc, hFont);
-
-	DrawText(hdc, text.c_str(), text.length(), &rect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-
-	SelectObject(hdc, defalutFont);
-}
-
-void Button::SetBrush(COLORREF normalColor, COLORREF overColor, COLORREF downColor)
-{
-	if (hNormalBrush)
-		DeleteObject(hNormalBrush);
-	hNormalBrush = CreateSolidBrush(normalColor);
-
-	if (hOverBrush)
-		DeleteObject(hOverBrush);
-	hOverBrush = CreateSolidBrush(overColor);
-
-	if (hDownBrush)
-		DeleteObject(hDownBrush);
-	hDownBrush = CreateSolidBrush(downColor);
+	quad->Render();
+	Collider::Render();
 }
