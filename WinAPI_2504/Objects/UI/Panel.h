@@ -11,12 +11,16 @@ public:
     void Render();
 
     void CreateButtons();
+    SpawnBar* GetBar() { return spawnBar; }
+    void SpawnCharacter(int type);
 
 private:
-    float cost = 50.0f;
     Quad* panelTexture;
     SpawnBar* spawnBar;
     vector<Button*> buttons;
 };
+
+
+
 
 

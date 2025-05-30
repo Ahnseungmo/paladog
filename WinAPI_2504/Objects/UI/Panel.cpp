@@ -56,7 +56,51 @@ void Panel::CreateButtons()
 		float x = this->GetLocalPosition().x + startX + i * (buttonWidth + buttonSpacing);
 		float y = this->GetLocalPosition().y + 15;
 		Button* button = new Button(L"Resources/Textures/UI/TestButton.png", Vector2(50, 50), Vector2(x, y));
-		button->SetOnClick(bind(&AllyManager::Spawn, AllyManager::Get(), ALLY_TYPE::Knight));
+		//button->SetOnClick(bind(&AllyManager::Spawn, AllyManager::Get(), ALLY_TYPE::Boxer));
+		//button->SetIntParam(bind(&Panel::SpawnCharacter, this, i));
+		button->SetOnClick([this, i]() { SpawnCharacter(i); });
 		this->AddButton(button);
+	}
+}
+
+void Panel::SpawnCharacter(int type)
+{
+	switch (type)
+	{
+	case 0:
+		if (spawnBar->GetCurSpawn() > 10)
+		{
+			spawnBar->SetCurSpawn(spawnBar->GetCurSpawn() -10);
+			AllyManager::Get()->Spawn(ALLY_TYPE::Knight);
+		}
+		break;
+	case 1:
+		if (spawnBar->GetCurSpawn() > 20)
+		{
+			spawnBar->SetCurSpawn(spawnBar->GetCurSpawn() -20);
+			AllyManager::Get()->Spawn(ALLY_TYPE::Archer);
+		}
+		break;
+	case 2:
+		if (spawnBar->GetCurSpawn() > 30)
+		{
+			spawnBar->SetCurSpawn(spawnBar->GetCurSpawn() -30);
+			AllyManager::Get()->Spawn(ALLY_TYPE::Boxer);
+		}
+		break;
+	case 3:
+		if (spawnBar->GetCurSpawn() > 40)
+		{
+			spawnBar->SetCurSpawn(spawnBar->GetCurSpawn() -40);
+			AllyManager::Get()->Spawn(ALLY_TYPE::Lancer);
+		}
+		break;
+	case 4:
+		if (spawnBar->GetCurSpawn() > 50)
+		{
+			spawnBar->SetCurSpawn(spawnBar->GetCurSpawn() - 50);
+			AllyManager::Get()->Spawn(ALLY_TYPE::Tanker);
+		}
+		break;
 	}
 }
