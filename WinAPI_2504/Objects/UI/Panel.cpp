@@ -48,6 +48,7 @@ void Panel::CreateButtons()
 		float y = this->GetLocalPosition().y + 15;
 		Button* button = new Button(L"Resources/Textures/UI/TestButton.png", Vector2(50, 50), Vector2(x, y));
 		//button->SetOnClick(bind(&함수이름, this));
+		button->SetOnClick(bind(&AllyManager::Spawn, AllyManager::Get(), ALLY_TYPE::Boxer));
 		this->AddButton(button);
 	}
 }

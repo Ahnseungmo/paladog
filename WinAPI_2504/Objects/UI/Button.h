@@ -12,7 +12,9 @@ public:
 	void Update();
 	void Render();
 	void SetOnClick(function<void()> onClickFunc) { onClick = onClickFunc; }
-
+	void Click() {
+		if (onClick) onClick();
+	}
 
 private:
 
