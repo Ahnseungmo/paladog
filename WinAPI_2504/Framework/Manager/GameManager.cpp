@@ -7,8 +7,9 @@
 #include "Scenes/AnimationScene.h"
 #include "Scenes/LobbyScene.h"
 #include "Scenes/IntroScene.h"
+#include "Scenes/UnitScene.h"
+#include "Scenes/GotchaScene.h"
 #include "Scenes/BattleScene.h"
-
 GameManager::GameManager()
 {
 	Create();
@@ -19,7 +20,14 @@ GameManager::GameManager()
 	//SCENE->AddScene("Game", new AnimationScene());
 	//SCENE->AddScene("Intro", new IntroScene());
 	//SCENE->AddScene("Lobby", new LobbyScene());
-	SCENE->AddScene("Intro", new BattleScene());
+
+
+	SCENE->AddScene("Intro", new IntroScene());
+	SCENE->AddScene("Lobby", new LobbyScene());
+	SCENE->AddScene("Unit", new UnitScene());
+	SCENE->AddScene("Gotcha", new GotchaScene());
+
+	SCENE->AddScene("Battle", new BattleScene());
 
 	SCENE->ChangeScene("Intro");
 }

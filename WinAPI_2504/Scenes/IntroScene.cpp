@@ -3,9 +3,23 @@
 
 IntroScene::IntroScene()
 {
-	backGround = new Quad(L"Resources/Textures/Paladog/IntroBackGround.png", Vector2(0, 0), Vector2(1.0f, 1.0f));
+	wstring path = L"Resources/Textures/Paladog/Title/title_back.png";
+
+	backGround = new Quad(path, Vector2(0, 0), Vector2(1.0f, 1.0f));
+
 	backGround->SetLocalPosition(CENTER);
 	backGround->UpdateWorld();
+
+	buttons.insert(make_pair("Start", new Button(L"Resources/Textures/Paladog/Title/title_btn.png", Vector2(296, 200), Vector2(198, 100))));
+	buttons["Start"]->SetOnClick(bind(&IntroScene::Start, this));
+	//	buttons["Start"]->SetLocalPosition(buttons["Start"]->Size());
+	buttons["Start"]->Update();
+
+	DataManager::Get()->LoadCharacterData("Resources/Tables/CharacterTable.csv");
+	DataManager::Get()->LoadAllyData("Resources/Tables/AllyTable.csv");
+	DataManager::Get()->LoadEnemyData("Resources/Tables/AllyTable.csv");
+
+
 }
 
 IntroScene::~IntroScene()
@@ -20,24 +34,25 @@ void IntroScene::Update()
 	else bootTimer += DELTA;
 	if (!isBooting) return;
 
-
-	if (AnyKeyDown()) {
-		SceneManager::Get()->ChangeScene("Lobby");
-
+	for (auto& button : buttons) {
+		button.second->Update();
 	}
+
 }
 
 void IntroScene::Render()
 {
 	backGround->Render();
+	for (auto& button : buttons) {
+		button.second->Render();
+	}
 }
 
 void IntroScene::GUIRender()
 {
 }
 
-bool IntroScene::AnyKeyDown() {
-	for (int i = 0; i < Input::Get()->KEY_MAX; i++)
-		if (Input::Get()->IsKeyDown(i)) return true;
-	return false;
+void IntroScene::Start() {
+	if (!isBooting) return;
+	SceneManager::Get()->ChangeScene("Lobby");
 }

@@ -1,25 +1,29 @@
 #pragma once
 
-class IntroScene : public Scene
+class GotchaScene : public Scene
 {
 public:
-	IntroScene();
-	~IntroScene();
+	GotchaScene();
+	~GotchaScene();
 
 	void Update() override;
 	void Render() override;
 	void GUIRender() override;
 
-	void Start();
+	void Lobby();
+
+	void Gotcha();
+
+
 
 	//	bool AnyKeyDown();
 
 private:
 	Quad* backGround;
-
-	bool isBooting = false;
-	float bootTimer;
-	const float BOOT_TIME = 0.3f;
 	unordered_map<string, Button*> buttons;
+	Chest* chest;
+
+//	Character* pickCharcter;
+
 
 };

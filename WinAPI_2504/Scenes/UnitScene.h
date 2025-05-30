@@ -1,25 +1,20 @@
 #pragma once
 
-class IntroScene : public Scene
+class UnitScene : public Scene
 {
 public:
-	IntroScene();
-	~IntroScene();
+	UnitScene();
+	~UnitScene();
 
 	void Update() override;
 	void Render() override;
 	void GUIRender() override;
 
-	void Start();
-
-	//	bool AnyKeyDown();
+	void Lobby();
 
 private:
 	Quad* backGround;
-
-	bool isBooting = false;
-	float bootTimer;
-	const float BOOT_TIME = 0.3f;
 	unordered_map<string, Button*> buttons;
+	const float BUTTON_PADDING = 100;
 
 };

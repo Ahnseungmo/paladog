@@ -169,6 +169,7 @@
     <ClInclude Include="Framework\Utilities\Utility.h" />
     <ClInclude Include="Objects\Basic\GameObject.h" />
     <ClInclude Include="Objects\Basic\Quad.h" />
+    <ClInclude Include="Objects\Character\Chest.h" />
     <ClInclude Include="Objects\Character\Cookie.h" />
     <ClInclude Include="Objects\Collider\CircleCollider.h" />
     <ClInclude Include="Objects\Collider\Collider.h" />
@@ -209,6 +210,7 @@
     <ClInclude Include="Scenes\AnimationScene.h" />
     <ClInclude Include="Scenes\BattleScene.h" />
     <ClInclude Include="Scenes\CollisionScene.h" />
+    <ClInclude Include="Scenes\GotchaScene.h" />
     <ClInclude Include="Scenes\IntroScene.h" />
     <ClInclude Include="Scenes\LobbyScene.h" />
     <ClInclude Include="Scenes\Scene.h" />
@@ -217,6 +219,7 @@
     <ClInclude Include="Scenes\TutorialScene.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="Scenes\UnitScene.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="WinAPI_2504.h" />
   </ItemGroup>
@@ -248,6 +251,7 @@
     <ClCompile Include="Framework\Utilities\Utility.cpp" />
     <ClCompile Include="Objects\Basic\GameObject.cpp" />
     <ClCompile Include="Objects\Basic\Quad.cpp" />
+    <ClCompile Include="Objects\Character\Chest.cpp" />
     <ClCompile Include="Objects\Character\Cookie.cpp" />
     <ClCompile Include="Objects\Collider\CircleCollider.cpp" />
     <ClCompile Include="Objects\Collider\Collider.cpp" />
@@ -286,6 +290,7 @@
     <ClCompile Include="Scenes\AnimationScene.cpp" />
     <ClCompile Include="Scenes\BattleScene.cpp" />
     <ClCompile Include="Scenes\CollisionScene.cpp" />
+    <ClCompile Include="Scenes\GotchaScene.cpp" />
     <ClCompile Include="Scenes\IntroScene.cpp" />
     <ClCompile Include="Scenes\LobbyScene.cpp" />
     <ClCompile Include="Scenes\ShootingScene.cpp" />
@@ -293,6 +298,7 @@
     <ClCompile Include="Scenes\TutorialScene.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Scenes\UnitScene.cpp" />
     <ClCompile Include="WinAPI_2504.cpp" />
   </ItemGroup>
   <ItemGroup>

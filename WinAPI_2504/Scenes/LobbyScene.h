@@ -10,11 +10,18 @@ public:
 	void Render() override;
 	void GUIRender() override;
 
-	void StartGame();
+	void Battle();
+
+	void Shop();
+
+	void Unit();
+
+	void Hero();
 
 
 private:
 	Quad* backGround;
-	unordered_map<string,Button*> buttons;
+	unordered_map<string, Button*> buttons;
+	const float BUTTON_PADDING = 100;
 
 };

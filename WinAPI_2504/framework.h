@@ -105,7 +105,7 @@ typedef XMFLOAT4X4 Float4x4;
 #include "Objects/Shooting/Bullet.h"
 
 #include "Objects/Flappy/Bird.h"
-
+#include "Objects/Character/Chest.h"
 #include "Objects/Character/Cookie.h"
 
 #include "Objects/Paladog/BasicUnit/UnitStat.h"
