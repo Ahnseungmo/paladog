@@ -16,7 +16,7 @@ Ally_Knight::~Ally_Knight()
 
 void Ally_Knight::CreateClips()
 {
-	LoadClip("Resources/Textures/Ally_Knight/", "Ally_Knight_Walk.xml", true);
-	LoadClip("Resources/Textures/Ally_Knight/", "Ally_Knight_Attack.xml", true);
-	LoadClip("Resources/Textures/Ally_Knight/", "Ally_Knight_Dead.xml", false);
+	animation->LoadClip("Resources/Textures/Ally_Knight/", "Ally_Knight_Walk.xml", true);
+	animation->LoadClip("Resources/Textures/Ally_Knight/", "Ally_Knight_Attack.xml", true);
+	animation->LoadClip("Resources/Textures/Ally_Knight/", "Ally_Knight_Dead.xml", false);
 }

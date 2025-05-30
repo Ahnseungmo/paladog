@@ -24,6 +24,9 @@ void Clip::Update()
 
     curFrameNum++;
 
+    if (frameEvents.count(curFrameNum) > 0)
+        frameEvents[curFrameNum]();
+
     if (isLoop)
     {
         curFrameNum %= frames.size();
@@ -54,4 +57,9 @@ void Clip::SetShader(wstring shaderFile)
 {
     for (Frame* frame : frames)
         frame->GetMaterial()->SetShader(shaderFile);
+}
+
+void Clip::SetFrameEvent(UINT frame, function<void()> callback)
+{
+    frameEvents[frame] = callback;
 }

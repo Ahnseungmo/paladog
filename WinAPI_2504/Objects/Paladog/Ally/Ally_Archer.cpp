@@ -20,9 +20,9 @@ Ally_Archer::~Ally_Archer()
 
 void Ally_Archer::CreateClips()
 {
-    LoadClip("Resources/Textures/Ally_Archer/", "Ally_Archer_Walk.xml", true);
-    LoadClip("Resources/Textures/Ally_Archer/", "Ally_Archer_Attack.xml", true);
-    LoadClip("Resources/Textures/Ally_Archer/", "Ally_Archer_Dead.xml", false);
+    animation->LoadClip("Resources/Textures/Ally_Archer/", "Ally_Archer_Walk.xml", true);
+    animation->LoadClip("Resources/Textures/Ally_Archer/", "Ally_Archer_Attack.xml", true);
+    animation->LoadClip("Resources/Textures/Ally_Archer/", "Ally_Archer_Dead.xml", false);
 }
 
 

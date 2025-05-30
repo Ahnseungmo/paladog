@@ -20,7 +20,7 @@ Ally_Elite::~Ally_Elite()
 
 void Ally_Elite::CreateClips()
 {
-	LoadClip("Resources/Textures/Ally_Elite/", "Ally_Elite_Walk.xml", true);
-	LoadClip("Resources/Textures/Ally_Elite/", "Ally_Elite_Attack1.xml", "Ally_Elite_Attack2.xml", true, 1.0f);
-	LoadClip("Resources/Textures/Ally_Elite/", "Ally_Elite_Dead.xml", false);
+	animation->LoadClip("Resources/Textures/Ally_Elite/", "Ally_Elite_Walk.xml", true);
+	animation->LoadClip("Resources/Textures/Ally_Elite/", "Ally_Elite_Attack1.xml", "Ally_Elite_Attack2.xml", true, 1.0f);
+	animation->LoadClip("Resources/Textures/Ally_Elite/", "Ally_Elite_Dead.xml", false);
 }

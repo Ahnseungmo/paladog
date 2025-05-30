@@ -24,9 +24,11 @@ void Enemy_Witch::CreateClips()
 	float setY = Size().y * 0.5f;
 	Vector2 thisPos = GetLocalPosition();
 
-	LoadClip("Resources/Textures/Enemy/", "Witch_Walk.xml", true);
-	LoadClip("Resources/Textures/Enemy/", "Witch_Attack.xml", true);
-	LoadClip("Resources/Textures/Enemy/", "Witch_Dead.xml", false);
+	animation->LoadClip("Resources/Textures/Enemy/", "Witch_Walk.xml", true);
+	animation->LoadClip("Resources/Textures/Enemy/", "Witch_Attack.xml", true);
+	animation->LoadClip("Resources/Textures/Enemy/", "Witch_Dead.xml", false);
+
+	animation->GetClip(Attack)->SetFrameEvent(1, bind(&Character::AttackTarget, this));
 
 	clipTransform->SetLocalPosition({ thisPos.x,thisPos.y + setY });
 }

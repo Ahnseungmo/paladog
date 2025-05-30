@@ -20,7 +20,7 @@ Ally_Lancer::~Ally_Lancer()
 
 void Ally_Lancer::CreateClips()
 {
-	LoadClip("Resources/Textures/Ally_Lancer/", "Ally_Lancer_Walk.xml", true);
-	LoadClip("Resources/Textures/Ally_Lancer/", "Ally_Lancer_Attack1.xml", "Ally_Lancer_Attack2.xml", true,1.0f);
-	LoadClip("Resources/Textures/Ally_Lancer/", "Ally_Lancer_Dead.xml", false);
+	animation->LoadClip("Resources/Textures/Ally_Lancer/", "Ally_Lancer_Walk.xml", true);
+	animation->LoadClip("Resources/Textures/Ally_Lancer/", "Ally_Lancer_Attack1.xml", "Ally_Lancer_Attack2.xml", true,1.0f);
+	animation->LoadClip("Resources/Textures/Ally_Lancer/", "Ally_Lancer_Dead.xml", false);
 }

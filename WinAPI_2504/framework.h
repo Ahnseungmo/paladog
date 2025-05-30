@@ -108,8 +108,11 @@ typedef XMFLOAT4X4 Float4x4;
 
 #include "Objects/Character/Cookie.h"
 
-#include "Objects/Paladog/Character.h"
-#include "Objects/Paladog/Ally/Ally_Knight.h"
+#include "Objects/Paladog/BasicUnit/UnitStat.h"
+#include "Objects/Paladog/BasicUnit/HealthBar.h"
+#include "Objects/Paladog/BasicUnit/CharacterAnimation.h"
+#include "Objects/Paladog/BasicUnit/Character.h"
+
 #include "Objects/Paladog/Ally/Ally_Knight.h"
 #include "Objects/Paladog/Ally/Ally_Archer.h"
 #include "Objects/Paladog/Ally/Ally_Lancer.h"
@@ -128,6 +131,7 @@ typedef XMFLOAT4X4 Float4x4;
 #include "Objects/Paladog/Enemy/Enemy_Warrior.h"
 
 #include "Objects/Paladog/Manager/EnemyManager.h"
+#include "Objects/Paladog/Manager/AllyManager.h"
 
 #include "Objects/Paladog/Player/Punch.h"
 #include "Objects/Paladog/Player/Paladog.h"

@@ -20,6 +20,11 @@ public:
 
     Frame* GetCurFrame() { return frames[curFrameNum]; }
 
+    void SetFrameEvent(UINT frame, function<void()> callback);
+
+    float GetSpeed() { return speed; }
+    void SetSpeed(float changeSpeed) { speed = changeSpeed; }
+
 private:
     vector<Frame*> frames;
 
@@ -31,4 +36,6 @@ private:
 
     bool isLoop;
     bool isPlay = true;
+
+    map<UINT, function<void()>> frameEvents;
 };

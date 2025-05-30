@@ -15,7 +15,8 @@ public:
 	void Render();
 
 	void SetTargetList(vector<Character*>* unit);
-	vector<Character*> GetTargetEnemy();
+	//vector<Character*> GetTargetEnemy();
+	vector<Character*>* GetAllUnits();
 
 	void SpawnEnemy(string key);
 

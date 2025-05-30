@@ -24,9 +24,9 @@ void Enemy_LadySkeleton::CreateClips()
 	float setY = Size().y * 0.5f;
 	Vector2 thisPos = GetLocalPosition();
 
-	LoadClip("Resources/Textures/Enemy/", "LadySkeleton_Walk.xml", true);
-	LoadClip("Resources/Textures/Enemy/", "LadySkeleton_Attack.xml", true);
-	LoadClip("Resources/Textures/Enemy/", "LadySkeleton_Dead.xml", false);
+	animation->LoadClip("Resources/Textures/Enemy/", "LadySkeleton_Walk.xml", true);
+	animation->LoadClip("Resources/Textures/Enemy/", "LadySkeleton_Attack.xml", true);
+	animation->LoadClip("Resources/Textures/Enemy/", "LadySkeleton_Dead.xml", false);
 
 	clipTransform->SetLocalPosition({ thisPos.x,thisPos.y + setY });
 }

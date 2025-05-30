@@ -182,7 +182,10 @@
     <ClInclude Include="Objects\Paladog\Ally\Ally_Knight.h" />
     <ClInclude Include="Objects\Paladog\Ally\Ally_Lancer.h" />
     <ClInclude Include="Objects\Paladog\Ally\Ally_Tanker.h" />
-    <ClInclude Include="Objects\Paladog\Character.h" />
+    <ClInclude Include="Objects\Paladog\BasicUnit\Character.h" />
+    <ClInclude Include="Objects\Paladog\BasicUnit\CharacterAnimation.h" />
+    <ClInclude Include="Objects\Paladog\BasicUnit\HealthBar.h" />
+    <ClInclude Include="Objects\Paladog\BasicUnit\UnitStat.h" />
     <ClInclude Include="Objects\Paladog\Enemy\Enemy_Boss.h" />
     <ClInclude Include="Objects\Paladog\Enemy\Enemy_Castle.h" />
     <ClInclude Include="Objects\Paladog\Enemy\Enemy_Frankenstein.h" />
@@ -191,6 +194,7 @@
     <ClInclude Include="Objects\Paladog\Enemy\Enemy_Witch.h" />
     <ClInclude Include="Objects\Paladog\Enemy\Enemy_Warrior.h" />
     <ClInclude Include="Objects\Paladog\Enemy\Enemy_Zombie.h" />
+    <ClInclude Include="Objects\Paladog\Manager\AllyManager.h" />
     <ClInclude Include="Objects\Paladog\Manager\EnemyManager.h" />
     <ClInclude Include="Objects\Paladog\Player\Paladog.h" />
     <ClInclude Include="Objects\Paladog\Player\Punch.h" />
@@ -254,7 +258,9 @@
     <ClCompile Include="Objects\Paladog\Ally\Ally_Knight.cpp" />
     <ClCompile Include="Objects\Paladog\Ally\Ally_Lancer.cpp" />
     <ClCompile Include="Objects\Paladog\Ally\Ally_Tanker.cpp" />
-    <ClCompile Include="Objects\Paladog\Character.cpp" />
+    <ClCompile Include="Objects\Paladog\BasicUnit\Character.cpp" />
+    <ClCompile Include="Objects\Paladog\BasicUnit\CharacterAnimation.cpp" />
+    <ClCompile Include="Objects\Paladog\BasicUnit\HealthBar.cpp" />
     <ClCompile Include="Objects\Paladog\Enemy\Enemy_Castle.cpp" />
     <ClCompile Include="Objects\Paladog\Enemy\Enemy_Frankenstein.cpp" />
     <ClCompile Include="Objects\Paladog\Enemy\Enemy_IronMan.cpp" />
@@ -262,6 +268,7 @@
     <ClCompile Include="Objects\Paladog\Enemy\Enemy_Warrior.cpp" />
     <ClCompile Include="Objects\Paladog\Enemy\Enemy_Witch.cpp" />
     <ClCompile Include="Objects\Paladog\Enemy\Enemy_Zombie.cpp" />
+    <ClCompile Include="Objects\Paladog\Manager\AllyManager.cpp" />
     <ClCompile Include="Objects\Paladog\Manager\EnemyManager.cpp" />
     <ClCompile Include="Objects\Paladog\Player\Paladog.cpp" />
     <ClCompile Include="Objects\Paladog\Player\Punch.cpp" />

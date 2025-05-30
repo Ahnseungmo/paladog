@@ -44,7 +44,7 @@ void Enemy_Castle::Render()
 	}
 
 	RectCollider::Render();
-	RenderHPBar();
+	hpBar->Render();
 }
 
 void Enemy_Castle::CreateQuad(CastleStatus status, wstring frontPath, wstring backPath)

@@ -21,7 +21,7 @@ Ally_Tanker::~Ally_Tanker()
 
 void Ally_Tanker::CreateClips()
 {
-	LoadClip("Resources/Textures/Ally_Tanker/", "Ally_Tanker_Walk.xml", true);
-	LoadClip("Resources/Textures/Ally_Tanker/", "Ally_Tanker_Attack.xml", true);
-	LoadClip("Resources/Textures/Ally_Tanker/", "Ally_Tanker_Dead.xml", false);
+	animation->LoadClip("Resources/Textures/Ally_Tanker/", "Ally_Tanker_Walk.xml", true);
+	animation->LoadClip("Resources/Textures/Ally_Tanker/", "Ally_Tanker_Attack.xml", true);
+	animation->LoadClip("Resources/Textures/Ally_Tanker/", "Ally_Tanker_Dead.xml", false);
 }
