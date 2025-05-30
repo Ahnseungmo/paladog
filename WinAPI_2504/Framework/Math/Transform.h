@@ -25,6 +25,8 @@ public:
 	void SetLocalPosition(float x, float y) { localPosition = { x, y }; }
 	void SetLocalPosition(Vector2 pos) { this->localPosition = pos; }
 
+	void SetLocalScale(Vector2 pos) { localScale = pos; }
+
 	void SetPivot(float x, float y) { pivot = { x, y }; }
 
 	Matrix GetWorld() { return world; }

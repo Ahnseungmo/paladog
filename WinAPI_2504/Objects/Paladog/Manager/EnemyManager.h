@@ -39,4 +39,5 @@ private:
 
 private:
 	unordered_map<string, vector<Character*>> enemies;
+	Enemy_Castle* castle;
 };

@@ -102,7 +102,7 @@ void Character::FindTarget()
     target = nullptr;
     for (Character* unit : *targetList)
     {
-        if (!unit->IsActive())
+        if (!unit->IsActive() || unit->GetHP() <= 0 )
             continue;
 
         float distance = abs(GetGlobalPosition().x - unit->GetGlobalPosition().x);

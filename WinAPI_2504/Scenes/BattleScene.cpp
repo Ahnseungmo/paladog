@@ -71,6 +71,7 @@ BattleScene::BattleScene()
 
 	EnemyManager::Get()->SpawnEnemy("Zombie");
 	EnemyManager::Get()->SpawnEnemy("Witch");
+	EnemyManager::Get()->SpawnEnemy("Castle");
 
 	AllyManager::Get()->SetTargetList(EnemyManager::Get()->GetAllUnits());
 	EnemyManager::Get()->SetTargetList(AllyManager::Get()->GetAllUnits());

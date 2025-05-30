@@ -3,7 +3,10 @@
 
 EnemyManager::EnemyManager()
 {
-
+	castle = new Enemy_Castle();
+	castle->SetLocalPosition(Vector2{ CENTER });
+	enemies["Castle"].push_back(castle);
+	
 	CreateEnemy<Enemy_Zombie>("Zombie");
 	CreateEnemy<Enemy_Frankenstein>("Frankenstein");
 	CreateEnemy<Enemy_Witch>("Witch");
@@ -117,14 +120,8 @@ void EnemyManager::SpawnEnemy(string key)
 
 Vector2 EnemyManager::RendomPos()
 {
-	int x = 1300;
-	int y = rand() % 650; // 450 ~ 650 
-	if (y < 150)
-		y += 400;
-	if (y < 400)
-		y += 200;
-	if (y < 500)
-		y += 100;
+	float x = 1300.0f;
+	int y = rand() % 200 + 450; // 450 ~ 650 
 	return Vector2(x, y);
 }
 

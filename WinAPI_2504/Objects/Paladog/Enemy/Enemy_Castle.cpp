@@ -1,6 +1,6 @@
 #include "Framework.h"
 
-Enemy_Castle::Enemy_Castle() :Character({ 200,200 })
+Enemy_Castle::Enemy_Castle() :Character({ 250,250 })
 {
 	SetStat({ 200, 0, 0, 0, 0 });
 	SetTeam(TeamType::Enemy);
@@ -55,8 +55,11 @@ void Enemy_Castle::CreateQuad(CastleStatus status, wstring frontPath, wstring ba
 	front->SetParent(this);
 	back->SetParent(this);
 
-	front->SetLocalPosition(Vector2(-150, -60));
-	back->SetLocalPosition(Vector2(-150, -60));
+	front->SetLocalScale({ 1.5, 1.5 });
+	back->SetLocalScale({ 1.5, 1.5 });
+	
+	front->SetLocalPosition(Vector2(-180, -80));
+	back->SetLocalPosition(Vector2(-180, -80));
 
 	frames[status].push_back(back);
 	frames[status].push_back(front);
