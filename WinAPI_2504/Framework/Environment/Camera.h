@@ -11,13 +11,15 @@ public:
 	void SetTarget(Transform* target) { this->target = target; }
 private:
 	void FreeMode();
-	void FollowMode();
+	void FollowMode(const Vector2& target, float lerp);
 
 private:
 	float speed = 300.0f;
 	Matrix view;
 
-	MatrixBuffer* viewBuffer;	
+	MatrixBuffer* viewBuffer;
 
 	Transform* target;
+
+	Vector2 cameraPos;
 };

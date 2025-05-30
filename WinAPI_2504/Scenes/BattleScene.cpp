@@ -58,7 +58,14 @@ BattleScene::BattleScene()
 	//for (Character* unit : enemies)
 	//	unit->SetTargetList(&allies);
 
+	playerPanel = new Panel(L"Resources/Textures/UI/PlayerPanel.png", Vector2(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 240));
+	playerPanel->UpdateWorld();
 
+	playerPanel->CreateButtons();
+
+	paladog = new Paladog();
+	paladog->SetLocalPosition(CENTER + Vector2(0, 100));
+	paladog->UpdateWorld();
 }
 
 BattleScene::~BattleScene()
@@ -72,6 +79,9 @@ BattleScene::~BattleScene()
 	EnemyManager::Delete();
 
 	delete castle;
+
+	delete playerPanel;
+	delete paladog;
 }
 
 void BattleScene::Update()
@@ -97,10 +107,14 @@ void BattleScene::Update()
 		}
 	}
 
+	if (playerPanel)
+		playerPanel->Update();
+	paladog->Update();
 }
 
 void BattleScene::Render()
 {
+	paladog->AuraRender();
 	for (Character* unit : allies)
 		if (unit->IsActive())
 			unit->Render();
@@ -112,4 +126,21 @@ void BattleScene::Render()
 	EnemyManager::Get()->Render();
 
 	castle->Render();
+	paladog->Render();
+}
+
+void BattleScene::PostRender()
+{
+	if (playerPanel)
+		playerPanel->Render();
+}
+
+void BattleScene::Start()
+{
+	Environment::Get()->GetMainCamera()->SetTarget(paladog);
+}
+
+void BattleScene::End()
+{
+	Environment::Get()->GetMainCamera()->SetTarget(nullptr);
 }

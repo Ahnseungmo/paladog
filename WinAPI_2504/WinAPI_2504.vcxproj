@@ -192,9 +192,11 @@
     <ClInclude Include="Objects\Paladog\Enemy\Enemy_Warrior.h" />
     <ClInclude Include="Objects\Paladog\Enemy\Enemy_Zombie.h" />
     <ClInclude Include="Objects\Paladog\Manager\EnemyManager.h" />
+    <ClInclude Include="Objects\Paladog\Player\Paladog.h" />
     <ClInclude Include="Objects\Shooting\Bullet.h" />
     <ClInclude Include="Objects\Shooting\Plane.h" />
     <ClInclude Include="Objects\UI\Button.h" />
+    <ClInclude Include="Objects\UI\Panel.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scenes\AnimationScene.h" />
     <ClInclude Include="Scenes\BattleScene.h" />
@@ -260,9 +262,11 @@
     <ClCompile Include="Objects\Paladog\Enemy\Enemy_Witch.cpp" />
     <ClCompile Include="Objects\Paladog\Enemy\Enemy_Zombie.cpp" />
     <ClCompile Include="Objects\Paladog\Manager\EnemyManager.cpp" />
+    <ClCompile Include="Objects\Paladog\Player\Paladog.cpp" />
     <ClCompile Include="Objects\Shooting\Bullet.cpp" />
     <ClCompile Include="Objects\Shooting\Plane.cpp" />
     <ClCompile Include="Objects\UI\Button.cpp" />
+    <ClCompile Include="Objects\UI\Panel.cpp" />
     <ClCompile Include="Scenes\AnimationScene.cpp" />
     <ClCompile Include="Scenes\BattleScene.cpp" />
     <ClCompile Include="Scenes\CollisionScene.cpp" />

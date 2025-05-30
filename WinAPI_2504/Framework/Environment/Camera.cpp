@@ -2,28 +2,26 @@
 
 Camera::Camera()
 {
-	tag = "Camera";
-
-	viewBuffer = new MatrixBuffer();
+    tag = "Camera";
+    viewBuffer = new MatrixBuffer();
 }
 
 Camera::~Camera()
 {
-	delete viewBuffer;
+    delete viewBuffer;
 }
 
 void Camera::Update()
 {
     if (target)
-        FollowMode();
+        FollowMode(target->GetGlobalPosition(), 0.1f);
     else
-	    FreeMode();
+        FreeMode();
 
-	UpdateWorld();	
+    UpdateWorld();
 
-	view = XMMatrixInverse(nullptr, world);
-	viewBuffer->Set(view);
-	viewBuffer->SetVS(1);
+    viewBuffer->Set(view);
+    viewBuffer->SetVS(1);
 }
 
 void Camera::FreeMode()
@@ -39,9 +37,13 @@ void Camera::FreeMode()
         if (Input::Get()->IsKeyPress('D'))
             Translate(Vector2::Right() * speed * DELTA);
     }
+
+    view = XMMatrixInverse(nullptr, world);
 }
 
-void Camera::FollowMode()
+void Camera::FollowMode(const Vector2& target, float lerp)
 {
-
+    cameraPos.x += (target.x - cameraPos.x) * lerp;
+    cameraPos.y += (target.y - cameraPos.y) * lerp;
+    view = XMMatrixTranslation(-(cameraPos.x - SCREEN_WIDTH / 2), -(cameraPos.y - SCREEN_HEIGHT / 2), 0.0f);
 }

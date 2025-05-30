@@ -129,12 +129,15 @@ typedef XMFLOAT4X4 Float4x4;
 
 #include "Objects/Paladog/Manager/EnemyManager.h"
 
+#include "Objects/Paladog/Player/Paladog.h"
+
 
 #include "Scenes/Scene.h"
 #include "Framework/Manager/SceneManager.h"
 #include "Framework/Manager/GameManager.h"
 
 #include "Objects/UI/Button.h"
+#include "Objects/UI/Panel.h"
 
 extern HWND hWnd;
 extern Vector2 mousePos;
