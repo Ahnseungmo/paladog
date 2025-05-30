@@ -129,6 +129,7 @@ typedef XMFLOAT4X4 Float4x4;
 
 #include "Objects/Paladog/Manager/EnemyManager.h"
 
+#include "Objects/Paladog/Player/Punch.h"
 #include "Objects/Paladog/Player/Paladog.h"
 
 

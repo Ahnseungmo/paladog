@@ -33,6 +33,8 @@ public:
 	string GetTag() { return tag; }
 	void SetTag(string tag) { this->tag = tag; }
 
+	Transform* GetParent() const { return parent; }
+
 protected:
 	string tag;
 

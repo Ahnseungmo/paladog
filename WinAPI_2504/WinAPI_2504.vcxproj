@@ -193,6 +193,7 @@
     <ClInclude Include="Objects\Paladog\Enemy\Enemy_Zombie.h" />
     <ClInclude Include="Objects\Paladog\Manager\EnemyManager.h" />
     <ClInclude Include="Objects\Paladog\Player\Paladog.h" />
+    <ClInclude Include="Objects\Paladog\Player\Punch.h" />
     <ClInclude Include="Objects\Shooting\Bullet.h" />
     <ClInclude Include="Objects\Shooting\Plane.h" />
     <ClInclude Include="Objects\UI\Button.h" />
@@ -263,6 +264,7 @@
     <ClCompile Include="Objects\Paladog\Enemy\Enemy_Zombie.cpp" />
     <ClCompile Include="Objects\Paladog\Manager\EnemyManager.cpp" />
     <ClCompile Include="Objects\Paladog\Player\Paladog.cpp" />
+    <ClCompile Include="Objects\Paladog\Player\Punch.cpp" />
     <ClCompile Include="Objects\Shooting\Bullet.cpp" />
     <ClCompile Include="Objects\Shooting\Plane.cpp" />
     <ClCompile Include="Objects\UI\Button.cpp" />

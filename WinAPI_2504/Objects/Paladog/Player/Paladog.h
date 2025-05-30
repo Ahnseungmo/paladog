@@ -16,4 +16,5 @@ private:
 	Quad* paladogTexture;
 	Quad* auraTexture;
 	RectCollider* auraCollider;
+	Punch* punch;
 };
