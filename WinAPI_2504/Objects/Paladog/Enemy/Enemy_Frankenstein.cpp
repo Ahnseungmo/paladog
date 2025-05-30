@@ -1,6 +1,6 @@
 #include "Framework.h"
 
-Enemy_Frankenstein::Enemy_Frankenstein():Character(Vector2(70, 100))
+Enemy_Frankenstein::Enemy_Frankenstein()
 {
 	UnitStat stat;
 	stat.maxHp = 300;
@@ -28,5 +28,8 @@ void Enemy_Frankenstein::CreateClips()
 	animation->LoadClip("Resources/Textures/Enemy/", "Frankenstein_Attack.xml", true);
 	animation->LoadClip("Resources/Textures/Enemy/", "Frankenstein_Dead.xml", false);
 
+	animation->GetClip(Attack)->SetFrameEvent(10, bind(&Character::AttackTarget, this));
+
 	clipTransform->SetLocalPosition({ thisPos.x,thisPos.y + setY });
+	clipTransform->SetLocalScale({ 1.9, 1.9 });
 }

@@ -100,6 +100,9 @@ void Character::Animation()
 void Character::FindTarget()
 {
     target = nullptr;
+
+    if (!targetList) return;
+
     for (Character* unit : *targetList)
     {
         if (!unit->IsActive() || unit->GetHP() <= 0 )

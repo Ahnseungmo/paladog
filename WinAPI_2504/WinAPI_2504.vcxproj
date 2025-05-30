@@ -266,6 +266,7 @@
     <ClCompile Include="Objects\Paladog\BasicUnit\Character.cpp" />
     <ClCompile Include="Objects\Paladog\BasicUnit\CharacterAnimation.cpp" />
     <ClCompile Include="Objects\Paladog\BasicUnit\HealthBar.cpp" />
+    <ClCompile Include="Objects\Paladog\Enemy\Enemy_Boss.cpp" />
     <ClCompile Include="Objects\Paladog\Enemy\Enemy_Castle.cpp" />
     <ClCompile Include="Objects\Paladog\Enemy\Enemy_Frankenstein.cpp" />
     <ClCompile Include="Objects\Paladog\Enemy\Enemy_IronMan.cpp" />

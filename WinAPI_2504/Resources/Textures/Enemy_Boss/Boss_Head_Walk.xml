@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:4644963d7bb8bdc6e2896fe44e1f5b89:7ee64c933f2acd476f0f7811b2de4b29:5d4efe679ec3bb0d51dd4f3ff0f5a70d$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+pX => x pos of the pivot point (relative to sprite width)
+pY => y pos of the pivot point (relative to sprite height)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+with polygon mode enabled:
+vertices   => points in sprite coordinate system (x0,y0,x1,y1,x2,y2, ...)
+verticesUV => points in sheet coordinate system (x0,y0,x1,y1,x2,y2, ...)
+triangles  => sprite triangulation, 3 vertex indices per triangle
+-->
+<TextureAtlas imagePath="Boss_Head_Walk.png" width="213" height="488">
+    <sprite n="woodhorse_walk_head_0001.png" x="107" y="390" w="105" h="97" pX="0.5" pY="0.5" oX="126" oY="37" oW="500" oH="200"/>
+    <sprite n="woodhorse_walk_head_0002.png" x="1" y="1" w="105" h="95" pX="0.5" pY="0.5" oX="127" oY="38" oW="500" oH="200"/>
+    <sprite n="woodhorse_walk_head_0003.png" x="1" y="292" w="104" h="96" pX="0.5" pY="0.5" oX="128" oY="37" oW="500" oH="200"/>
+    <sprite n="woodhorse_walk_head_0004.png" x="108" y="1" w="104" h="95" pX="0.5" pY="0.5" oX="128" oY="37" oW="500" oH="200"/>
+    <sprite n="woodhorse_walk_head_0005.png" x="1" y="98" w="104" h="95" pX="0.5" pY="0.5" oX="128" oY="37" oW="500" oH="200"/>
+    <sprite n="woodhorse_walk_head_0006.png" x="107" y="292" w="103" h="96" pX="0.5" pY="0.5" oX="129" oY="37" oW="500" oH="200"/>
+    <sprite n="woodhorse_walk_head_0007.png" x="107" y="98" w="104" h="95" pX="0.5" pY="0.5" oX="128" oY="37" oW="500" oH="200"/>
+    <sprite n="woodhorse_walk_head_0008.png" x="1" y="195" w="104" h="95" pX="0.5" pY="0.5" oX="128" oY="37" oW="500" oH="200"/>
+    <sprite n="woodhorse_walk_head_0009.png" x="1" y="390" w="104" h="96" pX="0.5" pY="0.5" oX="128" oY="37" oW="500" oH="200"/>
+    <sprite n="woodhorse_walk_head_0010.png" x="107" y="195" w="105" h="95" pX="0.5" pY="0.5" oX="127" oY="38" oW="500" oH="200"/>
+</TextureAtlas>

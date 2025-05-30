@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:f21edf60de8e04b1bed8f3bfcdf04a93:f115693dcaee92cf3aeb1cd5e8953c82:68d8077376654a0ffc9e4427bfc46106$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+pX => x pos of the pivot point (relative to sprite width)
+pY => y pos of the pivot point (relative to sprite height)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+with polygon mode enabled:
+vertices   => points in sprite coordinate system (x0,y0,x1,y1,x2,y2, ...)
+verticesUV => points in sheet coordinate system (x0,y0,x1,y1,x2,y2, ...)
+triangles  => sprite triangulation, 3 vertex indices per triangle
+-->
+<TextureAtlas imagePath="Boss_Dead.png" width="2004" height="2010">
+    <sprite n="woodhorse_dead_0001.png" x="1" y="1" w="1000" h="400" pX="0.5" pY="0.5"/>
+    <sprite n="woodhorse_dead_0002.png" x="1003" y="1" w="1000" h="400" pX="0.5" pY="0.5"/>
+    <sprite n="woodhorse_dead_0003.png" x="1" y="403" w="1000" h="400" pX="0.5" pY="0.5"/>
+    <sprite n="woodhorse_dead_0004.png" x="1003" y="403" w="1000" h="400" pX="0.5" pY="0.5"/>
+    <sprite n="woodhorse_dead_0005.png" x="1" y="805" w="1000" h="400" pX="0.5" pY="0.5"/>
+    <sprite n="woodhorse_dead_0006.png" x="1003" y="805" w="1000" h="400" pX="0.5" pY="0.5"/>
+    <sprite n="woodhorse_dead_0007.png" x="1" y="1207" w="1000" h="400" pX="0.5" pY="0.5"/>
+    <sprite n="woodhorse_dead_0008.png" x="1" y="1609" w="1000" h="400" pX="0.5" pY="0.5"/>
+    <sprite n="woodhorse_dead_0009.png" x="1003" y="1207" w="1000" h="400" pX="0.5" pY="0.5"/>
+    <sprite n="woodhorse_dead_0010.png" x="1003" y="1609" w="1000" h="400" pX="0.5" pY="0.5"/>
+</TextureAtlas>

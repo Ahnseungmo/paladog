@@ -3,16 +3,16 @@
 
 EnemyManager::EnemyManager()
 {
-	castle = new Enemy_Castle();
-	castle->SetLocalPosition(Vector2{ CENTER });
-	enemies["Castle"].push_back(castle);
+
+	CreateEnemy<Enemy_Castle>("Castle");
+	CreateEnemy<Enemy_Boss>("Boss");
 	
-	CreateEnemy<Enemy_Zombie>("Zombie");
-	CreateEnemy<Enemy_Frankenstein>("Frankenstein");
-	CreateEnemy<Enemy_Witch>("Witch");
-	CreateEnemy<Enemy_LadySkeleton>("LadySkeleton");
-	CreateEnemy<Enemy_Warrior>("Warrior");
-	CreateEnemy<Enemy_IronMan>("IronMan");
+	CreateEnemies<Enemy_Zombie>("Zombie");
+	CreateEnemies<Enemy_Frankenstein>("Frankenstein");
+	CreateEnemies<Enemy_Witch>("Witch");
+	CreateEnemies<Enemy_LadySkeleton>("LadySkeleton");
+	CreateEnemies<Enemy_Warrior>("Warrior");
+	CreateEnemies<Enemy_IronMan>("IronMan");
 
 	//성이랑 보스몬스터 만들기
 }
@@ -32,6 +32,7 @@ EnemyManager::~EnemyManager()
 
 void EnemyManager::Update()
 {
+	SpawnBoss();
 
 	for (auto& enemy : enemies)
 	{
@@ -59,7 +60,7 @@ void EnemyManager::Render()
 
 void EnemyManager::SetTargetList(vector<Character*>* unit)
 {
-
+	this->unit = unit;
 	for (auto& enemy : enemies)
 	{
 		for (Character* myEnemy : enemy.second)
@@ -69,6 +70,8 @@ void EnemyManager::SetTargetList(vector<Character*>* unit)
 			myEnemy->SetTargetList(unit);
 		}
 	}
+
+
 }
 
 //vector<Character*> EnemyManager::GetTargetEnemy()
@@ -114,7 +117,25 @@ void EnemyManager::SpawnEnemy(string key)
 		enemy->SetActive(true);
 		enemy->SetLocalPosition(RendomPos());
 		enemy->SetStat(enemy->GetStat());
+		enemy->SetTargetList(unit);
 		return;
+	}
+}
+
+void EnemyManager::SpawnBoss()
+{
+	Character* castle = enemies["Castle"][0];
+	
+	if (castle->GetHP() <= 0 && isSpawnBoss == false)
+	{
+		isSpawnBoss = true;
+		Enemy_Boss* boss = (Enemy_Boss*)enemies["Boss"][0];
+		boss->SetActive(true);
+		boss->SetLocalPosition(castle->GetGlobalPosition()); //why boss not find target?
+		boss->SetTargetList(unit);
+
+		boss->PushTarget();
+	
 	}
 }
 

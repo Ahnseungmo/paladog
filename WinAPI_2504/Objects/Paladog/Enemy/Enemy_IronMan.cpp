@@ -28,5 +28,8 @@ void Enemy_IronMan::CreateClips()
 	animation->LoadClip("Resources/Textures/Enemy/", "IronMan_Attack.xml", true);
 	animation->LoadClip("Resources/Textures/Enemy/", "IronMan_Dead.xml", false);
 
+	animation->GetClip(Attack)->SetFrameEvent(7, bind(&Character::AttackTarget, this));
+
 	clipTransform->SetLocalPosition({ thisPos.x,thisPos.y + setY });
+	clipTransform->SetLocalScale({ 1.9, 1.9 });
 }

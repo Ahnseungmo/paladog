@@ -1,6 +1,6 @@
 #include "Framework.h"
 
-Enemy_Castle::Enemy_Castle() :Character({ 250,250 })
+Enemy_Castle::Enemy_Castle() :Character({ 300,300 })
 {
 	SetStat({ 200, 0, 0, 0, 0 });
 	SetTeam(TeamType::Enemy);
@@ -9,7 +9,7 @@ Enemy_Castle::Enemy_Castle() :Character({ 250,250 })
 	CreateQuad(Damage, L"Resources/Textures/Enemy_Castle/enemy_base_damaged_front.png", L"Resources/Textures/Enemy_Castle/enemy_base_damaged_back.png");
 	CreateQuad(Broken, L"Resources/Textures/Enemy_Castle/enemy_base_broken_front.png", L"Resources/Textures/Enemy_Castle/enemy_base_broken_back.png");
 	
-	SetLocalPosition(CENTER); //위치설정하기
+	SetLocalPosition({ 1000,600 }); //위치설정하기
 	UpdateWorld();
 	for (auto& frame : frames)
 	{
@@ -42,9 +42,10 @@ void Enemy_Castle::Render()
 	{
 		frame->Render();
 	}
-
+	
 	RectCollider::Render();
 	hpBar->Render();
+	
 }
 
 void Enemy_Castle::CreateQuad(CastleStatus status, wstring frontPath, wstring backPath)
@@ -55,11 +56,11 @@ void Enemy_Castle::CreateQuad(CastleStatus status, wstring frontPath, wstring ba
 	front->SetParent(this);
 	back->SetParent(this);
 
-	front->SetLocalScale({ 1.5, 1.5 });
-	back->SetLocalScale({ 1.5, 1.5 });
+	front->SetLocalScale({ 1.8, 1.8 });
+	back->SetLocalScale({ 1.8, 1.8 });
 	
-	front->SetLocalPosition(Vector2(-180, -80));
-	back->SetLocalPosition(Vector2(-180, -80));
+	front->SetLocalPosition(Vector2(-200, -100));
+	back->SetLocalPosition(Vector2(-200, -100));
 
 	frames[status].push_back(back);
 	frames[status].push_back(front);
@@ -70,7 +71,7 @@ void Enemy_Castle::CheckHP()
 
 	if (hp <= 0.0f)
 		state = Broken;
-	else if (hp < MAX_HP * 0.5f)
+	else if (hp < MAX_HP * 0.6f)
 		state = Damage;
 }
 
