@@ -3,7 +3,7 @@
 class Panel : public Transform
 {
 public:
-    Panel(wstring imagePath, Vector2 pos);
+    Panel(Vector2 pos);
     ~Panel();
 
     void AddButton(Button* button);
@@ -13,7 +13,10 @@ public:
     void CreateButtons();
 
 private:
-    Quad* quad;
+    float cost = 50.0f;
+    Quad* panelTexture;
+    SpawnBar* spawnBar;
     vector<Button*> buttons;
 };
+
 

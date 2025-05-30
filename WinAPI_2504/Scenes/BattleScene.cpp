@@ -3,7 +3,7 @@
 
 BattleScene::BattleScene()
 {
-	playerPanel = new Panel(L"Resources/Textures/UI/PlayerPanel.png", Vector2(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 240));
+	playerPanel = new Panel(Vector2(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 240));
 	playerPanel->UpdateWorld();
 
 	playerPanel->CreateButtons();

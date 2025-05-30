@@ -1,17 +1,24 @@
 #include "Framework.h"
 
-Panel::Panel(wstring imagePath, Vector2 pos)
+Panel::Panel(Vector2 pos)
 {
-	quad = new Quad(imagePath, Vector2(0, 0), Vector2(1.0f, 1.0f));
 	SetLocalPosition(pos);
-	quad->SetParent(this);
+
+	panelTexture = new Quad(L"Resources/Textures/UI/PlayerPanel.png");
+	panelTexture->SetParent(this);
+
+	spawnBar = new SpawnBar();
+	spawnBar->SetParent(this);
+
 	UpdateWorld();
-	quad->UpdateWorld();
+	panelTexture->UpdateWorld();
+	spawnBar->UpdateWorld();
 }
 
 Panel::~Panel()
 {
-	delete quad;
+	delete panelTexture;
+	delete spawnBar;
 }
 
 void Panel::AddButton(Button* button)
@@ -26,11 +33,13 @@ void Panel::Update()
 	UpdateWorld();
 	for (auto button : buttons)
 		button->Update();
+	spawnBar->Update();
 }
 
 void Panel::Render()
 {
-	quad->Render();
+	spawnBar->Render();
+	panelTexture->Render();
 	for (auto button : buttons)
 		button->Render();
 }
@@ -47,7 +56,6 @@ void Panel::CreateButtons()
 		float x = this->GetLocalPosition().x + startX + i * (buttonWidth + buttonSpacing);
 		float y = this->GetLocalPosition().y + 15;
 		Button* button = new Button(L"Resources/Textures/UI/TestButton.png", Vector2(50, 50), Vector2(x, y));
-		//button->SetOnClick(bind(&함수이름, this));
 		button->SetOnClick(bind(&AllyManager::Spawn, AllyManager::Get(), ALLY_TYPE::Boxer));
 		this->AddButton(button);
 	}

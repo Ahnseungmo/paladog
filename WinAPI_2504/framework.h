@@ -141,6 +141,7 @@ typedef XMFLOAT4X4 Float4x4;
 #include "Framework/Manager/SceneManager.h"
 #include "Framework/Manager/GameManager.h"
 
+#include "Objects/UI/SpawnBar.h"
 #include "Objects/UI/Button.h"
 #include "Objects/UI/Panel.h"
 
