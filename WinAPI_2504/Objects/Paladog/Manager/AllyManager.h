@@ -7,12 +7,15 @@ enum class ALLY_TYPE
     Lancer,
     Tanker,
     Elite,
+    Bomber,
     End
 };
 
 class AllyManager : public Singleton<AllyManager>
 {
-    friend class Singleton<AllyManager>;
+    friend class Singleton<AllyManager>; 
+private: 
+    const int UNIT_COUNT = 20;
 
 public:
     AllyManager();
@@ -30,9 +33,7 @@ public:
     Character* GetInactive(ALLY_TYPE type);
 
     void RegistAlly();
-
 private:
-    const int UNIT_COUNT = 20;
 
     unordered_map<ALLY_TYPE, vector<Character*>> totalUnits;
     unordered_map<ALLY_TYPE, function<Character* ()>> unitList;

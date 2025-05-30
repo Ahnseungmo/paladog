@@ -176,7 +176,9 @@
     <ClInclude Include="Objects\Flappy\Bird.h" />
     <ClInclude Include="Objects\Manger\DataManager.h" />
     <ClInclude Include="Objects\Manger\EventManager.h" />
+    <ClInclude Include="Objects\Paladog\Ally\Allow.h" />
     <ClInclude Include="Objects\Paladog\Ally\Ally_Archer.h" />
+    <ClInclude Include="Objects\Paladog\Ally\Ally_Bomber.h" />
     <ClInclude Include="Objects\Paladog\Ally\Ally_Boxer.h" />
     <ClInclude Include="Objects\Paladog\Ally\Ally_Elite.h" />
     <ClInclude Include="Objects\Paladog\Ally\Ally_Knight.h" />
@@ -253,7 +255,9 @@
     <ClCompile Include="Objects\Flappy\Bird.cpp" />
     <ClCompile Include="Objects\Manger\DataManager.cpp" />
     <ClCompile Include="Objects\Manger\EventManager.cpp" />
+    <ClCompile Include="Objects\Paladog\Ally\Allow.cpp" />
     <ClCompile Include="Objects\Paladog\Ally\Ally_Archer.cpp" />
+    <ClCompile Include="Objects\Paladog\Ally\Ally_Bomber.cpp" />
     <ClCompile Include="Objects\Paladog\Ally\Ally_Boxer.cpp" />
     <ClCompile Include="Objects\Paladog\Ally\Ally_Elite.cpp" />
     <ClCompile Include="Objects\Paladog\Ally\Ally_Knight.cpp" />

@@ -50,13 +50,14 @@ public:
     void SetTargetList(vector<Character*>* targets) { this->targetList = targets; }
     void SetClipTransform(Vector2 pos){ clipTransform->SetLocalPosition(pos); }
 
+    void TakeDamage(float damage);
+
 protected:
     virtual void CreateClips() = 0;
     void Move();
     void State();
     virtual void Animation();
     void FindTarget();
-    void TakeDamage(float damage);
 
 protected:
     float hp = 100.0f;

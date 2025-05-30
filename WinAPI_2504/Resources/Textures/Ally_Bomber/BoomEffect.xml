@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:c041c81590c2b94750cfffa1f57f413f:c0427f830f3daf43a6d56a8ec75e2b0d:c56eeee5e6b866b1c9ff4330a0a30d32$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+pX => x pos of the pivot point (relative to sprite width)
+pY => y pos of the pivot point (relative to sprite height)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+with polygon mode enabled:
+vertices   => points in sprite coordinate system (x0,y0,x1,y1,x2,y2, ...)
+verticesUV => points in sheet coordinate system (x0,y0,x1,y1,x2,y2, ...)
+triangles  => sprite triangulation, 3 vertex indices per triangle
+-->
+<TextureAtlas imagePath="BoomEffect.png" width="123" height="401">
+    <sprite n="s07_attack_0001.png" x="1" y="1" w="69" h="39" pX="0.5" pY="0.5" oX="285" oY="296" oW="440" oH="340"/>
+    <sprite n="s07_attack_0002.png" x="72" y="1" w="50" h="80" pX="0.5" pY="0.5" oX="281" oY="285" oW="440" oH="340" r="y"/>
+    <sprite n="s07_attack_0003.png" x="1" y="116" w="92" h="74" pX="0.5" pY="0.5" oX="274" oY="262" oW="440" oH="340"/>
+    <sprite n="s07_attack_0004.png" x="1" y="192" w="103" h="97" pX="0.5" pY="0.5" oX="268" oY="239" oW="440" oH="340"/>
+    <sprite n="s07_attack_0005.png" x="1" y="291" w="111" h="109" pX="0.5" pY="0.5" oX="263" oY="224" oW="440" oH="340"/>
+    <sprite n="s07_attack_0006.png" x="1" y="42" w="67" h="72" pX="0.5" pY="0.5" oX="278" oY="259" oW="440" oH="340"/>
+</TextureAtlas>

@@ -101,8 +101,8 @@ Character* AllyManager::GetInactive(ALLY_TYPE type)
 
 Vector2 AllyManager::RandomPos()
 {
-    float x = 100;
-    float y = 400 + rand() % 250;
+    float x = -300;
+    float y = 500 + rand() % 250;
     return Vector2(x, y);
 }
 
@@ -146,4 +146,6 @@ void AllyManager::RegistAlly()
     unitList[ALLY_TYPE::Boxer] = []() { return new Ally_Boxer(); };
     unitList[ALLY_TYPE::Lancer] = []() { return new Ally_Lancer(); };
     unitList[ALLY_TYPE::Tanker] = []() { return new Ally_Tanker(); };
+    unitList[ALLY_TYPE::Elite] = []() { return new Ally_Elite(); };
+    unitList[ALLY_TYPE::Bomber] = []() { return new Ally_Bomber(); };
 }
