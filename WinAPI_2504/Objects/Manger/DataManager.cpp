@@ -67,18 +67,17 @@ void DataManager::LoadCharacterData(const string& fileName)
 		vector<string> data = Utility::SplitString(line, ",");
 
 		CharacterData charData;
-		charData.key = stoi(data[0]);
+		charData.name = data[0];
 		charData.type = (CharacterData::Type)stoi(data[1]);
-		charData.name = data[2];
-		charData.baseHp = stof(data[3]);
-		charData.baseAttack = stof(data[4]);
-		charData.baseSpeed = stof(data[5]);
-		charData.baseAttackSpeed = stof(data[6]);
-		charData.sightRange = stof(data[7]);
-		charData.attackCount = stoi(data[8]);
-		charData.explane = data[9];
+		charData.baseHp = stof(data[2]);
+		charData.baseAttack = stof(data[3]);
+		charData.baseSpeed = stof(data[4]);
+		charData.baseAttackSpeed = stof(data[5]);
+		charData.sightRange = stof(data[6]);
+		charData.attackCount = stoi(data[7]);
+		charData.explane = data[8];
 
-		characterDatas.insert({ charData.key,charData });
+		characterDatas.insert({ charData.name,charData });
 	}
 	file.close();
 }
@@ -107,15 +106,14 @@ void DataManager::LoadAllyData(const string& fileName)
 		vector<string> data = Utility::SplitString(line, ",");
 
 		AllyData allyData;
-		allyData.key = stoi(data[0]);
-		allyData.name = data[1];
-		allyData.cost = stoi(data[2]);
-		allyData.hpPerLevel = stof(data[3]);
-		allyData.attackPerLevel = stof(data[4]);
-		allyData.speedPerLevel = stof(data[5]);
-		allyData.attackSpeedPerLevel = stof(data[6]);
+		allyData.name = data[0];
+		allyData.cost = stoi(data[1]);
+		allyData.hpPerLevel = stof(data[2]);
+		allyData.attackPerLevel = stof(data[3]);
+		allyData.speedPerLevel = stof(data[4]);
+		allyData.attackSpeedPerLevel = stof(data[5]);
 
-		allyDatas.insert({ allyData.key,allyData });
+		allyDatas.insert({ allyData.name,allyData });
 
 	}
 	file.close();
@@ -145,10 +143,9 @@ void DataManager::LoadEnemyData(const string& fileName)
 		vector<string> data = Utility::SplitString(line, ",");
 
 		EnemyData enemyData;
-		enemyData.key = stoi(data[0]);
-		enemyData.name = data[1];
+		enemyData.name = data[0];
 
-		enemyDatas.insert({ enemyData.key,enemyData });
+		enemyDatas.insert({ enemyData.name,enemyData });
 
 	}
 	file.close();

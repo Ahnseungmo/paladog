@@ -1,7 +1,7 @@
-key,Name,cost,hpPerLevel,attackPerLevel,speedPerLevel,attackSpeedPerLevel
-1001,Archer,10,10,10,10,0.1
-1002,Boxer,10,10,10,10,0.1
-1003,Elite,10,10,10,10,0.1
-1004,Knight,10,10,10,10,0.1
-1005,Lancer,10,10,10,10,0.1
-1005,Tanker,10,10,10,10,0.1
+Name,cost,hpPerLevel,attackPerLevel,speedPerLevel,attackSpeedPerLevel
+Archer,10,10,10,10,0.1
+Boxer,10,10,10,10,0.1
+Elite,10,10,10,10,0.1
+Knight,10,10,10,10,0.1
+Lancer,10,10,10,10,0.1
+Tanker,10,10,10,10,0.1

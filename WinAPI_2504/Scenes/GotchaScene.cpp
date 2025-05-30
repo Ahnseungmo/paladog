@@ -72,9 +72,11 @@ void GotchaScene::Lobby()
 void GotchaScene::Gotcha()
 {
 	chest->ChestOpen();
-	int firstKey = DataManager::Get()->GetMinionDatas().begin()->first;
+//	int firstKey = DataManager::Get()->GetAllyDatas().begin()->first;
 //	int eneKey = DataManager::Get()->GetMinionDatas().end()->first;
-	int pickKey = firstKey + rand() % DataManager::Get()->GetMinionCount();
+	int pickKey = rand() % DataManager::Get()->GetAllyCount();
+	/*
+
 	if (DataManager::Get()->GetBagDatas().count(pickKey)) {
 		BagData& bagData = DataManager::Get()->GetBag(pickKey);
 		bagData.count++;
@@ -89,6 +91,6 @@ void GotchaScene::Gotcha()
 
 		DataManager::Get()->GetBagDatas().insert({ pickKey,bagData });
 	}
-	
+	*/
 	chest;
 }

@@ -23,7 +23,7 @@ private:
 	unordered_map<string, Button*> buttons;
 	Chest* chest;
 
-//	Character* pickCharcter;
+	Character* pickCharcter;
 
 
 };

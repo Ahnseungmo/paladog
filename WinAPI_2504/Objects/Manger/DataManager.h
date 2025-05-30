@@ -20,9 +20,9 @@ struct CharacterData {
 	enum Type {
 		Minion, Enemy
 	};
-	int key;
-	Type type;
+
 	string name;
+	Type type;
 
 	float baseHp;
 	float baseAttack;
@@ -34,7 +34,7 @@ struct CharacterData {
 };
 
 struct AllyData {
-	int key;
+
 	string name;
 	int cost;
 	float hpPerLevel;
@@ -45,9 +45,7 @@ struct AllyData {
 };
 
 struct EnemyData {
-	int key;
 	string name;
-
 };
 
 struct WeaponData {
@@ -60,7 +58,7 @@ struct WeaponData {
 };
 
 struct BagData {
-	int key;
+	string name;
 	int count;
 	int level;
 
@@ -94,27 +92,27 @@ public:
 	ItemData GetItem(int key) { return itemDatas[key]; }
 	int GetItemCount() { return itemDatas.size(); }
 
-	const CharacterData& GetCharacter(int key) const { return characterDatas.at(key); }
+	const CharacterData& GetCharacter(string key) const { return characterDatas.at(key); }
 	int GetCharacterCount() const { return characterDatas.size(); }
 
-	const EnemyData& GetEnemy(int key) const { return enemyDatas.at(key); }
+	const EnemyData& GetEnemy(string key) const { return enemyDatas.at(key); }
 	int GetEnemyCount() const { return enemyDatas.size(); }
 
-	const AllyData& GetMinion(int key) const { return allyDatas.at(key); }
-	const unordered_map<int, AllyData>& GetMinionDatas() const { return allyDatas; }
-	int GetMinionCount() const { return allyDatas.size(); }
+	const AllyData& GetAlly(string key) const { return allyDatas.at(key); }
+	const unordered_map<string, AllyData>& GetAllyDatas() const { return allyDatas; }
+	int GetAllyCount() const { return allyDatas.size(); }
 
-	BagData& GetBag(int key) { return bagDatas.at(key); }
-	unordered_map<int, BagData>& GetBagDatas() { return bagDatas; }
+	BagData& GetBag(string key) { return bagDatas.at(key); }
+	unordered_map<string, BagData>& GetBagDatas() { return bagDatas; }
 	int GetBagCount() const { return bagDatas.size(); }
 
-	const WeaponData& GetWeapon(int key) const { return weaponDatas.at(key); }
+	const WeaponData& GetWeapon(string key) const { return weaponDatas.at(key); }
 	int GetWeaponCount() const { return weaponDatas.size(); }
 
-	WeaponBagData GetWeaponBag(int key) const { return weaponBagDatas.at(key); }
+	WeaponBagData GetWeaponBag(string key) const { return weaponBagDatas.at(key); }
 	int GetWeaponBagCount() const { return weaponBagDatas.size(); }
 
-	vector<int>& GetDeck() { return deck; }
+	vector<string>& GetDeck() { return deck; }
 
 
 
@@ -122,14 +120,16 @@ private:
 	unordered_map<int, ItemData> itemDatas;
 
 
-	unordered_map<int, CharacterData> characterDatas;
-	unordered_map<int, EnemyData> enemyDatas;
-	unordered_map<int, AllyData> allyDatas;
-	unordered_map<int, BagData> bagDatas;
-	unordered_map<int, WeaponData> weaponDatas;
-	unordered_map<int, WeaponBagData> weaponBagDatas;
 
-	vector<int> weapons;
-	vector<int> deck;
+	unordered_map<string, CharacterData> characterDatas;
+	unordered_map<string, EnemyData> enemyDatas;
+	unordered_map<string, AllyData> allyDatas;
+	unordered_map<string, BagData> bagDatas;
+
+	unordered_map<string, WeaponData> weaponDatas;
+	unordered_map<string, WeaponBagData> weaponBagDatas;
+
+	vector<string> weapons;
+	vector<string> deck;
 
 };
