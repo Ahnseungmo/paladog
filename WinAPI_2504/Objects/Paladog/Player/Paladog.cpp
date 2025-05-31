@@ -23,18 +23,19 @@ Paladog::~Paladog()
 
 void Paladog::Update()
 {
-    if (Input::Get()->IsKeyPress('A'))
+    //if (Input::Get()->IsKeyPress('W')) // 테스트용
+    //    Translate(Vector2::Up() * SPEED * DELTA);
+    //if (Input::Get()->IsKeyPress('S'))
+    //    Translate(Vector2::Down() * SPEED * DELTA);
+    if (this->GetGlobalPosition().x > 300 && Input::Get()->IsKeyPress('A'))
         Translate(Vector2::Left() * SPEED * DELTA);
-    if (Input::Get()->IsKeyPress('D'))
+    if (this->GetGlobalPosition().x < SCREEN_WIDTH && Input::Get()->IsKeyPress('D'))
         Translate(Vector2::Right() * SPEED * DELTA);
 
-    if (!punch->IsActive() && Input::Get()->IsKeyDown(VK_SPACE))
-    {
-        punch->SetActive(true);
-    }
+    //PunchSkill();
     punch->Update();
 
-    if (punch->IsActive() && punch->GetGlobalPosition().x > SCREEN_WIDTH)
+    if (punch->IsActive() && punch->GetGlobalPosition().x > SCREEN_WIDTH + 600)
     {
         punch->SetActive(false);
         punch->SetLocalPosition(Vector2(0, 0));
@@ -57,4 +58,9 @@ void Paladog::Render()
 void Paladog::AuraRender()
 {
     auraTexture->Render();
+}
+
+void Paladog::PunchSkill()
+{
+    punch->SetActive(true);
 }

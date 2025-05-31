@@ -203,9 +203,10 @@
     <ClInclude Include="Objects\Paladog\Player\Punch.h" />
     <ClInclude Include="Objects\Shooting\Bullet.h" />
     <ClInclude Include="Objects\Shooting\Plane.h" />
+    <ClInclude Include="Objects\UI\Background.h" />
     <ClInclude Include="Objects\UI\Button.h" />
     <ClInclude Include="Objects\UI\Panel.h" />
-    <ClInclude Include="Objects\UI\SpawnBar.h" />
+    <ClInclude Include="Objects\UI\GaugeBar.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scenes\AnimationScene.h" />
     <ClInclude Include="Scenes\BattleScene.h" />
@@ -284,9 +285,10 @@
     <ClCompile Include="Objects\Paladog\Player\Punch.cpp" />
     <ClCompile Include="Objects\Shooting\Bullet.cpp" />
     <ClCompile Include="Objects\Shooting\Plane.cpp" />
+    <ClCompile Include="Objects\UI\Background.cpp" />
     <ClCompile Include="Objects\UI\Button.cpp" />
     <ClCompile Include="Objects\UI\Panel.cpp" />
-    <ClCompile Include="Objects\UI\SpawnBar.cpp" />
+    <ClCompile Include="Objects\UI\GaugeBar.cpp" />
     <ClCompile Include="Scenes\AnimationScene.cpp" />
     <ClCompile Include="Scenes\BattleScene.cpp" />
     <ClCompile Include="Scenes\CollisionScene.cpp" />

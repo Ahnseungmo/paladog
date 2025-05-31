@@ -17,6 +17,7 @@ Button::~Button()
 
 void Button::Update()
 {
+	if (!isActive) return;
 	if (IsPointCollision(mousePos)) {
 		if (Input::Get()->IsKeyPress(VK_LBUTTON)) {
 			quad->SetColor(0.5f, 0.5f, 0.5f, 1.0f);
@@ -39,5 +40,5 @@ void Button::Update()
 void Button::Render()
 {
 	quad->Render();
-	Collider::Render();
+	//Collider::Render();
 }

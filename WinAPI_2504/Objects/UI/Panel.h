@@ -7,17 +7,29 @@ public:
     ~Panel();
 
     void AddButton(Button* button);
+    void AddCoolTimeButton(Button* button);
     void Update();
     void Render();
 
     void CreateButtons();
-    SpawnBar* GetBar() { return spawnBar; }
+    void CreateCoolTimeButtons();
+    GaugeBar* GetSpawnBar() { return spawnBar; }
+    GaugeBar* GetManaBar() { return manaBar; }
+
     void SpawnCharacter(int type);
+    void MeatSkill();
+
+    void SetPaladog(Paladog* paladog) { this->paladog = paladog; }
 
 private:
     Quad* panelTexture;
-    SpawnBar* spawnBar;
+    GaugeBar* spawnBar;
+    GaugeBar* manaBar;
     vector<Button*> buttons;
+    vector<Button*> coolTimeButtons;
+    Paladog* paladog = nullptr;
+    float maxCoolTime[5] = { 1, 2, 3, 4, 5 };
+    float coolTimeCounts[5] = { 1, 2, 3, 4, 5 };
 };
 
 

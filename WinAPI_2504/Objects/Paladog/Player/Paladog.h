@@ -12,6 +12,8 @@ public:
 	void Render();
 	void AuraRender();
 
+	void PunchSkill();
+
 private:
 	Quad* paladogTexture;
 	Quad* auraTexture;

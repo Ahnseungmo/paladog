@@ -237,7 +237,7 @@
     <ClInclude Include="Objects\Paladog\Manager\AllyManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Objects\UI\SpawnBar.h">
+    <ClInclude Include="Objects\UI\GaugeBar.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Objects\Paladog\Ally\Ally_Bomber.h">
@@ -253,6 +253,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Scenes\UnitScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\UI\Background.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -452,7 +455,7 @@
     <ClCompile Include="Objects\Paladog\Manager\AllyManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Objects\UI\SpawnBar.cpp">
+    <ClCompile Include="Objects\UI\GaugeBar.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Objects\Paladog\Ally\Ally_Bomber.cpp">
@@ -471,6 +474,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Scenes\UnitScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\UI\Background.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

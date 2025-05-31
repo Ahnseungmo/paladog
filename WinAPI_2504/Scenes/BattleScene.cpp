@@ -3,16 +3,16 @@
 
 BattleScene::BattleScene()
 {
+	background = new Background(LEFT_EDGE, RIGHT_EDGE);
+
 	playerPanel = new Panel(Vector2(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 240));
 	playerPanel->UpdateWorld();
-
-	playerPanel->CreateButtons();
 
 	paladog = new Paladog();
 	paladog->SetLocalPosition(CENTER + Vector2(0, 100));
 	paladog->UpdateWorld();
 
-
+	playerPanel->SetPaladog(paladog);
 
 	EnemyManager::Get()->SpawnEnemy("Zombie");
 	EnemyManager::Get()->SpawnEnemy("Witch");
@@ -24,6 +24,7 @@ BattleScene::BattleScene()
 
 BattleScene::~BattleScene()
 {
+	delete background;
 	delete playerPanel;
 	delete paladog;
 
@@ -48,6 +49,7 @@ void BattleScene::Update()
 
 void BattleScene::Render()
 {
+	background->Render();
 	paladog->AuraRender();
 	paladog->Render();
 

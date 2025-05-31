@@ -9,7 +9,7 @@ public:
 	void Update();
 	void Render();
 	void SetOnClick(function<void()> onClickFunc) { onClick = onClickFunc; }
-	void SetIntParam(function<void(int)> intParam) { this->intParam = intParam; }
+	Quad* GetQuad() { return quad; }
 	void Click() {
 		if (onClick) onClick();
 	}
@@ -17,5 +17,4 @@ public:
 private:
 	Quad* quad;
 	function<void()> onClick;
-	function<void(int)> intParam;
 };
