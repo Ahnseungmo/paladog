@@ -53,11 +53,22 @@ void Character::AttackSpeedBuff()
         clip->SetSpeed(stat.attackSpeed * attackSpeedBuff);
 }
 
-void Character::SpeedBuff()
+void Character::ResetSpeedBuff(float percent)
 {
-    stat.moveSpeed *= speedBuff;
-    if (Clip* clip = animation->GetClip(Run))
-        clip->SetSpeed(clip->GetSpeed() * speedBuff);
+    if (isSpeedBuff)
+    {
+        stat.moveSpeed /= percent;
+        isSpeedBuff = false;
+    }
+}
+
+void Character::SpeedBuff(float percent)
+{
+    if (!isSpeedBuff)
+    {
+        stat.moveSpeed *= percent;
+        isSpeedBuff = true;
+    }
 }
 
 void Character::Move()

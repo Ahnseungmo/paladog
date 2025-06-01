@@ -29,7 +29,8 @@ public:
 
 
     void AttackSpeedBuff();
-    void SpeedBuff();
+    void SpeedBuff(float percent);
+    void ResetSpeedBuff(float percent);
 
     const UnitStat& GetStat() const { return stat; }
     int GetHP() { return hp; }
@@ -52,6 +53,7 @@ public:
     void SetTeam(TeamType team) { this->team = team; }
     void SetTargetList(vector<Character*>* targets) { this->targetList = targets; }
     void SetClipTransform(Vector2 pos) { clipTransform->SetLocalPosition(pos); }
+    void SetIsSpeedBuff(bool is) { isSpeedBuff = is; }
 
     void TakeDamage(float damage);
 
@@ -66,7 +68,7 @@ protected:
 protected:
     float hp = 100.0f;
     float attackSpeedBuff = 1.0f;
-    float speedBuff = 1.0f;
+    bool isSpeedBuff = false;
 
     UnitStat stat;
     UnitStat baseStat;

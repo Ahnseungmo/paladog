@@ -4,6 +4,7 @@ class Paladog : public RectCollider
 {
 private:
 	const float SPEED = 400;
+	const float SPEEDBUFF = 2.0f;
 public:
 	Paladog();
 	~Paladog();
@@ -11,6 +12,7 @@ public:
 	void Update();
 	void Render();
 	void AuraRender();
+	void AuraBuff();
 
 	void PunchSkill();
 

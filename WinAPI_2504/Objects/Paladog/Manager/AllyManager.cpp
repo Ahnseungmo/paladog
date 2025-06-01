@@ -60,6 +60,7 @@ void AllyManager::Spawn(ALLY_TYPE type)
             unit->SetTargetList(enemies);
             unit->SetTeam(Character::TeamType::Ally);
             unit->SetCurStateToRun();
+            unit->SetIsSpeedBuff(false);
             unit->SetActive(true);
             break;
         }

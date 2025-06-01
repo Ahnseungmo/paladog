@@ -2,7 +2,7 @@
 
 Ally_Knight::Ally_Knight()
 {
-	UnitStat stat = { 250,20,100,1.0f,80,1 };
+	UnitStat stat = { 250,20,100,1.0f,30,1 };
 	SetBaseStat(stat);
 	SetTeam(TeamType::Ally);
 	CreateClips();

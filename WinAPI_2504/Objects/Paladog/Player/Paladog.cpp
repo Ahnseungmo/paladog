@@ -40,6 +40,9 @@ void Paladog::Update()
         punch->SetActive(false);
         punch->SetLocalPosition(Vector2(0, 0));
     }
+
+    AuraBuff();
+
     auraCollider->UpdateWorld();
     auraTexture->UpdateWorld();
     paladogTexture->UpdateWorld();
@@ -58,6 +61,29 @@ void Paladog::Render()
 void Paladog::AuraRender()
 {
     auraTexture->Render();
+}
+
+void Paladog::AuraBuff()
+{
+    vector<Character*>* allies = AllyManager::Get()->GetAllUnits();
+
+    float auraX = auraCollider->GetGlobalPosition().x;
+    float auraHalfWidth = auraCollider->Size().x * 0.5f;
+    float left = auraX - auraHalfWidth;
+    float right = auraX + auraHalfWidth;
+
+    for (int i = 0; i < allies->size(); i++)
+    {
+        Character* unit = (*allies)[i];
+        if (!unit->IsActive())
+            continue;
+
+        float unitX = unit->GetGlobalPosition().x;
+        if (unitX >= left && unitX <= right)
+            unit->SpeedBuff(SPEEDBUFF);
+        else
+            unit->ResetSpeedBuff(SPEEDBUFF);
+    }
 }
 
 void Paladog::PunchSkill()
