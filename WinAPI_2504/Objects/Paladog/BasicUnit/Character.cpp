@@ -47,10 +47,26 @@ void Character::Edit()
     Transform::Edit();
 }
 
-void Character::AttackSpeedBuff()
+void Character::AttackSpeedBuff(float percent)
 {
-    if (Clip* clip = animation->GetClip(Attack))
-        clip->SetSpeed(stat.attackSpeed * attackSpeedBuff);
+    if (Clip* clip = animation->GetClip(Attack)) {
+        if (!isAttackSpeedBuff) {
+            stat.attackSpeed *= percent;
+            clip->SetSpeed(stat.attackSpeed);
+            isAttackSpeedBuff = true;
+        }
+    }
+}
+
+void Character::ResetAttackSpeedBuff(float percent)
+{
+    if (Clip* clip = animation->GetClip(Attack)) {
+        if (isAttackSpeedBuff) {
+            stat.attackSpeed /= percent;
+            clip->SetSpeed(stat.attackSpeed);
+            isAttackSpeedBuff = false;
+        }
+    }
 }
 
 void Character::ResetSpeedBuff(float percent)

@@ -2,6 +2,16 @@
 
 Paladog::Paladog()
 {
+    UnitStat stat;
+    stat.maxHp = 5000;
+    stat.attack = 60;
+    stat.moveSpeed = SPEED;
+    stat.attackSpeed = 0;
+    stat.attackRange = 0;
+    stat.attackCount = 0;
+    SetBaseStat(stat);
+    SetTeam(TeamType::Ally);
+
     paladogTexture = new Quad(L"Resources/Textures/Paladog/TestPlayer.png");
     paladogTexture->SetParent(this);
     auraTexture = new Quad(L"Resources/Textures/Paladog/Aura.png");
@@ -11,6 +21,8 @@ Paladog::Paladog()
     punch = new Punch(Vector2(90, 30));
     punch->SetParent(this);
     punch->SetActive(false);
+    hpBar->SetBarColor(0, 1, 0);
+    CreateClips();
 }
 
 Paladog::~Paladog()
@@ -46,6 +58,7 @@ void Paladog::Update()
     auraCollider->UpdateWorld();
     auraTexture->UpdateWorld();
     paladogTexture->UpdateWorld();
+    hpBar->Update(GetGlobalPosition(), Size().y, hp, stat.maxHp);
     UpdateWorld();
 }
 
@@ -55,6 +68,7 @@ void Paladog::Render()
     auraCollider->Render();
     punch->Render();
     paladogTexture->Render();
+    hpBar->Render();
     Collider::Render();
 }
 
@@ -79,14 +93,22 @@ void Paladog::AuraBuff()
             continue;
 
         float unitX = unit->GetGlobalPosition().x;
-        if (unitX >= left && unitX <= right)
+        if (unitX >= left && unitX <= right) {
             unit->SpeedBuff(SPEEDBUFF);
-        else
+            unit->AttackSpeedBuff(ATTACK_SPEEDBUFF);
+        }
+        else {
             unit->ResetSpeedBuff(SPEEDBUFF);
+            unit->ResetAttackSpeedBuff(ATTACK_SPEEDBUFF);
+        }
     }
 }
 
 void Paladog::PunchSkill()
 {
     punch->SetActive(true);
+}
+
+void Paladog::CreateClips()
+{
 }

@@ -74,6 +74,24 @@ void EnemyManager::SetTargetList(vector<Character*>* unit)
 
 }
 
+vector<Character*> EnemyManager::ActiveUnits()
+{
+	vector<Character*> result;
+
+	unordered_map<string, vector<Character*>>::iterator it;
+	for (it = enemies.begin(); it != enemies.end(); ++it)
+	{
+		vector<Character*>& enemyList = it->second;
+		for (int i = 0; i < enemyList.size(); ++i)
+		{
+			if (enemyList[i]->IsActive())
+				result.push_back(enemyList[i]);
+		}
+	}
+
+	return result;
+}
+
 //vector<Character*> EnemyManager::GetTargetEnemy()
 //{
 //	vector<Character*> myEnemies;
@@ -141,7 +159,7 @@ void EnemyManager::SpawnBoss()
 
 Vector2 EnemyManager::RendomPos()
 {
-	float x = 1300.0f;
+	float x = 1900.0f;
 	int y = rand() % 100 + 450; // 450 ~ 650 
 	return Vector2(x, y);
 }

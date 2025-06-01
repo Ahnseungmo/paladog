@@ -27,8 +27,8 @@ public:
     virtual void AttackTarget();
     virtual void Fire() {};
 
-
-    void AttackSpeedBuff();
+    void AttackSpeedBuff(float percent);
+    void ResetAttackSpeedBuff(float percent);
     void SpeedBuff(float percent);
     void ResetSpeedBuff(float percent);
 
@@ -54,6 +54,7 @@ public:
     void SetTargetList(vector<Character*>* targets) { this->targetList = targets; }
     void SetClipTransform(Vector2 pos) { clipTransform->SetLocalPosition(pos); }
     void SetIsSpeedBuff(bool is) { isSpeedBuff = is; }
+    void SetIsAttackSpeedBuff(bool is) { isAttackSpeedBuff = is; }
 
     void TakeDamage(float damage);
 
@@ -67,7 +68,7 @@ protected:
 
 protected:
     float hp = 100.0f;
-    float attackSpeedBuff = 1.0f;
+    bool isAttackSpeedBuff = false;
     bool isSpeedBuff = false;
 
     UnitStat stat;

@@ -61,6 +61,7 @@ void AllyManager::Spawn(ALLY_TYPE type)
             unit->SetTeam(Character::TeamType::Ally);
             unit->SetCurStateToRun();
             unit->SetIsSpeedBuff(false);
+            unit->SetIsAttackSpeedBuff(false);
             unit->SetActive(true);
             break;
         }
@@ -121,8 +122,28 @@ vector<Character*>* AllyManager::GetAllUnits()
             allUnits.push_back(units[i]);
         }
     }
+    if (player != nullptr)
+        allUnits.push_back(player);
 
     return &allUnits;
+}
+
+vector<Character*> AllyManager::ActiveUnits()
+{
+    vector<Character*> result;
+
+    unordered_map<ALLY_TYPE, vector<Character*>>::iterator it;
+    for (it = totalUnits.begin(); it != totalUnits.end(); ++it)
+    {
+        vector<Character*>& units = it->second;
+        for (int i = 0; i < units.size(); ++i)
+        {
+            if (units[i]->IsActive())
+                result.push_back(units[i]);
+        }
+    }
+
+    return result;
 }
 
 void AllyManager::SetTargetList(vector<Character*>* enemies)
@@ -149,4 +170,9 @@ void AllyManager::RegistAlly()
     unitList[ALLY_TYPE::Tanker] = []() { return new Ally_Tanker(); };
     unitList[ALLY_TYPE::Elite] = []() { return new Ally_Elite(); };
     unitList[ALLY_TYPE::Bomber] = []() { return new Ally_Bomber(); };
+}
+
+void AllyManager::AddPalaDog(Character* paladog)
+{
+    player = paladog;
 }

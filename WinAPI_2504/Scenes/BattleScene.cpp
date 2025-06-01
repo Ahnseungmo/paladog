@@ -18,6 +18,7 @@ BattleScene::BattleScene()
 	EnemyManager::Get()->SpawnEnemy("Witch");
 	EnemyManager::Get()->SpawnEnemy("Castle");
 
+	AllyManager::Get()->AddPalaDog(paladog);
 	AllyManager::Get()->SetTargetList(EnemyManager::Get()->GetAllUnits());
 	EnemyManager::Get()->SetTargetList(AllyManager::Get()->GetAllUnits());
 }
@@ -51,10 +52,8 @@ void BattleScene::Render()
 {
 	background->Render();
 	paladog->AuraRender();
-	paladog->Render();
-
-	AllyManager::Get()->Render();
-	EnemyManager::Get()->Render();
+	
+	ArrayRendering();
 }
 
 void BattleScene::PostRender()
@@ -71,4 +70,25 @@ void BattleScene::Start()
 void BattleScene::End()
 {
 	Environment::Get()->GetMainCamera()->SetTarget(nullptr);
+}
+
+void BattleScene::ArrayRendering()
+{
+	vector<Character*> units;
+	units.push_back(paladog);
+
+	vector<Character*> allyUnits = AllyManager::Get()->ActiveUnits();
+	vector<Character*> enemyUnits = EnemyManager::Get()->ActiveUnits();
+
+	units.insert(units.end(), allyUnits.begin(), allyUnits.end());
+	units.insert(units.end(), enemyUnits.begin(), enemyUnits.end());
+
+	sort(units.begin(), units.end(), [](Character* a, Character* b) {
+		return a->GetGlobalPosition().y > b->GetGlobalPosition().y;
+	});
+
+	for (int i = 0; i < units.size(); i++)
+	{
+		units[i]->Render();
+	}
 }

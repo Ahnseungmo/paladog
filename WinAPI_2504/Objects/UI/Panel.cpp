@@ -147,7 +147,7 @@ void Panel::SpawnCharacter(int type)
 		if (coolTimeCounts[0] >= maxCoolTime[0] && spawnBar->GetCurGauge() > 10)
 		{
 			spawnBar->SetCurGauge(spawnBar->GetCurGauge() -10);
-			AllyManager::Get()->Spawn(ALLY_TYPE::Knight);
+			AllyManager::Get()->Spawn(ALLY_TYPE::Bomber);
 			coolTimeCounts[0] = 0;
 			coolTimeButtons[0]->SetActive(true);
 		}

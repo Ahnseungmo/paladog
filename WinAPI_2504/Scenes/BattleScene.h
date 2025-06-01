@@ -17,6 +17,7 @@ public:
 	void Start() override;
 	void End() override;
 
+	void ArrayRendering();
 private:
 	Panel* playerPanel = nullptr;
 	Paladog* paladog = nullptr;

@@ -1,10 +1,11 @@
 #pragma once
 
-class Paladog : public RectCollider 
+class Paladog : public Character
 {
 private:
 	const float SPEED = 400;
-	const float SPEEDBUFF = 2.0f;
+	const float SPEEDBUFF = 1.5f;
+	const float ATTACK_SPEEDBUFF = 1.5f;
 public:
 	Paladog();
 	~Paladog();
@@ -15,6 +16,8 @@ public:
 	void AuraBuff();
 
 	void PunchSkill();
+private:
+	void CreateClips() override;
 
 private:
 	Quad* paladogTexture;

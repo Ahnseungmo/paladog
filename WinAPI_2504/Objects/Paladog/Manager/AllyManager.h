@@ -28,15 +28,20 @@ public:
     Vector2 RandomPos();
 
     vector<Character*>* GetAllUnits();
+    vector<Character*> ActiveUnits();
+
     void SetTargetList(vector<Character*>* enemies);
     void CreateUnit();
     Character* GetInactive(ALLY_TYPE type);
 
     void RegistAlly();
+    void AddPalaDog(Character* paladog);
 private:
 
     unordered_map<ALLY_TYPE, vector<Character*>> totalUnits;
     unordered_map<ALLY_TYPE, function<Character* ()>> unitList;
 
     vector<Character*>* enemies = nullptr;
+
+    Character* player = nullptr;
 };

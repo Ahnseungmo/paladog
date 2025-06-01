@@ -25,8 +25,10 @@
 #include <string>
 #include <unordered_map>
 #include <map>
+#include <set>
 #include <vector>
 #include <functional>
+#include <algorithm>
 #include <fstream>
 #include <assert.h>
 
