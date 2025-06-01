@@ -24,7 +24,7 @@ void Ally_Tanker::CreateClips()
 {
 	Vector2 pos = GetLocalPosition();
 	animation->LoadClip("Resources/Textures/Ally_Tanker/", "Ally_Tanker_Walk.xml", true);
-	animation->LoadClip("Resources/Textures/Ally_Tanker/", "Ally_Tanker_Attack.xml", true);
+	animation->LoadClip("Resources/Textures/Ally_Tanker/", "Ally_Tanker_Attack.xml", true, stat.attackSpeed);
 	animation->LoadClip("Resources/Textures/Ally_Tanker/", "Ally_Tanker_Dead.xml", false);
 
 	animation->GetClip(Attack)->SetFrameEvent(16, bind(&Ally_Tanker::Recovery, this));

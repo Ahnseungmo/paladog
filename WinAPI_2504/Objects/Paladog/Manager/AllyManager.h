@@ -13,8 +13,8 @@ enum class ALLY_TYPE
 
 class AllyManager : public Singleton<AllyManager>
 {
-    friend class Singleton<AllyManager>; 
-private: 
+    friend class Singleton<AllyManager>;
+private:
     const int UNIT_COUNT = 20;
 
 public:

@@ -142,7 +142,7 @@ void EnemyManager::SpawnBoss()
 Vector2 EnemyManager::RendomPos()
 {
 	float x = 1300.0f;
-	int y = rand() % 200 + 450; // 450 ~ 650 
+	int y = rand() % 100 + 450; // 450 ~ 650 
 	return Vector2(x, y);
 }
 

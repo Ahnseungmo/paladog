@@ -102,7 +102,7 @@ Character* AllyManager::GetInactive(ALLY_TYPE type)
 Vector2 AllyManager::RandomPos()
 {
     float x = -300;
-    float y = 500 + rand() % 250;
+    float y = 500 + rand() % 100;
     return Vector2(x, y);
 }
 
@@ -117,7 +117,7 @@ vector<Character*>* AllyManager::GetAllUnits()
         vector<Character*>& units = it->second;
         for (int i = 0; i < units.size(); i++)
         {
-            allUnits.push_back(units[i]); 
+            allUnits.push_back(units[i]);
         }
     }
 

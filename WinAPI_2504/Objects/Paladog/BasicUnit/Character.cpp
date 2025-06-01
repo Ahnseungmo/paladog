@@ -27,7 +27,7 @@ void Character::Update()
 
     Animation();
     clipTransform->UpdateWorld();
-    hpBar->Update(GetGlobalPosition(),Size().y, hp, stat.maxHp);
+    hpBar->Update(GetGlobalPosition(), Size().y, hp, stat.maxHp);
     UpdateWorld();
 }
 
@@ -89,7 +89,6 @@ void Character::Animation()
         animation->Update(Attack);
         break;
     case Dead:
-        //SetActive(false);
         animation->Update(Dead);
         if (!animation->IsPlay(Dead))
             SetActive(false);
@@ -103,19 +102,48 @@ void Character::FindTarget()
 
     if (!targetList) return;
 
-    for (Character* unit : *targetList)
+    for (int i = 0; i < targetList->size(); i++)
     {
-        if (!unit->IsActive() || unit->GetHP() <= 0 )
+        Character* unit = (*targetList)[i];
+        if (!unit->IsActive() || unit->GetHP() <= 0)
             continue;
 
-        float distance = abs(GetGlobalPosition().x - unit->GetGlobalPosition().x);
+        float distanceX = abs(GetGlobalPosition().x - unit->GetGlobalPosition().x);
+        float combinedHalfWidth = (Size().x + unit->Size().x) * 0.5f;
 
-        if (distance <= stat.attackRange)
+        if (distanceX - combinedHalfWidth <= stat.attackRange)
         {
             target = unit;
             break;
         }
     }
+}
+
+vector<Character*> Character::FindTargetRange(int maxCount)
+{
+    vector<Character*> targets;
+
+    if (!targetList)
+        return targets;
+
+    for (int i = 0; i < targetList->size(); i++)
+    {
+        Character* unit = (*targetList)[i];
+        if (!unit->IsActive() || unit->GetHP() <= 0)
+            continue;
+
+        float distanceX = abs(GetGlobalPosition().x - unit->GetGlobalPosition().x);
+        float combinedHalfWidth = (Size().x + unit->Size().x) * 0.5f;
+
+        if (distanceX - combinedHalfWidth <= stat.attackRange)
+        {
+            targets.push_back(unit);
+            if ((int)targets.size() >= maxCount)
+                break;
+        }
+    }
+
+    return targets;
 }
 
 void Character::AttackTarget()

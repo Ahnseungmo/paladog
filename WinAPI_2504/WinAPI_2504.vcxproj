@@ -185,6 +185,7 @@
     <ClInclude Include="Objects\Paladog\Ally\Ally_Knight.h" />
     <ClInclude Include="Objects\Paladog\Ally\Ally_Lancer.h" />
     <ClInclude Include="Objects\Paladog\Ally\Ally_Tanker.h" />
+    <ClInclude Include="Objects\Paladog\Ally\Bomb.h" />
     <ClInclude Include="Objects\Paladog\BasicUnit\Character.h" />
     <ClInclude Include="Objects\Paladog\BasicUnit\CharacterAnimation.h" />
     <ClInclude Include="Objects\Paladog\BasicUnit\HealthBar.h" />
@@ -268,6 +269,7 @@
     <ClCompile Include="Objects\Paladog\Ally\Ally_Knight.cpp" />
     <ClCompile Include="Objects\Paladog\Ally\Ally_Lancer.cpp" />
     <ClCompile Include="Objects\Paladog\Ally\Ally_Tanker.cpp" />
+    <ClCompile Include="Objects\Paladog\Ally\Bomb.cpp" />
     <ClCompile Include="Objects\Paladog\BasicUnit\Character.cpp" />
     <ClCompile Include="Objects\Paladog\BasicUnit\CharacterAnimation.cpp" />
     <ClCompile Include="Objects\Paladog\BasicUnit\HealthBar.cpp" />

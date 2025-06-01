@@ -36,6 +36,7 @@ public:
 	void SetTag(string tag) { this->tag = tag; }
 
 	Transform* GetParent() const { return parent; }
+	void SetRotationZ(float angle) { localRotation.z = angle; }
 
 protected:
 	string tag;

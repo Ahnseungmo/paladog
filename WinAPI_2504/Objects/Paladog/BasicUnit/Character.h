@@ -25,6 +25,9 @@ public:
 
 
     virtual void AttackTarget();
+    virtual void Fire() {};
+
+
     void AttackSpeedBuff();
     void SpeedBuff();
 
@@ -48,7 +51,7 @@ public:
     }
     void SetTeam(TeamType team) { this->team = team; }
     void SetTargetList(vector<Character*>* targets) { this->targetList = targets; }
-    void SetClipTransform(Vector2 pos){ clipTransform->SetLocalPosition(pos); }
+    void SetClipTransform(Vector2 pos) { clipTransform->SetLocalPosition(pos); }
 
     void TakeDamage(float damage);
 
@@ -58,6 +61,7 @@ protected:
     void State();
     virtual void Animation();
     void FindTarget();
+    vector<Character*> FindTargetRange(int maxCount);
 
 protected:
     float hp = 100.0f;
