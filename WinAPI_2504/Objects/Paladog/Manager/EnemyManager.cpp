@@ -152,15 +152,16 @@ void EnemyManager::SpawnBoss()
 		boss->SetLocalPosition(castle->GetGlobalPosition()); //why boss not find target?
 		boss->SetTargetList(unit);
 
-		boss->PushTarget();
+		boss->SpawnBoss();
 	
 	}
 }
 
 Vector2 EnemyManager::RendomPos()
 {
-	float x = 1900.0f;
-	int y = rand() % 100 + 450; // 450 ~ 650 
+	Character* castle = enemies["Castle"][0];
+	float x = castle->GetGlobalPosition().x;
+	int y = rand() % 200 + 450; // 450 ~ 650 
 	return Vector2(x, y);
 }
 

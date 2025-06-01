@@ -7,7 +7,7 @@ Enemy_Boss::Enemy_Boss():Character({200,200})
 	horseTransform->SetTag("horseClip");
 
 	UnitStat stat;
-	stat.maxHp = 300;
+	stat.maxHp = 3000;
 	stat.attack = 10;
 	stat.moveSpeed = 80;
 	stat.attackSpeed = 1.0f;
@@ -23,6 +23,9 @@ Enemy_Boss::Enemy_Boss():Character({200,200})
 
 Enemy_Boss::~Enemy_Boss()
 {
+	delete horseTransform;
+	delete walkingHorse;
+	delete attackHorse;
 }
 
 void Enemy_Boss::Render()
@@ -47,6 +50,9 @@ void Enemy_Boss::Render()
 
 void Enemy_Boss::Update()
 {
+	if (timerSwitch)
+		TimerFunc();
+
 	switch (curState)
 	{
 	case Character::Run:
@@ -76,8 +82,27 @@ void Enemy_Boss::PushTarget()
 		if (!unit->IsActive() || unit->GetHP() <= 0)
 			continue;
 
-		Vector2 unitPos = unit->GetGlobalPosition();
-		unit->SetLocalPosition(unitPos.x - 300, unitPos.y);
+		unit->Translate(Vector2::Left() * PUSH_SPEED * DELTA);
+	}
+}
+
+void Enemy_Boss::SpawnBoss()
+{
+	timerSwitch = true;
+	isPush = true;
+	TargetToStun();
+}
+
+void Enemy_Boss::AttackTarget()
+{
+	attackCount++;
+
+	if (attackCount < SPECIAL_ATTACK_COUNT)
+		Character::AttackTarget();
+	else
+	{
+		SpecialAttack();
+		attackCount = 0;
 	}
 }
 
@@ -99,7 +124,7 @@ void Enemy_Boss::CreateClips()
 	animation->LoadClip("Resources/Textures/Enemy_Boss/", "Boss_Head_Attack.xml", true);
 	animation->LoadClip("Resources/Textures/Enemy_Boss/", "Boss_Dead.xml", false);
 
-	animation->GetClip(Attack)->SetFrameEvent(1, bind(&Character::AttackTarget, this));
+	animation->GetClip(Attack)->SetFrameEvent(8, bind(&Character::AttackTarget, this));
 	
 
 }
@@ -119,4 +144,32 @@ void Enemy_Boss::ChangeTransform()
 		clipTransform->SetLocalScale({ 1.5f,1.5f });
 		horseTransform->SetLocalScale({ 1.5f,1.5f });
 	}
+}
+
+void Enemy_Boss::TimerFunc()
+{
+	timer += DELTA;
+
+	if (timer > STUN_TIME)
+	{
+		timerSwitch = false;
+		TargetToRun();
+		curState = Run;
+		timer = 0.0f;
+		return;
+	}
+	else if (isPush == true && timer > PUSH_TIME)
+	{
+		isPush = false;
+	}
+
+	if(isPush)
+		PushTarget();
+}
+
+void Enemy_Boss::SpecialAttack()
+{
+	timerSwitch = true;
+	TargetToStun();
+	isPush = true;
 }

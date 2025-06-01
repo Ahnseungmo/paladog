@@ -37,7 +37,11 @@ void Character::Render()
 
     worldBuffer->Set(clipTransform->GetWorld());
     worldBuffer->SetVS(0);
-    animation->Render(curState);
+
+    if (curState == Stun)
+        animation->Render(Attack);
+    else
+        animation->Render(curState);
     hpBar->Render();
 }
 
@@ -97,6 +101,9 @@ void Character::Move()
 
 void Character::State()
 {
+    if (curState == Stun)
+        return;
+
     FindTarget();
     if (target)
         curState = Attack;
@@ -193,3 +200,30 @@ void Character::TakeDamage(float damage)
     }
 }
 
+void Character::TargetToRun()
+{
+    if (!targetList)
+        return;
+
+    for (Character* unit : *targetList)
+    {
+        if (!unit->IsActive() || unit->GetHP() <= 0)
+            continue;
+
+        unit->SetCurStateToRun();
+    }
+}
+
+void Character::TargetToStun()
+{
+    if (!targetList)
+        return;
+
+    for (Character* unit : *targetList)
+    {
+        if (!unit->IsActive() || unit->GetHP() <= 0)
+            continue;
+
+        unit->SetCurStateToStun();
+    }
+}

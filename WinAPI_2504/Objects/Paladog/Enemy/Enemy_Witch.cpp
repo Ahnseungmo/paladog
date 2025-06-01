@@ -4,10 +4,10 @@ Enemy_Witch::Enemy_Witch()
 {
 	UnitStat stat;
 	stat.maxHp = 100;
-	stat.attack = 50;
+	stat.attack = 10;
 	stat.moveSpeed = 90;
 	stat.attackSpeed = 1.5f;
-	stat.attackRange = 300;
+	stat.attackRange = 700;
 	stat.attackCount = 1;
 
 	SetStat(stat);
@@ -17,6 +17,19 @@ Enemy_Witch::Enemy_Witch()
 
 Enemy_Witch::~Enemy_Witch()
 {
+}
+
+void Enemy_Witch::AttackTarget()
+{
+	specialAttackCount++;
+	if (specialAttackCount >= 3)
+	{
+		SpecialAttack();
+		specialAttackCount = 0;
+	}
+	else
+		Character::AttackTarget();
+
 }
 
 void Enemy_Witch::CreateClips()
@@ -32,4 +45,17 @@ void Enemy_Witch::CreateClips()
 
 	clipTransform->SetLocalPosition({ thisPos.x,thisPos.y + setY });
 	clipTransform->SetLocalScale({ 1.9, 1.9 });
+}
+
+void Enemy_Witch::SpecialAttack()
+{
+	vector<Character*>* enemies = EnemyManager::Get()->GetAllUnits();
+
+	for (Character* enemy : *enemies)
+	{
+		if (enemy->GetMaxHP() < enemy->GetHP() + ADD_HP)
+			enemy->SetHP(enemy->GetMaxHP());
+		else
+			enemy->SetHP(enemy->GetHP() + ADD_HP);
+	}
 }

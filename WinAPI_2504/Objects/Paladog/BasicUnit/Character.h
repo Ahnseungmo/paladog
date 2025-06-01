@@ -6,7 +6,7 @@ class Character : public RectCollider
 protected:
     enum ActionState
     {
-        Run, Attack, Dead
+        Run, Attack, Dead, Stun
     };
 public:
 
@@ -34,11 +34,17 @@ public:
 
     const UnitStat& GetStat() const { return stat; }
     int GetHP() { return hp; }
+    int GetMaxHP() { return stat.maxHp; }
+    void SetHP(int hp) { this->hp = hp; }
     TeamType GetTeam() const { return team; }
 
     void SetCurStateToRun()
     {
         curState = Run;
+    }
+    void SetCurStateToStun()
+    {
+        curState = Stun;
     }
     void ResetStat() { SetStat(baseStat); }
     void SetBaseStat(const UnitStat& stat)
@@ -57,6 +63,9 @@ public:
     void SetIsAttackSpeedBuff(bool is) { isAttackSpeedBuff = is; }
 
     void TakeDamage(float damage);
+
+    void TargetToRun();
+    void TargetToStun();
 
 protected:
     virtual void CreateClips() = 0;
