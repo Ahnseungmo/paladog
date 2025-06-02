@@ -2,13 +2,7 @@
 
 Ally_Archer::Ally_Archer() : Character(Vector2(140, 140))
 {
-    UnitStat stat;
-    stat.maxHp = 240;
-    stat.attack = 10;
-    stat.moveSpeed = 120;
-    stat.attackSpeed = 1.0f;
-    stat.attackRange = 400;
-    stat.attackCount = 1;
+    MappingAllyData((int)ALLY_TYPE::Archer);
     SetBaseStat(stat);
     SetTeam(TeamType::Ally);
     CreateClips();

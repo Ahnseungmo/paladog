@@ -240,3 +240,17 @@ void Character::MappingCharacterData(int key)
     stat.attackCount = data.attackCount;
 
 }
+
+void Character::MappingAllyData(int key)
+{
+    MappingCharacterData(key);
+    AllyData data = DataManager::Get()->GetAlly(key);
+    int level = 1;
+    if (DataManager::Get()->GetBag(key).level) {
+        level = DataManager::Get()->GetBag(key).level;
+    }
+    stat.maxHp += data.hpPerLevel * level;
+    stat.attack += data.attackPerLevel * level;
+    stat.moveSpeed += data.speedPerLevel * level;
+    stat.attackSpeed += data.attackSpeedPerLevel * level;
+}

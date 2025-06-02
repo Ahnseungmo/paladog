@@ -2,14 +2,7 @@
 
 Ally_Boxer::Ally_Boxer() : Character(Vector2(150,150))
 {
-    UnitStat stat;
-    stat.maxHp = 200;
-    stat.attack = 10;
-    stat.moveSpeed = 140;
-    stat.attackSpeed = 1.0f;
-    stat.attackRange = 150;
-    stat.attackCount = 1;
-
+    MappingAllyData((int)ALLY_TYPE::Boxer);
     SetBaseStat(stat);
     SetTeam(TeamType::Ally);
     CreateClips();

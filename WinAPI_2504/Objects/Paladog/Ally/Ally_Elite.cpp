@@ -2,14 +2,7 @@
 
 Ally_Elite::Ally_Elite() : Character(Vector2(150, 180))
 {
-	UnitStat stat;
-	stat.maxHp = 280;
-	stat.attack = 10;
-	stat.moveSpeed = 130;
-	stat.attackSpeed = 1.0f;
-	stat.attackRange = 60;
-	stat.attackCount = 1;
-
+	MappingAllyData((int)ALLY_TYPE::Elite);
 	SetBaseStat(stat);
 	SetTeam(TeamType::Ally);
 	CreateClips();

@@ -2,13 +2,7 @@
 
 Ally_Bomber::Ally_Bomber()
 {
-    UnitStat stat;
-    stat.maxHp = 240;
-    stat.attack = 30;
-    stat.moveSpeed = 120;
-    stat.attackSpeed = 1.0f;
-    stat.attackRange = 600;
-    stat.attackCount = 3;
+    MappingAllyData((int)ALLY_TYPE::Bomber);
     SetBaseStat(stat);
     SetTeam(TeamType::Ally);
     CreateClips();

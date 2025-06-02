@@ -2,13 +2,7 @@
 
 Ally_Tanker::Ally_Tanker()
 {
-	UnitStat stat;
-	stat.maxHp = 400;
-	stat.attack = 5;
-	stat.moveSpeed = 140;
-	stat.attackSpeed = 1.2f;
-	stat.attackRange = 10;
-	stat.attackCount = 1;
+	MappingAllyData((int)ALLY_TYPE::Tanker);
 	SetBaseStat(stat);
 	SetTeam(TeamType::Ally);
 	CreateClips();

@@ -2,13 +2,7 @@
 
 Ally_Lancer::Ally_Lancer() : Character(Vector2(120, 150))
 {
-	UnitStat stat;
-	stat.maxHp = 380;
-	stat.attack = 20;
-	stat.moveSpeed = 110;
-	stat.attackSpeed = 1.2f;
-	stat.attackRange = 100;
-	stat.attackCount = 1;
+	MappingAllyData((int)ALLY_TYPE::Lancer);
 	SetBaseStat(stat);
 	SetTeam(TeamType::Ally);
 	CreateClips();

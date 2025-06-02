@@ -68,6 +68,7 @@ public:
     void TargetToStun();
 
     void MappingCharacterData(int key);
+    void MappingAllyData(int key);
 
 protected:
     virtual void CreateClips() = 0;
