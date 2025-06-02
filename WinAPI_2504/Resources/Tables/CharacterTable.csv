@@ -8,7 +8,7 @@ key,name,type,baseHp,baseAttack,baseSpeed,baseAttackSpeed,sightRange,attackCount
 1007,Bomber,0,100,0,100,1,60,1,ÆøÅº
 2001,Castle,1,2000,0,0,0,0,0,¼º
 2002,Frankenstein,1,300,60,80,1,70,1,ÇÁ¶ûÄË½´Å¸ÀÎ
-2003,IronMan,1,300,10,80,1,70,1,¾ÆÀÌ¾ğ¸Ç
+2003,IronMan,1,300,0.002,80,1,70,1,¾ÆÀÌ¾ğ¸Ç
 2004,LadySkeleton,1,80,40,90,1.2,150,1,·¹ÀÌµğ½ºÄÌ·¹Åæ
 2005,Warrior,1,80,40,90,1.2,150,1,¿ö¸®¾î
 2006,Witch,1,100,50,90,1.5,300,1,¸¶³à

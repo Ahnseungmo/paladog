@@ -2,16 +2,7 @@
 
 Enemy_IronMan::Enemy_IronMan():Character({130,200})
 {
-	UnitStat stat;
-	stat.maxHp = 400;
-	stat.attack = 0.005f;
-	stat.moveSpeed = 80;
-	stat.attackSpeed = 1.0f;
-	stat.attackRange = 100;
-	stat.attackCount = 1;
-
-	
-	SetStat(stat);
+	MappingCharacterData(2003);
 	SetTeam(TeamType::Enemy);
 	CreateClips();
 	CreateBeam();

@@ -47,6 +47,7 @@ void EnemyManager::Update()
 			if (!myEnemy->IsActive())
 				continue;
 			myEnemy->Update();
+			EnemyOut(myEnemy);
 		}
 	}
 }
@@ -185,39 +186,50 @@ void EnemyManager::SpawnEnemies()
 		SpawnEnemy(Enemy_Type::Zombie);
 		zombieTimer = timer;
 	}
+
 	if (timer - witchTimer > SPAWN_WITCH_TIME)
 	{
 		SpawnEnemy(Enemy_Type::Witch);
 		witchTimer = timer;
 	}
+
 	if (timer - warriorTimer > SPAWN_WARRIOR_TIME)
 	{
 		SpawnEnemy(Enemy_Type::Warrior);
 		warriorTimer = timer;
 	}
+
 	if (timer - ladyskeletonTimer > SPAWN_LADYSKELETON_TIME)
 	{
 		SpawnEnemy(Enemy_Type::LadySkeleton);
 		ladyskeletonTimer = timer;
 	}
+
 	if (timer - ironmanTimer > SPAWN_IRONMAN_TIME)
 	{
 		SpawnEnemy(Enemy_Type::IronMan);
 		ironmanTimer = timer;
 	}
+
 	if (timer - frankensteinTimer > SPAWN_FRANKENSTEIN_TIME)
 	{
-		SpawnEnemy(Enemy_Type::LadySkeleton);
-		timer -= frankensteinTimer;
-		SetOriginalTime();
+		SpawnEnemy(Enemy_Type::Frankenstein);
 	}
 }
 
 Vector2 EnemyManager::RendomPos()
 {
 	float x = castle->GetGlobalPosition().x;
-	int y = rand() % 200 + 450; // 450 ~ 650 
+	int y = rand() % 200 + 500; // 500 ~ 700 
 	return Vector2(x, y);
+}
+
+void EnemyManager::EnemyOut(Character* enemy)
+{
+	Vector2 pos = enemy->GetGlobalPosition();
+	if (pos.x > 0)
+		return;
+	SceneManager::Get()->ChangeScene("Intro");
 }
 
 

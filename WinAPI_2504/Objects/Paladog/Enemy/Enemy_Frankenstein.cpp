@@ -2,15 +2,7 @@
 
 Enemy_Frankenstein::Enemy_Frankenstein()
 {
-	UnitStat stat;
-	stat.maxHp = 300;
-	stat.attack = 60;
-	stat.moveSpeed = 80;
-	stat.attackSpeed = 1.0f;
-	stat.attackRange = 70;
-	stat.attackCount = 1;
-
-	SetStat(stat);
+	MappingCharacterData(2002);
 	SetTeam(TeamType::Enemy);
 	CreateClips();
 }

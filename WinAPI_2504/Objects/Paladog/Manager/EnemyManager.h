@@ -18,11 +18,11 @@ private:
 	const int ENEMY_POOL_SIZE = 50;
 
 	const float SPAWN_ZOMBIE_TIME = 5.0f;
-	const float SPAWN_WITCH_TIME = 18.0f;
-	const float SPAWN_WARRIOR_TIME = 18.0f;
-	const float SPAWN_LADYSKELETON_TIME = 16.0f;
-	const float SPAWN_IRONMAN_TIME = 25.0f;
-	const float SPAWN_FRANKENSTEIN_TIME = 35.0f;
+	const float SPAWN_WITCH_TIME = 20.0f;
+	const float SPAWN_WARRIOR_TIME = 23.0f;
+	const float SPAWN_LADYSKELETON_TIME = 18.0f;
+	const float SPAWN_IRONMAN_TIME = 30.0f;
+	const float SPAWN_FRANKENSTEIN_TIME = 50.0f;
 
 
 private:
@@ -76,12 +76,13 @@ private:
 
 	Vector2 RendomPos();
 
+	void EnemyOut(Character* enemy);
 
 private:
 	bool isSpawnBoss = false;
 	bool isSpawnHalf = false;
 
-	float timer = 0.0f;
+	double timer = 0.0;
 
 	float zombieTimer;
 	float witchTimer;

@@ -2,7 +2,7 @@
 
 Enemy_Castle::Enemy_Castle() :Character({ 300,300 })
 {
-	SetStat({ 200, 0, 0, 0, 0 });
+	MappingCharacterData(2001);
 	SetTeam(TeamType::Enemy);
 
 	CreateQuad(Alive, L"Resources/Textures/Enemy_Castle/enemy_base_full_front.png", L"Resources/Textures/Enemy_Castle/enemy_base_full_back.png");

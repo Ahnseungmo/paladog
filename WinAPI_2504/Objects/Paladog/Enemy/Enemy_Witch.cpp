@@ -2,15 +2,7 @@
 
 Enemy_Witch::Enemy_Witch()
 {
-	UnitStat stat;
-	stat.maxHp = 100;
-	stat.attack = 10;
-	stat.moveSpeed = 90;
-	stat.attackSpeed = 1.5f;
-	stat.attackRange = 700;
-	stat.attackCount = 1;
-
-	SetStat(stat);
+	MappingCharacterData(2006);
 	SetTeam(TeamType::Enemy);
 	CreateClips();
 }

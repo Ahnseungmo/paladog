@@ -2,15 +2,7 @@
 
 Enemy_LadySkeleton::Enemy_LadySkeleton()
 {
-	UnitStat stat;
-	stat.maxHp = 1000;
-	stat.attack = 50;
-	stat.moveSpeed = 90;
-	stat.attackSpeed = 2.0f;
-	stat.attackRange = 400;
-	stat.attackCount = 1;
-
-	SetStat(stat);
+	MappingCharacterData(2004);
 	SetTeam(TeamType::Enemy);
 	CreateClips();
 
