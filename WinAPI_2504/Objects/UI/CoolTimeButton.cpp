@@ -39,6 +39,6 @@ void CoolTimeButton::GUIRender()
 void CoolTimeButton::UpdateCoolTime(float cur, float max)
 {
 	float progress = cur / max;
-	float amount = progress * XM_2PI;
+	float amount = progress * PI * 2;
 	valueBuffer->GetValue()[0] = amount;
 }

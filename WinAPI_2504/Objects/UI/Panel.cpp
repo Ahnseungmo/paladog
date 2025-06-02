@@ -83,20 +83,20 @@ void Panel::Update()
 
 void Panel::Render()
 {
-	//float spawnCur = spawnBar->GetCurGauge();
-	//float spawnMax = spawnBar->GetMaxGauge();
-	//float manaCur = manaBar->GetCurGauge();
-	//float manaMax = manaBar->GetMaxGauge();
+	float spawnCur = spawnBar->GetCurGauge();
+	float spawnMax = spawnBar->GetMaxGauge();
+	float manaCur = manaBar->GetCurGauge();
+	float manaMax = manaBar->GetMaxGauge();
 
-	//char spawnText[32];
-	//sprintf_s(spawnText, "%d   %d", (int)spawnCur, (int)spawnMax);
+	char spawnText[32];
+	sprintf_s(spawnText, "%d   %d", (int)spawnCur, (int)spawnMax);
 
-	//char manaText[32];
-	//sprintf_s(manaText, "%d   %d", (int)manaCur, (int)manaMax);
+	char manaText[32];
+	sprintf_s(manaText, "%d   %d", (int)manaCur, (int)manaMax);
 
-	//ImDrawList* draw_list = ImGui::GetBackgroundDrawList();
-	//draw_list->AddText(ImVec2(212, 520), IM_COL32(255, 255, 0, 255), spawnText);
-	//draw_list->AddText(ImVec2(1010 + 150, 258 - 10), IM_COL32(0, 200, 255, 255), manaText);
+	ImDrawList* draw_list = ImGui::GetBackgroundDrawList();
+	draw_list->AddText(ImVec2(212, 520), IM_COL32(255, 255, 0, 255), spawnText);
+	draw_list->AddText(ImVec2(1020, 520), IM_COL32(0, 200, 255, 255), manaText);
 
 	spawnBar->Render();
 	manaBar->Render();

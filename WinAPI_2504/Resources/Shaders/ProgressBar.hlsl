@@ -58,7 +58,7 @@ float4 PS(Output output) : SV_TARGET
     float angle = atan2(dir.y, dir.x) + PI / 2;
     angle = fmod(angle + 2 * PI, 2 * PI);
 
-    if (angle < amount)
+    if (angle > amount)
         baseColor.a = 0.0f;
     
     return baseColor * color;
