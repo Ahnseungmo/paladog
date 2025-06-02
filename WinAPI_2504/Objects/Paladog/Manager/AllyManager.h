@@ -1,13 +1,13 @@
 #pragma once
 enum class ALLY_TYPE
 {
-    Knight,
-    Archer,
-    Boxer,
-    Lancer,
-    Tanker,
-    Elite,
-    Bomber,
+    Knight = 1001,
+    Archer = 1002,
+    Boxer = 1003,
+    Lancer = 1004,
+    Tanker = 1005,
+    Elite = 1006,
+    Bomber = 1007,
     End
 };
 
