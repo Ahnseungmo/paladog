@@ -73,6 +73,8 @@ void Enemy_Castle::CheckHP()
 		state = Broken;
 	else if (hp < MAX_HP * 0.6f)
 		state = Damage;
+	else
+		state = Alive;
 }
 
 

@@ -17,6 +17,7 @@ Enemy_Boss::Enemy_Boss():Character({200,200})
 	//SetStat(stat);
 	MappingCharacterData(2008);
 	SetTeam(TeamType::Enemy);
+	
 
 	CreateHorse();
 	CreateClips();

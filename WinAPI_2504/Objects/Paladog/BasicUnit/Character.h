@@ -56,6 +56,8 @@ public:
         this->stat = stat;
         this->hp = stat.maxHp;
     }
+    UnitStat GetBaseStat() { return baseStat; }
+
     void SetTeam(TeamType team) { this->team = team; }
     void SetTargetList(vector<Character*>* targets) { this->targetList = targets; }
     void SetClipTransform(Vector2 pos) { clipTransform->SetLocalPosition(pos); }

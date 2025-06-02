@@ -66,11 +66,13 @@ void BattleScene::Start()
 	playerPanel->Start();
 	Environment::Get()->GetMainCamera()->SetTarget(paladog);
 	Environment::Get()->GetMainCamera()->SetLimits(LEFT_EDGE, RIGHT_EDGE + 500);
+	EnemyManager::Get()->ResetEnemy();
 }
 
 void BattleScene::End()
 {
 	Environment::Get()->GetMainCamera()->SetTarget(nullptr);
+
 }
 
 void BattleScene::ArrayRendering()

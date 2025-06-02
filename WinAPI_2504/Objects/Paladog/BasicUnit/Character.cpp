@@ -239,6 +239,7 @@ void Character::MappingCharacterData(int key)
     stat.attackRange = data.sightRange;
     stat.attackCount = data.attackCount;
 
+    this->baseStat = stat;
 }
 
 void Character::MappingAllyData(int key)
@@ -253,4 +254,6 @@ void Character::MappingAllyData(int key)
     stat.attack += data.attackPerLevel * level;
     stat.moveSpeed += data.speedPerLevel * level;
     stat.attackSpeed += data.attackSpeedPerLevel * level;
+
+    //this->baseStat = stat; 
 }

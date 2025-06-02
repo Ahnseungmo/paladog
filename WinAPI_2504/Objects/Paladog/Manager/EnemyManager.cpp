@@ -143,6 +143,7 @@ void EnemyManager::SpawnEnemy(Enemy_Type key)
 		enemy->SetLocalPosition(RendomPos());
 		enemy->SetStat(enemy->GetStat());
 		enemy->SetTargetList(unit);
+		
 		return;
 	}
 }
@@ -152,6 +153,29 @@ bool EnemyManager::IsCastle(Character* enemy)
 	if (enemy == castle)
 		return true;
 	else false;
+}
+
+void EnemyManager::ResetEnemy()
+{
+	for (auto& enemy : enemies)
+	{
+		for (Character* myEnemy : enemy.second)
+		{
+			if (!myEnemy->IsActive())
+				continue;
+			myEnemy->SetActive(false);
+			myEnemy->SetStat(myEnemy->GetBaseStat());
+		}
+	}
+
+	enemies[Enemy_Type::Castle][0]->SetActive(true);
+
+	isSpawnBoss = false;
+	isSpawnHalf = false;
+
+	SetOriginalTime();
+
+	timer = 0.0;
 }
 
 void EnemyManager::SpawnBossAndEnemy()

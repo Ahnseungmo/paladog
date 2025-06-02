@@ -40,6 +40,8 @@ public:
 	void SpawnEnemy(Enemy_Type key);
 	bool IsCastle(Character* enemy);
 
+	void ResetEnemy();
+
 private:
 	template<typename T>
 	void CreateEnemies(Enemy_Type key)
