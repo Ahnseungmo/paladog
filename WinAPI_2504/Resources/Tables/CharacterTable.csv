@@ -1,16 +1,16 @@
 key,name,type,baseHp,baseAttack,baseSpeed,baseAttackSpeed,sightRange,attackCount,explane
-1001,Knight,0,50,20,100,1,20,1,±â»ç
-1002,Archer,0,40,40,120,1,400,1,¿ø°Å¸®
-1003,Boxer,0,200,10,140,1,150,1,±Ù°Å¸®
-1004,Lancer,0,80,20,110,1.2,30,1,Ã¢º´
-1005,Tanker,0,200,5,140,1.2,10,1,ÅÊÄ¿
-1006,Elite,0,280,80,130,1.2,60,1,¿¤¸®Æ®
-1007,Bomber,0,100,40,100,1,300,3,ÆøÅº
-2001,Castle,1,2000,0,0,0,0,0,¼º
-2002,Frankenstein,1,300,60,80,1,70,1,ÇÁ¶ûÄË½´Å¸ÀÎ
-2003,IronMan,1,300,0.002,80,1,70,1,¾ÆÀÌ¾ð¸Ç
-2004,LadySkeleton,1,80,40,90,1.2,150,1,·¹ÀÌµð½ºÄÌ·¹Åæ
-2005,Warrior,1,80,40,90,1.2,150,1,¿ö¸®¾î
-2006,Witch,1,100,50,90,1.5,300,1,¸¶³à
-2007,Zombie,1,100,15,90,1.2,70,1,Á»ºñ
-2008,Boss,1,500,30,90,1.5,130,8,º¸½º
+1001,Knight,0,50,20,100,1,20,1,A balanced melee unit with solid stats.
+1002,Archer,0,40,40,120,1,400,1,A long-range unit with high attack power.
+1003,Boxer,0,200,10,140,1,150,1,A tough melee unit with high HP.
+1004,Lancer,0,80,20,110,1.2,30,1,A spear unit with extended reach.
+1005,Tanker,0,200,5,140,1.2,10,1,A frontline unit with high durability.
+1006,Elite,0,280,80,130,1.2,60,1,A powerful elite soldier.
+1007,Bomber,0,100,40,100,1,300,3,A unit that throws bombs in an arc.
+2001,Castle,1,2000,0,0,0,0,0,The base structure to protect.
+2002,Frankenstein,1,300,60,80,1,70,1,A strong brute unit with heavy hits.
+2003,IronMan,1,300,0.002,80,1,70,1,A near-invincible armored unit.
+2004,LadySkeleton,1,80,40,90,1.2,150,1,A nimble ranged undead unit.
+2005,Warrior,1,80,40,90,1.2,150,1,A standard melee combatant.
+2006,Witch,1,100,50,90,1.5,300,1,A magic user with ranged attacks.
+2007,Zombie,1,100,15,90,1.2,70,1,A slow but durable undead unit.
+2008,Boss,1,500,30,90,1.5,130,8,A powerful multi-attack boss unit.

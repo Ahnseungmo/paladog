@@ -12,6 +12,7 @@ public:
 	void CreateUnitData();
 	void CreateUnitStatusBar();
 	void DisplayUnit(void* keydata);
+	void UnitUpgrade();
 //	void CreateButtons();
 
 private:
@@ -21,14 +22,19 @@ private:
 	const float BUTTON_HEIGHT = 120.0f;
 	const float BUTTON_SPACING = 5.0f;
 	const float BAR_WIDTH = 293.0f;
-
+	int selKey = 0;
 	float startX;
 
 	vector<Button*> buttons;
 	unordered_map<int,Quad*> unitTexture;
+	unordered_map<int,Quad*> unitTextureSmall[2];
 	vector<Quad*> unitStatusBar;
 	float UnitStatusBarPadding = 75.0f;
-
+	TextBox* textUnitCount;
+	TextBox* textUnitLevelCost;
+	TextBox* textUnitExplane;
+	TextBox* textUnitLevel;
+	TextBox* textMoney;
 	unordered_map<int, wstring> unitImages = {
 		{1001, L"Resources/Textures/Paladog/Unit/Units/Knight.png"},
 		{1002, L"Resources/Textures/Paladog/Unit/Units/Archer.png"},

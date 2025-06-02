@@ -8,8 +8,7 @@ UnitPanel::UnitPanel(Vector2 pos)
 
 	CreateButtons();
 
-	textBox = new TextBox(Vector2(100, 100), Vector2(200, 400), L"Unit PaneUnit PaneUnit PaneUnit PaneUnit Panel");
-	textBox->SetParent(this);
+
 }
 
 UnitPanel::~UnitPanel()
@@ -38,7 +37,7 @@ void UnitPanel::Render()
 	for (auto& check : checkUnits)
 //		if (check.second->IsActive())
 			check.second->Render();
-	textBox->Render();
+
 }
 
 void UnitPanel::CreateButtons()

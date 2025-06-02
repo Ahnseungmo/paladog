@@ -19,7 +19,7 @@ private:
 
 	bool isBooting = false;
 	float bootTimer;
-	const float BOOT_TIME = 0.3f;
+	const float BOOT_TIME = 0.1f;
 	unordered_map<string, Button*> buttons;
 
 };

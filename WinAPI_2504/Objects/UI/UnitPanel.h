@@ -27,7 +27,7 @@ private:
 
     vector<Button*> buttons;
 //	Transform* moneyTransform;
-	TextBox* textBox;
+
 	unordered_map<int, Quad*> checkUnits;
 //	UnitScene* parentScene;
 

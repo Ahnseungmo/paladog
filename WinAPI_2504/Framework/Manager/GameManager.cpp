@@ -61,24 +61,24 @@ void GameManager::Render()
 {
 	Device::Get()->Clear();
 
-	// ImGui ÇÁ·¹ÀÓ ½ÃÀÛ
+	// ImGui ì´ˆê¸°í™”
 	ImGui_ImplDX11_NewFrame();
 	ImGui_ImplWin32_NewFrame();
 	ImGui::NewFrame();
 
-	// ¾À ·»´õ¸µ
+	// í™”ë©´ ê·¸ë¦¬ê¸°
 	SCENE->Render();
 	Environment::Get()->SetUIViewBuffer();
 	SCENE->PostRender();
 
-	// ImGui ·»´õ¸µ
+	// ImGui ë Œë”ë§
 	string fps = "FPS : " + to_string(Timer::Get()->GetFPS());
 	ImGui::Text(fps.c_str());
 
-	// ¾ÀÀÇ GUI ·»´õ¸µ
+	// ê²Œì„ GUI ê·¸ë¦¬ê¸°
 	SCENE->GUIRender();
 
-	// ImGui ·»´õ¸µ ¿Ï·á
+	// ImGui ë Œë”ë§ ì¢…ë£Œ
 	ImGui::Render();
 	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 
@@ -87,30 +87,33 @@ void GameManager::Render()
 
 void GameManager::Create()
 {
-	// ImGui ÃÊ±âÈ­
+	// ImGui ì´ˆê¸°í™”
 	IMGUI_CHECKVERSION();
 	ImGui::CreateContext();
 	ImGuiIO& io = ImGui::GetIO();
-	io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;  // Å°º¸µå ³×ºñ°ÔÀÌ¼Ç È°¼ºÈ­
+	io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;  // í‚¤ë³´ë“œ ë„¤ë¹„ê²Œì´ì…˜ í™œì„±í™”
 
-	// ½ºÅ¸ÀÏ ¼³Á¤
+	// ìŠ¤íƒ€ì¼ ì„¤ì •
 	ImGui::StyleColorsDark();
 
-	// Win32 ÃÊ±âÈ­
+	// Win32 ì´ˆê¸°í™”
 	if (!ImGui_ImplWin32_Init(hWnd))
 	{
-		MessageBox(NULL, L"ImGui Win32 ÃÊ±âÈ­ ½ÇÆĞ", L"¿¡·¯", MB_OK);
+		MessageBox(NULL, L"ImGui Win32 ì´ˆê¸°í™” ì‹¤íŒ¨", L"ì˜¤ë¥˜", MB_OK);
 		return;
 	}
 
-	// DirectX 11 ÃÊ±âÈ­
+	// DirectX 11 ì´ˆê¸°í™”
 	if (!ImGui_ImplDX11_Init(DEVICE, DC))
 	{
-		MessageBox(NULL, L"ImGui DirectX 11 ÃÊ±âÈ­ ½ÇÆĞ", L"¿¡·¯", MB_OK);
+		MessageBox(NULL, L"ImGui DirectX 11 ì´ˆê¸°í™” ì‹¤íŒ¨", L"ì˜¤ë¥˜", MB_OK);
 		return;
 	}
 
-	// ³ª¸ÓÁö ¸Å´ÏÀú ÃÊ±âÈ­
+	// TextBox í°íŠ¸ ì´ˆê¸°í™”
+	TextBox::InitializeFonts();
+
+	// ì‹±ê¸€í†¤ ì´ˆê¸°í™”
 	Timer::Get();
 	Input::Get();
 	Device::Get();

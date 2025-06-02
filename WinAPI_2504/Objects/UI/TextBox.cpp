@@ -4,14 +4,50 @@
 #include <locale>
 #include <imgui.h>
 
-TextBox::TextBox(Vector2 pos, Vector2 size, wstring text)
-    : pos(pos), size(size), text(text)
+// 정적 멤버 초기화
+map<string, ImFont*> TextBox::fontMap;
+bool TextBox::fontsInitialized = false;
+
+TextBox::TextBox(Vector2 pos, Vector2 size, const char* text)
+    : pos(pos), size(size)
 {
-    WStringToCharArray();
+    strncpy_s(textBuffer, text, sizeof(textBuffer) - 1);
 }
 
 TextBox::~TextBox()
 {
+}
+
+void TextBox::InitializeFonts()
+{
+    if (fontsInitialized) return;
+
+    ImGuiIO& io = ImGui::GetIO();
+    
+    // 기본 폰트 추가
+    fontMap["Default"] = io.Fonts->AddFontDefault();
+    
+    // 나눔바른고딕 폰트 추가
+    fontMap["Resources/Fonts/NanumBarunGothic.ttf"] = io.Fonts->AddFontFromFileTTF("Resources/Fonts/NanumBarunGothic.ttf", 20.0f);
+    fontMap["C:/Windows/Fonts/malgun.ttf"] = io.Fonts->AddFontFromFileTTF("C:/Windows/Fonts/malgun.ttf", 20.0f);
+    
+    // 폰트 아틀라스 빌드
+    io.Fonts->Build();
+    
+    // DirectX 텍스처 업데이트
+    if (DEVICE && DC)
+    {
+        ImGui_ImplDX11_InvalidateDeviceObjects();
+        ImGui_ImplDX11_CreateDeviceObjects();
+    }
+    
+    fontsInitialized = true;
+}
+
+void TextBox::ReleaseFonts()
+{
+    fontMap.clear();
+    fontsInitialized = false;
 }
 
 void TextBox::Render()
@@ -43,41 +79,30 @@ void TextBox::Render()
     
     if (ImGui::Begin(windowName.c_str(), &open, window_flags))
     {
+        // 폰트 설정
+        auto it = fontMap.find(fontName);
+        if (it != fontMap.end()) {
+            ImGui::PushFont(it->second);
+        }
+        
         // 입력 텍스트 위젯
         ImGui::PushItemWidth(size.x - 20);
         
         // 텍스트 영역의 크기를 윈도우 크기에 맞게 조정
         ImVec2 textSize = ImVec2(size.x - 20, size.y - 10);
         
-        // 입력 텍스트
-        if (ImGui::InputText("##TextBoxInput", textBuffer, sizeof(textBuffer), 
-            ImGuiInputTextFlags_EnterReturnsTrue | 
-            ImGuiInputTextFlags_AutoSelectAll))
-        {
-            CharArrayToWString();
-        }
-
         // 미리보기 텍스트 (자동 줄바꿈)
         ImGui::TextWrapped("%s", textBuffer);
         
         ImGui::PopItemWidth();
+        
+        // 폰트 복원
+        if (it != fontMap.end()) {
+            ImGui::PopFont();
+        }
     }
     ImGui::End();
     
     ImGui::PopStyleColor(2);  // 스타일 색상 복원
     ImGui::PopStyleVar(2);    // 스타일 변수 복원
-}
-
-void TextBox::WStringToCharArray()
-{
-    std::wstring_convert<std::codecvt_utf8<wchar_t>> conv;
-    std::string temp = conv.to_bytes(text);
-    strncpy_s(textBuffer, temp.c_str(), sizeof(textBuffer));
-    textBuffer[sizeof(textBuffer) - 1] = '\0';
-}
-
-void TextBox::CharArrayToWString()
-{
-    std::wstring_convert<std::codecvt_utf8<wchar_t>> conv;
-    text = conv.from_bytes(textBuffer);
 }
