@@ -6,6 +6,7 @@ private:
 
 
 public:
+	Button() = default;
 	Button(wstring imagePath, Vector2 size, Vector2 pos);
 	~Button();
 
@@ -24,14 +25,11 @@ public:
 		if (onClick) onClick();
 	}
 
-private:
+protected:
 	Quad* quad;
 	function<void()> onClick;
 	function<void(int)> onClickInt;
 	function<void(int)> onClickRInt;
 	int intParameterR = 0;
 	int intParameter = 0;
-
-
-
 };

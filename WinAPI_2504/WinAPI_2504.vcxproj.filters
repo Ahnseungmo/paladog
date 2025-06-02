@@ -276,6 +276,12 @@
     <ClInclude Include="Scenes\UpgradeScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Scenes\GameEndingScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\UI\CoolTimeButton.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinAPI_2504.cpp">
@@ -515,6 +521,12 @@
     <ClCompile Include="Scenes\UpgradeScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Scenes\GameEndingScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\UI\CoolTimeButton.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WinAPI_2504.rc">
@@ -533,5 +545,6 @@
     <FxCompile Include="Resources\Shaders\Tutorial.hlsl" />
     <FxCompile Include="Resources\Shaders\Collider.hlsl" />
     <FxCompile Include="Resources\Shaders\Texture.hlsl" />
+    <FxCompile Include="Resources\Shaders\ProgressBar.hlsl" />
   </ItemGroup>
 </Project>

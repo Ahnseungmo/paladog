@@ -206,6 +206,7 @@
     <ClInclude Include="Objects\Shooting\Plane.h" />
     <ClInclude Include="Objects\UI\Background.h" />
     <ClInclude Include="Objects\UI\Button.h" />
+    <ClInclude Include="Objects\UI\CoolTimeButton.h" />
     <ClInclude Include="Objects\UI\Panel.h" />
     <ClInclude Include="Objects\UI\GaugeBar.h" />
     <ClInclude Include="Objects\UI\SpawnBar.h" />
@@ -295,6 +296,7 @@
     <ClCompile Include="Objects\Shooting\Plane.cpp" />
     <ClCompile Include="Objects\UI\Background.cpp" />
     <ClCompile Include="Objects\UI\Button.cpp" />
+    <ClCompile Include="Objects\UI\CoolTimeButton.cpp" />
     <ClCompile Include="Objects\UI\Panel.cpp" />
     <ClCompile Include="Objects\UI\GaugeBar.cpp" />
     <ClCompile Include="Objects\UI\SpawnBar.cpp" />
@@ -326,6 +328,12 @@
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Resources\Shaders\Collider.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+    </FxCompile>
+    <FxCompile Include="Resources\Shaders\ProgressBar.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>

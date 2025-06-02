@@ -148,6 +148,7 @@ typedef XMFLOAT4X4 Float4x4;
 
 #include "Objects/UI/GaugeBar.h"
 #include "Objects/UI/Button.h"
+#include "Objects/UI/CoolTimeButton.h"
 #include "Objects/UI/Panel.h"
 #include "Objects/UI/Background.h"
 

@@ -57,21 +57,18 @@ void Panel::AddButton(Button* button)
 	button->SetParent(this);
 }
 
-void Panel::AddCoolTimeButton(Button* button)
-{
-	coolTimeButtons.push_back(button);
-	button->UpdateWorld();
-	button->SetParent(this);
-}
-
 void Panel::Update()
 {
 	for (int i = 0; i < deck.size(); i++)
 	{
 		if (coolTimeCounts[i] < maxCoolTime[i])
 			coolTimeCounts[i] += DELTA;
-		coolTimeButtons[i]->SetActive(coolTimeCounts[i] < maxCoolTime[i]);
-		coolTimeButtons[i]->GetQuad()->SetActive(coolTimeCounts[i] < maxCoolTime[i]);
+		//if (coolTimeCounts[i] > maxCoolTime[i])
+		//	buttons[i]->SetActive(true);
+		coolTimeButtons[i]->UpdateCoolTime(coolTimeCounts[i], maxCoolTime[i]);
+		bool isCooling = coolTimeCounts[i] < maxCoolTime[i];
+		coolTimeButtons[i]->SetActive(isCooling);
+		buttons[i]->SetActive(!isCooling);
 	}
 
 	UpdateWorld();
@@ -86,14 +83,35 @@ void Panel::Update()
 
 void Panel::Render()
 {
+	//float spawnCur = spawnBar->GetCurGauge();
+	//float spawnMax = spawnBar->GetMaxGauge();
+	//float manaCur = manaBar->GetCurGauge();
+	//float manaMax = manaBar->GetMaxGauge();
+
+	//char spawnText[32];
+	//sprintf_s(spawnText, "%d   %d", (int)spawnCur, (int)spawnMax);
+
+	//char manaText[32];
+	//sprintf_s(manaText, "%d   %d", (int)manaCur, (int)manaMax);
+
+	//ImDrawList* draw_list = ImGui::GetBackgroundDrawList();
+	//draw_list->AddText(ImVec2(212, 520), IM_COL32(255, 255, 0, 255), spawnText);
+	//draw_list->AddText(ImVec2(1010 + 150, 258 - 10), IM_COL32(0, 200, 255, 255), manaText);
+
 	spawnBar->Render();
 	manaBar->Render();
 	hpBar->Render();
 	panelTexture->Render();
 	for (auto button : buttons)
 		button->Render();
-	for (auto button : coolTimeButtons)
-		button->Render();
+	for (auto coolTimeButton : coolTimeButtons)
+		coolTimeButton->Render();
+}
+
+void Panel::GUIRender()
+{
+	for (auto coolTimeButton : coolTimeButtons)
+		coolTimeButton->GUIRender();
 }
 
 void Panel::CreateButtons()
@@ -144,23 +162,30 @@ void Panel::CreateCoolTimeButtons()
 	float startX = -((buttonCount - 1) * (buttonWidth + buttonSpacing)) / 2.0f;
 
 	unordered_map<int, wstring> unitImages = {
-	{1001, L"Resources/Textures/UI/KnightCoolTimeButton.png"},
-	{1002, L"Resources/Textures/UI/ArcherCoolTimeButton.png"},
-	{1003, L"Resources/Textures/UI/BoxerCoolTimeButton.png"},
-	{1004, L"Resources/Textures/UI/LancerCoolTimeButton.png"},
-	{1005, L"Resources/Textures/UI/TankerCoolTimeButton.png"},
-	{1006, L"Resources/Textures/UI/EliteCoolTimeButton.png"},
-	{1007, L"Resources/Textures/UI/BomberCoolTimeButton.png"}
+	{1001, L"Resources/Textures/UI/KnightCoolTime.png"},
+	{1002, L"Resources/Textures/UI/ArcherCoolTime.png"},
+	{1003, L"Resources/Textures/UI/BoxerCoolTime.png"},
+	{1004, L"Resources/Textures/UI/LancerCoolTime.png"},
+	{1005, L"Resources/Textures/UI/TankerCoolTime.png"},
+	{1006, L"Resources/Textures/UI/EliteCoolTime.png"},
+	{1007, L"Resources/Textures/UI/BomberCoolTime.png"}
 	};
 
 	for (int i = 0; i < buttonCount; ++i)
 	{
 		float x = startX + i * (buttonWidth + buttonSpacing);
 		float y = 15;
-		Button* button = new Button(unitImages[deck[i]], Vector2(100, 100), Vector2(x, y));
-		button->SetActive(false);
-		this->AddCoolTimeButton(button);
+		CoolTimeButton* coolTimeButton = new CoolTimeButton(unitImages[deck[i]], Vector2(100, 100), Vector2(x, y), maxCoolTime[i]);
+		coolTimeButton->SetActive(false);
+		this->AddCoolTimeButton(coolTimeButton);
 	}
+}
+
+void Panel::AddCoolTimeButton(CoolTimeButton* coolTimeButton)
+{
+	coolTimeButtons.push_back(coolTimeButton);
+	coolTimeButton->UpdateWorld();
+	coolTimeButton->SetParent(this);
 }
 
 void Panel::SpawnCharacter(int typeIndex)
@@ -172,6 +197,7 @@ void Panel::SpawnCharacter(int typeIndex)
 	if (coolTimeCounts[typeIndex] >= maxCoolTime[typeIndex] &&
 		spawnBar->GetCurGauge() > ally.cost)
 	{
+		//buttons[typeIndex]->SetActive(false);
 		spawnBar->SetCurGauge(spawnBar->GetCurGauge() - ally.cost);
 
 		AllyManager::Get()->Spawn(allyType);
@@ -220,19 +246,3 @@ void Panel::HealSkill()
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -55,6 +55,11 @@ void BattleScene::Render()
 	ArrayRendering();
 }
 
+void BattleScene::GUIRender()
+{
+	playerPanel->GUIRender();
+}
+
 void BattleScene::PostRender()
 {
 	if (playerPanel)

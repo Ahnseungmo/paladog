@@ -12,12 +12,14 @@ public:
     void Start();
 
     void AddButton(Button* button);
-    void AddCoolTimeButton(Button* button);
+
     void Update();
     void Render();
+	void GUIRender();
 
     void CreateButtons();
-    void CreateCoolTimeButtons();
+	void CreateCoolTimeButtons();
+    void AddCoolTimeButton(CoolTimeButton* coolTimeButton);
     GaugeBar* GetSpawnBar() { return spawnBar; }
     GaugeBar* GetManaBar() { return manaBar; }
 
@@ -31,12 +33,15 @@ private:
     Quad* panelTexture;
     GaugeBar* spawnBar;
     GaugeBar* manaBar;
+
     vector<Button*> buttons;
-    vector<Button*> coolTimeButtons;
-    Paladog* paladog = nullptr;
+    vector<CoolTimeButton*> coolTimeButtons;
     vector<int>& deck = DataManager::Get()->GetDeck();
+
+    Paladog* paladog = nullptr;
     float maxCoolTime[7];
     float coolTimeCounts[7];
 
     HealthBar* hpBar;
+    ImFont* fontLarge = nullptr;
 };

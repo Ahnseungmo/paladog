@@ -34,3 +34,17 @@ public:
 private:
     Float4 color;
 };
+
+class FloatValueBuffer : public ConstBuffer
+{
+public:
+    FloatValueBuffer() : ConstBuffer(values, sizeof(float) * 4)
+    {
+
+    }
+
+    float* GetValue() { return values; }
+
+private:
+    float values[5] = {};
+};
