@@ -2,6 +2,9 @@
 
 class Panel : public Transform
 {
+private:
+    const float HEAL_COST = 50.0f;
+    const float HEAL_AMOUNT = 50.0f;
 public:
     Panel(Vector2 pos);
     ~Panel();
@@ -18,6 +21,7 @@ public:
 
     void SpawnCharacter(int type);
     void MeatSkill();
+    void HealSkill();
 
     void SetPaladog(Paladog* paladog) { this->paladog = paladog; }
 

@@ -12,7 +12,7 @@ Paladog::Paladog()
     SetBaseStat(stat);
     SetTeam(TeamType::Ally);
 
-    paladogTexture = new Quad(L"Resources/Textures/Paladog/TestPlayer.png");
+    paladogTexture = new Quad(L"Resources/Textures/Paladog/Paladog.png");
     paladogTexture->SetParent(this);
     auraTexture = new Quad(L"Resources/Textures/Paladog/Aura.png");
     auraTexture->SetParent(this);
@@ -39,19 +39,21 @@ void Paladog::Update()
     //    Translate(Vector2::Up() * SPEED * DELTA);
     //if (Input::Get()->IsKeyPress('S'))
     //    Translate(Vector2::Down() * SPEED * DELTA);
-    if (this->GetGlobalPosition().x > 300 && Input::Get()->IsKeyPress('A'))
+    if (this->GetGlobalPosition().x > LEFT_EDGE && Input::Get()->IsKeyPress('A'))
         Translate(Vector2::Left() * SPEED * DELTA);
-    if (this->GetGlobalPosition().x < SCREEN_WIDTH && Input::Get()->IsKeyPress('D'))
+    if (this->GetGlobalPosition().x < RIGHT_EDGE + 500 && Input::Get()->IsKeyPress('D'))
         Translate(Vector2::Right() * SPEED * DELTA);
+
+    Vector2 pos = GetGlobalPosition();
+
+    if (pos.x < LEFT_EDGE)
+        pos.x = LEFT_EDGE;
+    else if (pos.x > RIGHT_EDGE)
+        pos.x = RIGHT_EDGE;
 
     //PunchSkill();
     punch->Update();
-
-    if (punch->IsActive() && punch->GetGlobalPosition().x > SCREEN_WIDTH + 600)
-    {
-        punch->SetActive(false);
-        punch->SetLocalPosition(Vector2(0, 0));
-    }
+    punch->SetPunch(Vector2(0, 0));
 
     AuraBuff();
 

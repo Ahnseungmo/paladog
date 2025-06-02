@@ -10,13 +10,13 @@ Panel::Panel(Vector2 pos)
 	panelTexture = new Quad(L"Resources/Textures/UI/PlayerPanel.png");
 	panelTexture->SetParent(this);
 
-	spawnBar = new GaugeBar(5.0f, Vector2(370, 33), Vector2(273, 258), 
+	spawnBar = new GaugeBar(5.0f, Vector2(370, 33), Vector2(273, 258),
 		L"Resources/Textures/UI/curSpawnBar.png",
 		L"Resources/Textures/UI/maxBar.png");
 
 	manaBar = new GaugeBar(5.0f, Vector2(370, 33), Vector2(1010, 258),
 		L"Resources/Textures/UI/curManaBar.png",
-		L"Resources/Textures/UI/maxBar.png"); 
+		L"Resources/Textures/UI/maxBar.png");
 
 	UpdateWorld();
 	panelTexture->UpdateWorld();
@@ -105,6 +105,7 @@ void Panel::CreateButtons()
 	Button* punchButton = new Button(L"Resources/Textures/UI/PunchButton.png", Vector2(100, 100), Vector2(1153, 61));
 
 	meatButton->SetOnClick(bind(&Panel::MeatSkill, this));
+	healButton->SetOnClick(bind(&Panel::HealSkill, this));
 	punchButton->SetOnClick([this]() { if (paladog) paladog->PunchSkill(); });
 
 	this->AddButton(meatButton);
@@ -146,7 +147,7 @@ void Panel::SpawnCharacter(int type)
 	case 0:
 		if (coolTimeCounts[0] >= maxCoolTime[0] && spawnBar->GetCurGauge() > 10)
 		{
-			spawnBar->SetCurGauge(spawnBar->GetCurGauge() -10);
+			spawnBar->SetCurGauge(spawnBar->GetCurGauge() - 10);
 			AllyManager::Get()->Spawn(ALLY_TYPE::Bomber);
 			coolTimeCounts[0] = 0;
 			coolTimeButtons[0]->SetActive(true);
@@ -155,7 +156,7 @@ void Panel::SpawnCharacter(int type)
 	case 1:
 		if (coolTimeCounts[1] >= maxCoolTime[1] && spawnBar->GetCurGauge() > 20)
 		{
-			spawnBar->SetCurGauge(spawnBar->GetCurGauge() -20);
+			spawnBar->SetCurGauge(spawnBar->GetCurGauge() - 20);
 			AllyManager::Get()->Spawn(ALLY_TYPE::Archer);
 			coolTimeCounts[1] = 0;
 			coolTimeButtons[1]->SetActive(true);
@@ -199,5 +200,34 @@ void Panel::MeatSkill()
 		spawnBar->SetCurGauge(spawnBar->GetCurGauge() + 50);
 		if (spawnBar->GetCurGauge() > spawnBar->GetMaxGauge())
 			spawnBar->SetCurGauge(spawnBar->GetMaxGauge());
+	}
+}
+
+void Panel::HealSkill()
+{
+	if (manaBar->GetCurGauge() < HEAL_COST)
+		return;
+
+	manaBar->SetCurGauge(manaBar->GetCurGauge() - HEAL_COST);
+
+	RectCollider* auraCollider = paladog->GetAuraCollider();
+	float auraX = auraCollider->GetGlobalPosition().x;
+	float auraHalfWidth = auraCollider->Size().x * 0.5f;
+	float left = auraX - auraHalfWidth;
+	float right = auraX + auraHalfWidth;
+
+	vector<Character*>* allies = AllyManager::Get()->GetAllUnits();
+	for (auto ally : *allies)
+	{
+		if (!ally->IsActive()) continue;
+
+		float allyX = ally->GetGlobalPosition().x;
+		if (allyX >= left && allyX <= right)
+		{
+			float newHP = ally->GetHP() + HEAL_AMOUNT;
+			if (newHP > ally->GetMaxHP())
+				newHP = ally->GetMaxHP();
+			ally->SetHP(newHP);
+		}
 	}
 }
