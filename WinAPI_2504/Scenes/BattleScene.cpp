@@ -62,6 +62,7 @@ void BattleScene::PostRender()
 
 void BattleScene::Start()
 {
+	playerPanel->Start();
 	Environment::Get()->GetMainCamera()->SetTarget(paladog);
 	Environment::Get()->GetMainCamera()->SetLimits(LEFT_EDGE, RIGHT_EDGE + 500);
 }

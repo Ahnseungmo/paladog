@@ -31,6 +31,14 @@ Panel::~Panel()
 	delete manaBar;
 }
 
+void Panel::Start() {
+	for (auto& button : buttons)
+		delete button;
+	buttons.clear();
+	CreateButtons();
+}
+
+
 void Panel::AddButton(Button* button)
 {
 	buttons.push_back(button);
@@ -77,7 +85,8 @@ void Panel::Render()
 
 void Panel::CreateButtons()
 {
-	int buttonCount = 5;
+	vector<int>& deck = DataManager::Get()->GetDeck();
+	int buttonCount = deck.size();
 	float buttonWidth = 120.0f;
 	float buttonSpacing = 5.0f;
 	float startX = -((buttonCount - 1) * (buttonWidth + buttonSpacing)) / 2.0f;
@@ -90,14 +99,26 @@ void Panel::CreateButtons()
 		L"Resources/Textures/UI/TankerButton.png"
 	};
 
+	unordered_map<int, wstring> unitImages = {
+	{1001, L"Resources/Textures/Paladog/Unit/Knight.png"},
+	{1002, L"Resources/Textures/Paladog/Unit/Archer.png"},
+	{1003, L"Resources/Textures/Paladog/Unit/Boxer.png"},
+	{1004, L"Resources/Textures/Paladog/Unit/Lancer.png"},
+	{1005, L"Resources/Textures/Paladog/Unit/Tanker.png"},
+	{1006, L"Resources/Textures/Paladog/Unit/Elite.png"},
+	{1007, L"Resources/Textures/Paladog/Unit/Bomber.png"}
+	};
+//	auto it = deck.begin();
 	for (int i = 0; i < buttonCount; ++i)
 	{
 		float x = startX + i * (buttonWidth + buttonSpacing);
 		float y = 15;
-		Button* button = new Button(buttonTextures[i], Vector2(100, 100), Vector2(x, y));
+		
+		Button* button = new Button(unitImages[deck[i]], Vector2(100, 100), Vector2(x, y));
 		//button->SetOnClick(bind(&AllyManager::Spawn, AllyManager::Get(), ALLY_TYPE::Boxer));
 		button->SetOnClick([this, i]() { SpawnCharacter(i); });
 		this->AddButton(button);
+	//	it++;
 	}
 	Vector2 pos = Vector2{ -300,100 };
 	Button* meatButton = new Button(L"Resources/Textures/UI/MeatButton.png", Vector2(100, 100), Vector2(753, 61) - pos);

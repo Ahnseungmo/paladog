@@ -9,6 +9,8 @@ public:
     Panel(Vector2 pos);
     ~Panel();
 
+    void Start();
+
     void AddButton(Button* button);
     void AddCoolTimeButton(Button* button);
     void Update();
