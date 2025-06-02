@@ -51,7 +51,10 @@ void Ally_Archer::Render()
 
     worldBuffer->Set(clipTransform->GetWorld());
     worldBuffer->SetVS(0);
-    animation->Render(curState);
+    if (curState == Stun)
+        animation->Render(Attack);
+    else
+        animation->Render(curState);
     hpBar->Render();
 }
 

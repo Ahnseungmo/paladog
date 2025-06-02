@@ -79,7 +79,7 @@ void Enemy_Boss::PushTarget()
 
 	for (Character* unit : *targetList)
 	{
-		if (!unit->IsActive() || unit->GetHP() <= 0)
+		if (!unit->IsActive())
 			continue;
 
 		unit->Translate(Vector2::Left() * PUSH_SPEED * DELTA);

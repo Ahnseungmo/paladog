@@ -53,6 +53,8 @@ void Enemy_Witch::SpecialAttack()
 
 	for (Character* enemy : *enemies)
 	{
+		if (EnemyManager::Get()->IsCastle(enemy))
+			continue;
 		if (enemy->GetMaxHP() < enemy->GetHP() + ADD_HP)
 			enemy->SetHP(enemy->GetMaxHP());
 		else

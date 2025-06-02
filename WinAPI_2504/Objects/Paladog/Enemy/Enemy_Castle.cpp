@@ -9,7 +9,7 @@ Enemy_Castle::Enemy_Castle() :Character({ 300,300 })
 	CreateQuad(Damage, L"Resources/Textures/Enemy_Castle/enemy_base_damaged_front.png", L"Resources/Textures/Enemy_Castle/enemy_base_damaged_back.png");
 	CreateQuad(Broken, L"Resources/Textures/Enemy_Castle/enemy_base_broken_front.png", L"Resources/Textures/Enemy_Castle/enemy_base_broken_back.png");
 	
-	SetLocalPosition({ 1700,600 }); //위치설정하기
+	SetLocalPosition({ 1600,600 }); //위치설정하기
 	UpdateWorld();
 	for (auto& frame : frames)
 	{

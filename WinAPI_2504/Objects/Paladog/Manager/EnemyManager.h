@@ -3,7 +3,7 @@
 enum class Enemy_Type
 {
 	Castle =1,
-	Fankenstein,
+	Frankenstein,
 	IronMan,
 	LadySkeleton,
 	Warrior,
@@ -16,6 +16,14 @@ class EnemyManager : public Singleton<EnemyManager>
 	friend class Singleton;
 private:
 	const int ENEMY_POOL_SIZE = 50;
+
+	const float SPAWN_ZOMBIE_TIME = 4.0f;
+	const float SPAWN_WITCH_TIME = 10.0f;
+	const float SPAWN_WARRIOR_TIME = 15.0f;
+	const float SPAWN_LADYSKELETON_TIME = 10.0f;
+	const float SPAWN_IRONMAN_TIME = 20.0f;
+	const float SPAWN_FRANKENSTEIN_TIME = 30.0f;
+
 
 private:
 	EnemyManager();
@@ -30,6 +38,7 @@ public:
 	vector<Character*>* GetAllUnits();
 
 	void SpawnEnemy(Enemy_Type key);
+	bool IsCastle(Character* enemy);
 
 private:
 	template<typename T>
@@ -51,9 +60,20 @@ private:
 		enemies[key].push_back(enemy);
 	}
 
-	void SpawnBoss();
+	void SpawnBossAndEnemy();
+	
+	void SpawnEnemies();
 
-private:
+	void SetOriginalTime()
+	{
+		zombieTimer = SPAWN_ZOMBIE_TIME;
+		witchTimer = SPAWN_WITCH_TIME;
+		warriorTimer = SPAWN_WARRIOR_TIME;
+		ladyskeletonTimer = SPAWN_LADYSKELETON_TIME;
+		ironmanTimer = SPAWN_IRONMAN_TIME;
+		frankensteinTimer = SPAWN_FRANKENSTEIN_TIME;
+	}
+
 	Vector2 RendomPos();
 
 
@@ -61,6 +81,17 @@ private:
 	bool isSpawnBoss = false;
 	bool isSpawnHalf = false;
 
+	float timer = 0.0f;
+
+	float zombieTimer;
+	float witchTimer;
+	float warriorTimer;
+	float ladyskeletonTimer;
+	float ironmanTimer;
+	float frankensteinTimer;
+
+
 	unordered_map<Enemy_Type, vector<Character*>> enemies;
 	vector<Character*>* unit;
+	Enemy_Castle* castle;
 };

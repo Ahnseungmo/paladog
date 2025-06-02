@@ -44,6 +44,7 @@ void BattleScene::Update()
 
 	AllyManager::Get()->Update();
 	EnemyManager::Get()->Update();
+
 }
 
 void BattleScene::Render()
