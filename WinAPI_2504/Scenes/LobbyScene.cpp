@@ -29,7 +29,6 @@ LobbyScene::LobbyScene()
 	buttons["Hero"]->Update();
 
 
-
 }
 
 LobbyScene::~LobbyScene()

@@ -3,8 +3,6 @@
 
 BattleScene::BattleScene()
 {
-	DataManager::Get()->LoadCharacterData("Resources/Tables/CharacterTable.csv");
-
 	background = new Background(LEFT_EDGE, RIGHT_EDGE);
 
 	playerPanel = new Panel(Vector2(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 240));

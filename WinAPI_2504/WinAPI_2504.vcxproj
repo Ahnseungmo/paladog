@@ -216,6 +216,7 @@
     <ClInclude Include="Scenes\AnimationScene.h" />
     <ClInclude Include="Scenes\BattleScene.h" />
     <ClInclude Include="Scenes\CollisionScene.h" />
+    <ClInclude Include="Scenes\GameEndingScene.h" />
     <ClInclude Include="Scenes\GotchaScene.h" />
     <ClInclude Include="Scenes\IntroScene.h" />
     <ClInclude Include="Scenes\LobbyScene.h" />
@@ -303,6 +304,7 @@
     <ClCompile Include="Scenes\AnimationScene.cpp" />
     <ClCompile Include="Scenes\BattleScene.cpp" />
     <ClCompile Include="Scenes\CollisionScene.cpp" />
+    <ClCompile Include="Scenes\GameEndingScene.cpp" />
     <ClCompile Include="Scenes\GotchaScene.cpp" />
     <ClCompile Include="Scenes\IntroScene.cpp" />
     <ClCompile Include="Scenes\LobbyScene.cpp" />

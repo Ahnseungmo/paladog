@@ -10,6 +10,8 @@
 #include "Scenes/UnitScene.h"
 #include "Scenes/GotchaScene.h"
 #include "Scenes/BattleScene.h"
+#include "Scenes/GameEndingScene.h"
+
 GameManager::GameManager()
 {
 	Create();
@@ -29,6 +31,9 @@ GameManager::GameManager()
 	SCENE->AddScene("Gotcha", new GotchaScene());
 
 	SCENE->AddScene("Battle", new BattleScene());
+
+	SCENE->AddScene("GameOver", new GameEndingScene(L"Resources/Textures/GameOver_BackGround.png"));
+	SCENE->AddScene("GameClear", new GameEndingScene(L"Resources/Textures/GameClear_BackGround.png"));
 
 	SCENE->ChangeScene("Intro");
 

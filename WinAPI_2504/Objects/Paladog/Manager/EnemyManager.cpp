@@ -227,9 +227,9 @@ Vector2 EnemyManager::RendomPos()
 void EnemyManager::EnemyOut(Character* enemy)
 {
 	Vector2 pos = enemy->GetGlobalPosition();
-	if (pos.x > 0)
+	if (pos.x > -500)
 		return;
-	SceneManager::Get()->ChangeScene("Intro");
+	SceneManager::Get()->ChangeScene("GameOver");
 }
 
 
