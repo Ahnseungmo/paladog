@@ -4,15 +4,15 @@
 EnemyManager::EnemyManager()
 {
 
-	CreateEnemy<Enemy_Castle>("Castle");
-	CreateEnemy<Enemy_Boss>("Boss");
+	CreateEnemy<Enemy_Castle>(Enemy_Type::Castle);
+	CreateEnemy<Enemy_Boss>(Enemy_Type::Boss);
 	
-	CreateEnemies<Enemy_Zombie>("Zombie");
-	CreateEnemies<Enemy_Frankenstein>("Frankenstein");
-	CreateEnemies<Enemy_Witch>("Witch");
-	CreateEnemies<Enemy_LadySkeleton>("LadySkeleton");
-	CreateEnemies<Enemy_Warrior>("Warrior");
-	CreateEnemies<Enemy_IronMan>("IronMan");
+	CreateEnemies<Enemy_Zombie>(Enemy_Type::Zombie);
+	CreateEnemies<Enemy_Frankenstein>(Enemy_Type::Fankenstein);
+	CreateEnemies<Enemy_Witch>(Enemy_Type::Witch);
+	CreateEnemies<Enemy_LadySkeleton>(Enemy_Type::LadySkeleton);
+	CreateEnemies<Enemy_Warrior>(Enemy_Type::Warrior);
+	CreateEnemies<Enemy_IronMan>(Enemy_Type::IronMan);
 
 	//성이랑 보스몬스터 만들기
 }
@@ -78,7 +78,7 @@ vector<Character*> EnemyManager::ActiveUnits()
 {
 	vector<Character*> result;
 
-	unordered_map<string, vector<Character*>>::iterator it;
+	unordered_map<Enemy_Type, vector<Character*>>::iterator it;
 	for (it = enemies.begin(); it != enemies.end(); ++it)
 	{
 		vector<Character*>& enemyList = it->second;
@@ -113,7 +113,7 @@ vector<Character*>* EnemyManager::GetAllUnits()
 	static vector<Character*> allUnits;
 	allUnits.clear();
 
-	unordered_map<string, vector<Character*>>::iterator it;
+	unordered_map<Enemy_Type, vector<Character*>>::iterator it;
 	for (it = enemies.begin(); it != enemies.end(); ++it)
 	{
 		vector<Character*>& units = it->second;
@@ -126,7 +126,7 @@ vector<Character*>* EnemyManager::GetAllUnits()
 	return &allUnits;
 }
 
-void EnemyManager::SpawnEnemy(string key)
+void EnemyManager::SpawnEnemy(Enemy_Type key)
 {
 	for (auto& enemy : enemies[key])
 	{
@@ -142,12 +142,12 @@ void EnemyManager::SpawnEnemy(string key)
 
 void EnemyManager::SpawnBoss()
 {
-	Character* castle = enemies["Castle"][0];
+	Character* castle = enemies[Enemy_Type::Castle][0];
 
 	if (castle->GetHP() <= 0 && isSpawnBoss == false)
 	{
 		isSpawnBoss = true;
-		Enemy_Boss* boss = (Enemy_Boss*)enemies["Boss"][0];
+		Enemy_Boss* boss = (Enemy_Boss*)enemies[Enemy_Type::Castle][0];
 		boss->SetActive(true);
 		boss->SetLocalPosition(castle->GetGlobalPosition()); //why boss not find target?
 		boss->SetTargetList(unit);
@@ -155,17 +155,18 @@ void EnemyManager::SpawnBoss()
 		boss->SpawnBoss();
 	
 	}
-	else if (castle->GetHP() <= 50 && isSpawnBoss == false)
+	else if (castle->GetHP() <= 50 && isSpawnHalf == false)
 	{
-		SpawnEnemy("IronMan");
-		SpawnEnemy("Frankenstein");
-		SpawnEnemy("Witch");
+		isSpawnHalf = true;
+		SpawnEnemy(Enemy_Type::IronMan);
+		SpawnEnemy(Enemy_Type::Fankenstein);
+		SpawnEnemy(Enemy_Type::Witch);
 	}
 }
 
 Vector2 EnemyManager::RendomPos()
 {
-	Character* castle = enemies["Castle"][0];
+	Character* castle = enemies[Enemy_Type::Castle][0];
 	float x = castle->GetGlobalPosition().x;
 	int y = rand() % 200 + 450; // 450 ~ 650 
 	return Vector2(x, y);

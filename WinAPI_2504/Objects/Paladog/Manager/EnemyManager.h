@@ -1,5 +1,16 @@
 #pragma once
 
+enum class Enemy_Type
+{
+	Castle =1,
+	Fankenstein,
+	IronMan,
+	LadySkeleton,
+	Warrior,
+	Witch,
+	Zombie,
+	Boss
+};
 class EnemyManager : public Singleton<EnemyManager>
 {
 	friend class Singleton;
@@ -18,11 +29,11 @@ public:
 	vector<Character*> ActiveUnits();
 	vector<Character*>* GetAllUnits();
 
-	void SpawnEnemy(string key);
+	void SpawnEnemy(Enemy_Type key);
 
 private:
 	template<typename T>
-	void CreateEnemies(string key)
+	void CreateEnemies(Enemy_Type key)
 	{
 		for (int i = 0; i < ENEMY_POOL_SIZE; i++)
 		{
@@ -33,7 +44,7 @@ private:
 	}
 
 	template<typename T>
-	void CreateEnemy(string key)
+	void CreateEnemy(Enemy_Type key)
 	{
 		T* enemy = new T;
 		enemy->SetActive(false);
@@ -48,7 +59,8 @@ private:
 
 private:
 	bool isSpawnBoss = false;
+	bool isSpawnHalf = false;
 
-	unordered_map<string, vector<Character*>> enemies;
+	unordered_map<Enemy_Type, vector<Character*>> enemies;
 	vector<Character*>* unit;
 };

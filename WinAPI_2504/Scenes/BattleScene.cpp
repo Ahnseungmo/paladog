@@ -14,7 +14,7 @@ BattleScene::BattleScene()
 
 	playerPanel->SetPaladog(paladog);
 
-	EnemyManager::Get()->SpawnEnemy("Castle");
+	EnemyManager::Get()->SpawnEnemy(Enemy_Type::Castle);
 
 	AllyManager::Get()->AddPalaDog(paladog);
 	AllyManager::Get()->SetTargetList(EnemyManager::Get()->GetAllUnits());
