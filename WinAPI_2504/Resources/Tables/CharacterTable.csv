@@ -12,5 +12,5 @@ key,name,type,baseHp,baseAttack,baseSpeed,baseAttackSpeed,sightRange,attackCount
 2004,LadySkeleton,1,80,40,90,1.2,150,1,레이디스켈레톤
 2005,Warrior,1,80,40,90,1.2,150,1,워리어
 2006,Witch,1,100,50,90,1.5,300,1,마녀
-2007,Zombie,1,130,15,90,1.2,70,1,좀비
+2007,Zombie,1,100,15,90,1.2,70,1,좀비
 2008,Boss,1,500,30,90,1.5,130,8,보스

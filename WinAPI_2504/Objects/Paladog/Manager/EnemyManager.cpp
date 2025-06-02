@@ -3,7 +3,6 @@
 
 EnemyManager::EnemyManager()
 {
-
 	CreateEnemy<Enemy_Castle>(Enemy_Type::Castle);
 	CreateEnemy<Enemy_Boss>(Enemy_Type::Boss);
 	

@@ -227,3 +227,16 @@ void Character::TargetToStun()
         unit->SetCurStateToStun();
     }
 }
+
+void Character::MappingCharacterData(int key)
+{
+    CharacterData data = DataManager::Get()->GetCharacter(key);
+
+    stat.maxHp = data.baseHp;
+    stat.attack = data.baseAttack;
+    stat.moveSpeed = data.baseSpeed;
+    stat.attackSpeed = data.baseAttackSpeed;
+    stat.attackRange = data.sightRange;
+    stat.attackCount = data.attackCount;
+
+}

@@ -2,15 +2,16 @@
 
 Enemy_Zombie::Enemy_Zombie():Character()
 {
-	UnitStat stat;
-	stat.maxHp = 130;
-	stat.attack = 15;
-	stat.moveSpeed = 90;
-	stat.attackSpeed = 1.2f;
-	stat.attackRange = 70;
-	stat.attackCount = 1;
+	//UnitStat stat;
+	//stat.maxHp = 130;
+	//stat.attack = 15;
+	//stat.moveSpeed = 90;
+	//stat.attackSpeed = 1.2f;
+	//stat.attackRange = 70;
+	//stat.attackCount = 1;
 
-	SetStat(stat);
+	//SetStat(stat);
+	MappingCharacterData(2007);
 	SetTeam(TeamType::Enemy);
 	CreateClips();
 }

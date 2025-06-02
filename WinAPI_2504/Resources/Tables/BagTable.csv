@@ -1,8 +1,8 @@
 Key,Name,Count,Level
 1,Money,100000,0
-1001,Knight,1,1
-1002,Archer,2,2
-1003,Boxer,2,3
-1007, Bomber,1,1
-1006, Elite,1,1
-1004, Lancer,1,1
+1001,Knight,4,1
+1002,Archer,4,2
+1003,Boxer,3,3
+1007, Bomber,6,1
+1006, Elite,5,1
+1004, Lancer,2,1

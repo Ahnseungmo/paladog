@@ -67,6 +67,8 @@ public:
     void TargetToRun();
     void TargetToStun();
 
+    void MappingCharacterData(int key);
+
 protected:
     virtual void CreateClips() = 0;
     void Move();

@@ -6,15 +6,16 @@ Enemy_Boss::Enemy_Boss():Character({200,200})
 	horseTransform->SetParent(this);
 	horseTransform->SetTag("horseClip");
 
-	UnitStat stat;
-	stat.maxHp = 3000;
-	stat.attack = 10;
-	stat.moveSpeed = 80;
-	stat.attackSpeed = 1.0f;
-	stat.attackRange = 300;
-	stat.attackCount = 1;
+	//UnitStat stat;
+	//stat.maxHp = 3000;
+	//stat.attack = 10;
+	//stat.moveSpeed = 80;
+	//stat.attackSpeed = 1.0f;
+	//stat.attackRange = 300;
+	//stat.attackCount = 1;
 
-	SetStat(stat);
+	//SetStat(stat);
+	MappingCharacterData(2008);
 	SetTeam(TeamType::Enemy);
 
 	CreateHorse();
