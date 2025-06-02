@@ -35,6 +35,6 @@ private:
     vector<Button*> coolTimeButtons;
     Paladog* paladog = nullptr;
     vector<int>& deck = DataManager::Get()->GetDeck();
-    float maxCoolTime[5] = { 1, 2, 3, 4, 5 };
-    float coolTimeCounts[5] = { 1, 2, 3, 4, 5 };
+    float maxCoolTime[7];
+    float coolTimeCounts[7];
 };
