@@ -208,6 +208,10 @@
     <ClInclude Include="Objects\UI\Button.h" />
     <ClInclude Include="Objects\UI\Panel.h" />
     <ClInclude Include="Objects\UI\GaugeBar.h" />
+    <ClInclude Include="Objects\UI\SpawnBar.h" />
+    <ClInclude Include="Objects\UI\TextBox.h" />
+    <ClInclude Include="Objects\UI\UnitDataPanel.h" />
+    <ClInclude Include="Objects\UI\UnitPanel.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scenes\AnimationScene.h" />
     <ClInclude Include="Scenes\BattleScene.h" />
@@ -222,6 +226,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="Scenes\UnitScene.h" />
+    <ClInclude Include="Scenes\UpgradeScene.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="WinAPI_2504.h" />
   </ItemGroup>
@@ -291,6 +296,10 @@
     <ClCompile Include="Objects\UI\Button.cpp" />
     <ClCompile Include="Objects\UI\Panel.cpp" />
     <ClCompile Include="Objects\UI\GaugeBar.cpp" />
+    <ClCompile Include="Objects\UI\SpawnBar.cpp" />
+    <ClCompile Include="Objects\UI\TextBox.cpp" />
+    <ClCompile Include="Objects\UI\UnitDataPanel.cpp" />
+    <ClCompile Include="Objects\UI\UnitPanel.cpp" />
     <ClCompile Include="Scenes\AnimationScene.cpp" />
     <ClCompile Include="Scenes\BattleScene.cpp" />
     <ClCompile Include="Scenes\CollisionScene.cpp" />
@@ -303,6 +312,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Scenes\UnitScene.cpp" />
+    <ClCompile Include="Scenes\UpgradeScene.cpp" />
     <ClCompile Include="WinAPI_2504.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -3,17 +3,14 @@
 
 GotchaScene::GotchaScene()
 {
-	backGround = new Quad(L"Resources/Textures/Paladog/LobbyBackGround.png", Vector2(0, 0), Vector2(1.0f, 1.0f));
-	backGround->SetLocalPosition(CENTER);
-	backGround->UpdateWorld();
-
-	backGround = new Quad(L"Resources/Textures/Paladog/LobbyBackGround.png", Vector2(0, 0), Vector2(1.0f, 1.0f));
+	backGround = new Quad(L"Resources/Textures/Paladog/Gotcha/BackGround.png", Vector2(0, 0), Vector2(1.0f, 1.0f));
 	backGround->SetLocalPosition(CENTER);
 	backGround->UpdateWorld();
 
 	chest = new Chest();
 	chest->SetLocalPosition(CENTER);
 	chest->UpdateWorld();
+	chest->Update();
 
 	buttons.insert(make_pair("Gotcha1", new Button(L"Resources/Textures/Paladog/Lobby/btn_hero_up.png", Vector2(100, 50), Vector2(CENTER_X, CENTER_Y - 300))));
 	buttons["Gotcha1"]->SetOnClick(bind(&GotchaScene::Gotcha, this));
@@ -23,6 +20,29 @@ GotchaScene::GotchaScene()
 	buttons.insert(make_pair("Gotcha", new Button(L"Resources/Textures/Paladog/Lobby/btn_hero_up.png", Vector2(100, 50), Vector2(100, SCREEN_HEIGHT - 300))));
 	buttons["Gotcha"]->SetOnClick(bind(&GotchaScene::Lobby, this));
 	buttons["Gotcha"]->Update();
+
+	//	Vector2 quadSize(100, 100);
+	Vector2 quadSize(0, 0);
+	Transform* quadTransform = new Transform();
+	quadTransform->SetLocalPosition(Vector2(CENTER_X,CENTER_Y+300));
+
+	quadTransform->UpdateWorld();
+	characterQuads.insert(make_pair(1001, new Quad(L"Resources/Textures/Paladog/Gotcha/Character/Knight.png", quadSize, Vector2(1.0f, 1.0f))));
+	characterQuads.insert(make_pair(1002, new Quad(L"Resources/Textures/Paladog/Gotcha/Character/Archer.png", quadSize, Vector2(1.0f, 1.0f))));
+	characterQuads.insert(make_pair(1003, new Quad(L"Resources/Textures/Paladog/Gotcha/Character/Boxer.png", quadSize, Vector2(1.0f, 1.0f))));
+	characterQuads.insert(make_pair(1004, new Quad(L"Resources/Textures/Paladog/Gotcha/Character/Lancer.png", quadSize, Vector2(1.0f, 1.0f))));
+	characterQuads.insert(make_pair(1005, new Quad(L"Resources/Textures/Paladog/Gotcha/Character/Tanker.png", quadSize, Vector2(1.0f, 1.0f))));
+	characterQuads.insert(make_pair(1006, new Quad(L"Resources/Textures/Paladog/Gotcha/Character/Elite.png", quadSize, Vector2(1.0f, 1.0f))));
+	characterQuads.insert(make_pair(1007, new Quad(L"Resources/Textures/Paladog/Gotcha/Character/Bomber.png", quadSize, Vector2(1.0f, 1.0f))));
+
+	for (auto& quad : characterQuads) {
+		quad.second->SetParent(quadTransform);
+		quad.second->SetSize({ 100,100 });
+		quad.second->SetLocalScale({5,5});
+		quad.second->SetActive(false);		
+		quad.second->UpdateWorld();
+	}
+	pickCharcterIndex = 0;
 
 }
 
@@ -45,6 +65,13 @@ void GotchaScene::Update()
 	}
 
 	chest->Update();
+	if(chest->IsOpenEnd()){
+		characterQuads[pickCharcterIndex]->SetActive(true);
+	}
+
+	for (auto& quad : characterQuads)
+		quad.second->UpdateWorld();
+
 }
 
 void GotchaScene::Render()
@@ -54,6 +81,8 @@ void GotchaScene::Render()
 		button.second->Render();
 	}
 	chest->Render();
+	for (auto& quad : characterQuads)
+		quad.second->Render();
 }
 
 void GotchaScene::GUIRender()
@@ -72,25 +101,37 @@ void GotchaScene::Lobby()
 void GotchaScene::Gotcha()
 {
 	chest->ChestOpen();
-//	int firstKey = DataManager::Get()->GetAllyDatas().begin()->first;
-//	int eneKey = DataManager::Get()->GetMinionDatas().end()->first;
+	for (auto quad : characterQuads)
+		quad.second->SetActive(false);
+
+	//	int firstKey = DataManager::Get()->GetAllyDatas().begin()->first;
+	//	int eneKey = DataManager::Get()->GetMinionDatas().end()->first;
 	int pickKey = rand() % DataManager::Get()->GetAllyCount();
-	/*
+	auto it = DataManager::Get()->GetAllyDatas().begin();
 
-	if (DataManager::Get()->GetBagDatas().count(pickKey)) {
-		BagData& bagData = DataManager::Get()->GetBag(pickKey);
+	for (int i = 0; i < pickKey; i++) {
+		it++;
+	}
+	int isData = false;
+	for (auto data : DataManager::Get()->GetBagDatas()) {
+		if (data.first == it->first) {
+			isData = true;
+			break;
+		}
+	}
+	if (isData) {
+		BagData& bagData = DataManager::Get()->GetBag(it->first);
 		bagData.count++;
-//		bagData.level++;
-
 	}
 	else {
 		BagData bagData;
-		bagData.key = pickKey;
+		bagData.key = it->first;
+		bagData.name = it->second.name;
 		bagData.count = 1;
 		bagData.level = 1;
+		DataManager::Get()->GetBagDatas().insert(make_pair(it->first, bagData));
 
-		DataManager::Get()->GetBagDatas().insert({ pickKey,bagData });
 	}
-	*/
-	chest;
+	pickCharcterIndex = it->first;
+
 }

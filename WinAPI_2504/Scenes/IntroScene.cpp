@@ -18,6 +18,9 @@ IntroScene::IntroScene()
 	DataManager::Get()->LoadCharacterData("Resources/Tables/CharacterTable.csv");
 	DataManager::Get()->LoadAllyData("Resources/Tables/AllyTable.csv");
 	DataManager::Get()->LoadEnemyData("Resources/Tables/EnemyTable.csv");
+	DataManager::Get()->LoadBagData("Resources/Tables/BagTable.csv");
+	DataManager::Get()->LoadDeckData("Resources/Tables/DeckTable.csv");
+
 
 
 }

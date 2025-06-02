@@ -42,8 +42,6 @@ void Chest::ChestIdle() {
 	clip->Stop();
 }
 
-
-
 void Chest::Render()
 {
 	Collider::Render();
@@ -58,6 +56,17 @@ void Chest::Edit()
 	clipTransform->Edit();
 	Transform::Edit();
 }
+
+bool Chest::IsOpenEnd()
+{
+	if (curState == Open && clip->IsPlay() == false)
+	{
+		//		curState = Idle;
+		return true;
+	}
+	return false;
+}
+
 
 void Chest::CreateClips()
 {

@@ -92,17 +92,17 @@ void Panel::CreateButtons()
 
 	for (int i = 0; i < buttonCount; ++i)
 	{
-		float x = this->GetLocalPosition().x + startX + i * (buttonWidth + buttonSpacing);
-		float y = this->GetLocalPosition().y + 15;
+		float x = startX + i * (buttonWidth + buttonSpacing);
+		float y = 15;
 		Button* button = new Button(buttonTextures[i], Vector2(100, 100), Vector2(x, y));
 		//button->SetOnClick(bind(&AllyManager::Spawn, AllyManager::Get(), ALLY_TYPE::Boxer));
 		button->SetOnClick([this, i]() { SpawnCharacter(i); });
 		this->AddButton(button);
 	}
-
-	Button* meatButton = new Button(L"Resources/Textures/UI/MeatButton.png", Vector2(100, 100), Vector2(753, 61));
-	Button* healButton = new Button(L"Resources/Textures/UI/HealButton.png", Vector2(100, 100), Vector2(953, 61));
-	Button* punchButton = new Button(L"Resources/Textures/UI/PunchButton.png", Vector2(100, 100), Vector2(1153, 61));
+	Vector2 pos = Vector2{ -300,100 };
+	Button* meatButton = new Button(L"Resources/Textures/UI/MeatButton.png", Vector2(100, 100), Vector2(753, 61) - pos);
+	Button* healButton = new Button(L"Resources/Textures/UI/HealButton.png", Vector2(100, 100), Vector2(953, 61) - pos);
+	Button* punchButton = new Button(L"Resources/Textures/UI/PunchButton.png", Vector2(100, 100), Vector2(1153, 61) - pos);
 
 	meatButton->SetOnClick(bind(&Panel::MeatSkill, this));
 	healButton->SetOnClick(bind(&Panel::HealSkill, this));
@@ -130,8 +130,8 @@ void Panel::CreateCoolTimeButtons()
 
 	for (int i = 0; i < buttonCount; ++i)
 	{
-		float x = this->GetLocalPosition().x + startX + i * (buttonWidth + buttonSpacing);
-		float y = this->GetLocalPosition().y + 15;
+		float x = startX + i * (buttonWidth + buttonSpacing);
+		float y = 15;
 		Button* button = new Button(buttonCoolTimeTextures[i], Vector2(100, 100), Vector2(x, y));
 		//button->SetOnClick(bind(&AllyManager::Spawn, AllyManager::Get(), ALLY_TYPE::Boxer));
 		//button->SetOnClick([this, i]() { SpawnCharacter(i); });

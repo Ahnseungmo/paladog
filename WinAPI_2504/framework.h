@@ -151,5 +151,13 @@ typedef XMFLOAT4X4 Float4x4;
 #include "Objects/UI/Panel.h"
 #include "Objects/UI/Background.h"
 
+#include "Objects/UI/TextBox.h"
+#include "Objects/UI/SpawnBar.h"
+#include "Objects/UI/UnitPanel.h"
+#include "Objects/UI/UnitDataPanel.h"
+
+
+
+
 extern HWND hWnd;
 extern Vector2 mousePos;

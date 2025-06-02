@@ -17,6 +17,9 @@ public:
 	void ChestIdle();
 	void Render();
 	void Edit();
+	bool IsOpenEnd();
+
+
 
 private:
 	void CreateClips();
@@ -28,5 +31,5 @@ private:
 	Transform* clipTransform;
 	MatrixBuffer* worldBuffer;
 
-	Clip* clip;	
+	Clip* clip;
 };

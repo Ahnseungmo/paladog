@@ -17,7 +17,6 @@ Button::~Button()
 
 void Button::Update()
 {
-	if (!isActive) return;
 	if (IsPointCollision(mousePos)) {
 		if (Input::Get()->IsKeyPress(VK_LBUTTON)) {
 			quad->SetColor(0.5f, 0.5f, 0.5f, 1.0f);
@@ -25,20 +24,31 @@ void Button::Update()
 		else if (Input::Get()->IsKeyUp(VK_LBUTTON)) {
 			quad->SetColor(1.0f, 1.0f, 1.0f, 1.0f);
 			if (onClick) onClick();
+			if (onClickInt) onClickInt(intParameter);	
+		}
+		else if (Input::Get()->IsKeyPress(VK_RBUTTON)) {
+			quad->SetColor(0.5f, 0.5f, 0.5f, 1.0f);
+		}
+		else if (Input::Get()->IsKeyUp(VK_RBUTTON)) {
+			quad->SetColor(1.0f, 1.0f, 1.0f, 1.0f);
+//			if (onClick) onClick();
+			if (onClickRInt) onClickRInt(intParameterR);
 		}
 		else {
 			quad->SetColor(0.8f, 0.8f, 0.8f, 1.0f);
 		}
+
+
 	}
 	else {
 		quad->SetColor(1.0f, 1.0f, 1.0f, 1.0f);
 	}
-//	quad->UpdateWorld();
-//	RectCollider::UpdateWorld();
+	quad->UpdateWorld();
+	RectCollider::UpdateWorld();
 }
 
 void Button::Render()
 {
 	quad->Render();
-	//Collider::Render();
+	Collider::Render();
 }
