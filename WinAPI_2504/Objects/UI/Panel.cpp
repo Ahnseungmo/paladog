@@ -15,6 +15,14 @@ Panel::Panel(Vector2 pos)
 		L"Resources/Textures/UI/curManaBar.png",
 		L"Resources/Textures/UI/maxBar.png");
 
+	for (int i = 0; i < deck.size(); i++)
+	{
+		ALLY_TYPE allyType = static_cast<ALLY_TYPE>(deck[i]);
+		const AllyData& data = DataManager::Get()->GetAlly(static_cast<int>(allyType));
+		maxCoolTime[i] = data.cost / 10.0f;
+		coolTimeCounts[i] = data.cost / 10.0f;
+	}
+
 	UpdateWorld();
 	panelTexture->UpdateWorld();
 	spawnBar->UpdateWorld();
@@ -88,14 +96,6 @@ void Panel::CreateButtons()
 	float buttonSpacing = 5.0f;
 	float startX = -((buttonCount - 1) * (buttonWidth + buttonSpacing)) / 2.0f;
 
-	wstring buttonTextures[] = {
-		L"Resources/Textures/UI/KnightButton.png",
-		L"Resources/Textures/UI/ArcherButton.png",
-		L"Resources/Textures/UI/LancerButton.png",
-		L"Resources/Textures/UI/BoxerButton.png",
-		L"Resources/Textures/UI/TankerButton.png"
-	};
-
 	unordered_map<int, wstring> unitImages = {
 	{1001, L"Resources/Textures/Paladog/Unit/Knight.png"},
 	{1002, L"Resources/Textures/Paladog/Unit/Archer.png"},
@@ -135,14 +135,6 @@ void Panel::CreateCoolTimeButtons()
 	float buttonWidth = 120.0f;
 	float buttonSpacing = 5.0f;
 	float startX = -((buttonCount - 1) * (buttonWidth + buttonSpacing)) / 2.0f;
-
-	wstring buttonCoolTimeTextures[] = {
-		L"Resources/Textures/UI/KnightCoolTimeButton.png",
-		L"Resources/Textures/UI/ArcherCoolTimeButton.png",
-		L"Resources/Textures/UI/LancerCoolTimeButton.png",
-		L"Resources/Textures/UI/BoxerCoolTimeButton.png",
-		L"Resources/Textures/UI/TankerCoolTimeButton.png"
-	};
 
 	unordered_map<int, wstring> unitImages = {
 	{1001, L"Resources/Textures/UI/KnightCoolTimeButton.png"},
