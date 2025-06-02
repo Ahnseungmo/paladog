@@ -14,8 +14,6 @@ BattleScene::BattleScene()
 
 	playerPanel->SetPaladog(paladog);
 
-	EnemyManager::Get()->SpawnEnemy("Zombie");
-	EnemyManager::Get()->SpawnEnemy("Witch");
 	EnemyManager::Get()->SpawnEnemy("Castle");
 
 	AllyManager::Get()->AddPalaDog(paladog);

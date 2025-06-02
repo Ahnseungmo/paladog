@@ -143,7 +143,7 @@ void EnemyManager::SpawnEnemy(string key)
 void EnemyManager::SpawnBoss()
 {
 	Character* castle = enemies["Castle"][0];
-	
+
 	if (castle->GetHP() <= 0 && isSpawnBoss == false)
 	{
 		isSpawnBoss = true;
@@ -154,6 +154,12 @@ void EnemyManager::SpawnBoss()
 
 		boss->SpawnBoss();
 	
+	}
+	else if (castle->GetHP() <= 50 && isSpawnBoss == false)
+	{
+		SpawnEnemy("IronMan");
+		SpawnEnemy("Frankenstein");
+		SpawnEnemy("Witch");
 	}
 }
 
