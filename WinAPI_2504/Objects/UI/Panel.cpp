@@ -23,6 +23,9 @@ Panel::Panel(Vector2 pos)
 		coolTimeCounts[i] = data.cost / 10.0f;
 	}
 
+	hpBar = new HealthBar(400, 30);
+	hpBar->SetBarColor(0.3f, 0.3f, 1);
+
 	UpdateWorld();
 	panelTexture->UpdateWorld();
 	spawnBar->UpdateWorld();
@@ -34,6 +37,8 @@ Panel::~Panel()
 	delete panelTexture;
 	delete spawnBar;
 	delete manaBar;
+
+	delete hpBar;
 }
 
 void Panel::Start() {
@@ -76,12 +81,14 @@ void Panel::Update()
 		button->Update();
 	spawnBar->Update();
 	manaBar->Update();
+	hpBar->Update(CENTER, 700, paladog->GetHP(), paladog->GetStat().maxHp);
 }
 
 void Panel::Render()
 {
 	spawnBar->Render();
 	manaBar->Render();
+	hpBar->Render();
 	panelTexture->Render();
 	for (auto button : buttons)
 		button->Render();
@@ -213,3 +220,19 @@ void Panel::HealSkill()
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

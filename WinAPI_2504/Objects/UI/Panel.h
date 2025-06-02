@@ -37,4 +37,6 @@ private:
     vector<int>& deck = DataManager::Get()->GetDeck();
     float maxCoolTime[7];
     float coolTimeCounts[7];
+
+    HealthBar* hpBar;
 };
