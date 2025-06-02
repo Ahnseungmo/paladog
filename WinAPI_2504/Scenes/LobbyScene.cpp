@@ -3,7 +3,7 @@
 
 LobbyScene::LobbyScene()
 {
-	backGround = new Quad(L"Resources/Textures/Paladog/LobbyBackGround.png", Vector2(0, 0), Vector2(1.0f, 1.0f));
+	backGround = new Quad(L"Resources/Textures/Paladog/Lobby/LobbyBack.png", Vector2(0, 0), Vector2(1.0f, 1.0f));
 	backGround->SetLocalPosition(CENTER);
 	backGround->UpdateWorld();
 
@@ -13,21 +13,25 @@ LobbyScene::LobbyScene()
 		buttonY[i] = buttonY[i - 1] - BUTTON_PADDING;
 	}
 
-	buttons.insert(make_pair("Battle", new Button(L"Resources/Textures/Paladog/Lobby/btn_ui_battle_up.png", Vector2(100, 50), Vector2(CENTER_X, buttonY[0]))));
-	buttons.insert(make_pair("Shop", new Button(L"Resources/Textures/Paladog/Lobby/btn_shop01_up.png", Vector2(100, 50), Vector2(CENTER_X, buttonY[1]))));
-	buttons.insert(make_pair("Unit", new Button(L"Resources/Textures/Paladog/Lobby/btn_unit_up.png", Vector2(100, 50), Vector2(CENTER_X, buttonY[2]))));
-	buttons.insert(make_pair("Hero", new Button(L"Resources/Textures/Paladog/Lobby/btn_hero_up.png", Vector2(100, 50), Vector2(CENTER_X, buttonY[3]))));
+	buttons.insert(make_pair("Battle", new Button(L"Resources/Textures/Paladog/buttons/Battle.png", Vector2(330, 108), Vector2(CENTER_X, buttonY[0]))));
+	buttons.insert(make_pair("Gotcha", new Button(L"Resources/Textures/Paladog/buttons/Gotcha.png", Vector2(330, 108), Vector2(CENTER_X, buttonY[1]))));
+	buttons.insert(make_pair("Unit", new Button(L"Resources/Textures/Paladog/buttons/Unit.png", Vector2(330, 108), Vector2(CENTER_X, buttonY[2]))));
+	buttons.insert(make_pair("Hero", new Button(L"Resources/Textures/Paladog/buttons/Hero.png", Vector2(330, 108), Vector2(CENTER_X, buttonY[3]))));
+	for (auto& button : buttons) {
+		button.second->SetLocalScale(Vector2(0.7f, 0.7f));
+	}
 
 	buttons["Battle"]->SetOnClick(bind(&LobbyScene::Battle, this));
-	buttons["Shop"]->SetOnClick(bind(&LobbyScene::Shop, this));
+	buttons["Gotcha"]->SetOnClick(bind(&LobbyScene::Gotcha, this));
 	buttons["Unit"]->SetOnClick(bind(&LobbyScene::Unit, this));
 	buttons["Hero"]->SetOnClick(bind(&LobbyScene::Hero, this));
 
 	buttons["Battle"]->Update();
-	buttons["Shop"]->Update();
+	buttons["Gotcha"]->Update();
 	buttons["Unit"]->Update();
 	buttons["Hero"]->Update();
 
+	buttons["Hero"]->SetActive(false);
 
 }
 
@@ -65,7 +69,7 @@ void LobbyScene::Battle()
 {
 	SCENE->ChangeScene("Battle");
 }
-void LobbyScene::Shop()
+void LobbyScene::Gotcha()
 {
 	//	SCENE->ChangeScene("Shop");
 	SCENE->ChangeScene("Gotcha");

@@ -14,6 +14,8 @@ public:
 
 	void Gotcha();
 
+	void RefreshMoney();
+
 
 
 	//	bool AnyKeyDown();
@@ -23,6 +25,11 @@ private:
 	unordered_map<string, Button*> buttons;
 	Chest* chest;
 	unordered_map<int,Quad*> characterQuads;
+	TextBox* haveCoin;
+	Quad* haveCoinBack;
+
+	TextBox* gotchaCost;
+
 	int pickCharcterIndex = 0;
 
 //	Character* pickCharcter;

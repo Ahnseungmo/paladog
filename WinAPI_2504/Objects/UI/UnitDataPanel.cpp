@@ -8,31 +8,36 @@ UnitDataPanel::UnitDataPanel(Vector2 pos)
 
 	CreateUnitData();
 	CreateUnitStatusBar();
-	textUnitCount = new TextBox(Vector2(600, 425), Vector2(200, 380), "1");
+	textUnitCount = new TextBox(Vector2(-100, -130), Vector2(200, 380), "1");
 	textUnitCount->SetFont("Resources/Fonts/NanumBarunGothic.ttf");
 	textUnitCount->SetFontSize(50);
 	textUnitCount->SetParent(this);
+	textUnitCount->UpdateWorld();
 
-	textUnitLevelCost = new TextBox(Vector2(1000, 425), Vector2(200, 400), "1");
+	textUnitLevelCost = new TextBox(Vector2(300, -120), Vector2(200, 400), "1");
 	textUnitLevelCost->SetFont("Resources/Fonts/NanumBarunGothic.ttf");
 	textUnitLevelCost->SetFontSize(50);
 	textUnitLevelCost->SetParent(this);
+	textUnitLevelCost->UpdateWorld();
 
-	textUnitExplane = new TextBox(Vector2(600, 500), Vector2(500, 400), "1");
+	textUnitExplane = new TextBox(Vector2(-100, -200), Vector2(500, 400), "1");
 	textUnitExplane->SetFont("Resources/Fonts/NanumBarunGothic.ttf");
 	textUnitExplane->SetFontSize(50);
 	textUnitExplane->SetParent(this);
+	textUnitExplane->UpdateWorld();
 
-	textUnitLevel = new TextBox(Vector2(700, 300), Vector2(200, 450), "LV");
+	textUnitLevel = new TextBox(Vector2(0, -20), Vector2(200, 450), "LV");
 	textUnitLevel->SetFont("Resources/Fonts/NanumBarunGothic.ttf");
 	textUnitLevel->SetFontSize(50);
 	textUnitLevel->SetParent(this);
+	textUnitLevel->UpdateWorld();
 
 	string text = to_string(DataManager::Get()->GetBagDatas().at(1).count);
-	textMoney = new TextBox(Vector2(200, 700), Vector2(200, 400), text.c_str());
+	textMoney = new TextBox(Vector2(200, 100) - Vector2(GetGlobalPosition()), Vector2(200, 400), text.c_str());
 	textMoney->SetFont("Resources/Fonts/NanumBarunGothic.ttf");
 	textMoney->SetFontSize(50);
 	textMoney->SetParent(this);
+	textMoney->UpdateWorld();
 
 	buttons.push_back(new Button(L"Resources/Textures/Paladog/Unit/btn_upgrade_up.png", Vector2(235,74), Vector2(70, -150)));
 	buttons.back()->SetParent(this);
@@ -104,7 +109,7 @@ void UnitDataPanel::CreateUnitData()
 		unitTexture.at(unitData->first)->UpdateWorld();
 		for (int i = 0; i < 2; i++) {
 			unitTextureSmall[i].insert(make_pair(unitData->first, new Quad(unitImages[unitData->first], Vector2{0,0}, Vector2({1.0f,1.0f}))));
-			unitTextureSmall[i].at(unitData->first)->SetLocalPosition(Vector2(-125 + i*600, -125));
+			unitTextureSmall[i].at(unitData->first)->SetLocalPosition(Vector2(-125 + i*600, -125 + i * 10));
 			unitTextureSmall[i].at(unitData->first)->SetParent(this);
 			unitTextureSmall[i].at(unitData->first)->SetLocalScale(Vector2(0.3f, 0.3f));
 			unitTextureSmall[i].at(unitData->first)->SetActive(false);
@@ -198,7 +203,9 @@ void UnitDataPanel::UnitUpgrade() {
 	if (money < cost) return; // 돈이 부족하면 업그레이드 불가
 	// 업그레이드
 	bagData.level++;
+	bagData.count--;
 	DataManager::Get()->GetBagDatas().at(1).count = money - cost;
+
 	DisplayUnit((void*)selKey);
 
 }

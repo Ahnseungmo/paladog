@@ -49,6 +49,7 @@ void Button::Update()
 
 void Button::Render()
 {
+	if (!IsActive()) return;
 	quad->Render();
 	Collider::Render();
 }

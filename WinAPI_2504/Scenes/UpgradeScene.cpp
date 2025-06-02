@@ -13,7 +13,7 @@ UpgradeScene::UpgradeScene()
 		buttonY[i] = buttonY[i - 1] - BUTTON_PADDING;
 	}
 
-	buttons.insert(make_pair("Lobby", new Button(L"Resources/Textures/Paladog/Lobby/btn_ui_battle_up.png", Vector2(100, 50), Vector2(CENTER_X + 200, SCREEN_HEIGHT - 200))));
+	buttons.insert(make_pair("Lobby", new Button(L"Resources/Textures/Paladog/buttons/Lobby.png", Vector2(330, 108), Vector2(CENTER_X + 200, SCREEN_HEIGHT - 200))));
 	buttons["Lobby"]->SetOnClick(bind(&UpgradeScene::Lobby, this));
 	buttons["Lobby"]->Update();
 

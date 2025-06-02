@@ -39,7 +39,7 @@ public:
 	}
 ///	void SetTextColor(Color color) { textColor = color; }
 private:
-	Quad* quad;
+
 	int fontSize = 20;
 	string fontName = "Default";  // 기본 폰트 이름
 	

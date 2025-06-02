@@ -12,14 +12,15 @@ GotchaScene::GotchaScene()
 	chest->UpdateWorld();
 	chest->Update();
 
-	buttons.insert(make_pair("Gotcha1", new Button(L"Resources/Textures/Paladog/Lobby/btn_hero_up.png", Vector2(100, 50), Vector2(CENTER_X, CENTER_Y - 300))));
-	buttons["Gotcha1"]->SetOnClick(bind(&GotchaScene::Gotcha, this));
-	buttons["Gotcha1"]->Update();
-
-
-	buttons.insert(make_pair("Gotcha", new Button(L"Resources/Textures/Paladog/Lobby/btn_hero_up.png", Vector2(100, 50), Vector2(100, SCREEN_HEIGHT - 300))));
-	buttons["Gotcha"]->SetOnClick(bind(&GotchaScene::Lobby, this));
+	buttons.insert(make_pair("Gotcha", new Button(L"Resources/Textures/Paladog/buttons/Gotcha.png", Vector2(330, 108), Vector2(CENTER_X, CENTER_Y - 300))));
+	buttons["Gotcha"]->SetOnClick(bind(&GotchaScene::Gotcha, this));
 	buttons["Gotcha"]->Update();
+
+
+	buttons.insert(make_pair("Lobby", new Button(L"Resources/Textures/Paladog/buttons/Lobby.png", Vector2(330, 108), Vector2(100, SCREEN_HEIGHT - 300))));
+	buttons["Lobby"]->SetOnClick(bind(&GotchaScene::Lobby, this));
+	buttons["Lobby"]->SetLocalScale(Vector2(0.7f,0.7f));
+	buttons["Lobby"]->Update();
 
 	//	Vector2 quadSize(100, 100);
 	Vector2 quadSize(0, 0);
@@ -42,6 +43,22 @@ GotchaScene::GotchaScene()
 		quad.second->SetActive(false);		
 		quad.second->UpdateWorld();
 	}
+
+
+	haveCoin = new TextBox(Vector2{ 0,300 } + Vector2{ CENTER } + Vector2{ -50,20 }, Vector2{ 200,200 }, to_string(DataManager::Get()->GetBag(1).count).c_str());
+	haveCoin->SetFont("Resources/Fonts/NanumBarunGothic.ttf");
+	haveCoin->SetFontSize(50);
+	haveCoin->UpdateWorld();
+	haveCoinBack = new Quad(L"Resources/Textures/Paladog/Gotcha/CoinBack.png",Vector2({0,0}), Vector2(1.0f, 1.0f));
+	haveCoinBack->SetParent(haveCoin);
+	haveCoinBack->SetLocalPosition(Vector2{50,-20});
+	haveCoinBack->UpdateWorld();
+
+	gotchaCost = new TextBox(Vector2{ 0,-100 } + Vector2{ CENTER } + Vector2{ -50,20 }, Vector2{ 200,200 }, "100Coin");
+	gotchaCost->SetFont("Resources/Fonts/NanumBarunGothic.ttf");
+	gotchaCost->SetFontSize(50);
+	gotchaCost->UpdateWorld();
+
 	pickCharcterIndex = 0;
 
 }
@@ -56,6 +73,9 @@ GotchaScene::~GotchaScene()
 	}
 	buttons.clear();
 	delete chest;
+	delete haveCoinBack;
+	delete haveCoin;
+
 }
 
 void GotchaScene::Update()
@@ -80,7 +100,13 @@ void GotchaScene::Render()
 	for (auto& button : buttons) {
 		button.second->Render();
 	}
+
 	chest->Render();
+	gotchaCost->Render();
+
+	haveCoinBack->Render();
+	haveCoin->Render();
+
 	for (auto& quad : characterQuads)
 		quad.second->Render();
 }
@@ -100,6 +126,8 @@ void GotchaScene::Lobby()
 
 void GotchaScene::Gotcha()
 {
+	if (DataManager::Get()->GetBag(1).count < 100) return; // 코인이 없으면 실행 불가
+	DataManager::Get()->GetBag(1).count-=100;
 	chest->ChestOpen();
 	for (auto quad : characterQuads)
 		quad.second->SetActive(false);
@@ -133,5 +161,10 @@ void GotchaScene::Gotcha()
 
 	}
 	pickCharcterIndex = it->first;
+	RefreshMoney();
+}
+
+void GotchaScene::RefreshMoney() {
+	haveCoin->SetText(to_string(DataManager::Get()->GetBag(1).count).c_str());
 
 }

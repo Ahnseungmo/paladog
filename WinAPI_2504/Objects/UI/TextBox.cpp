@@ -11,6 +11,7 @@ bool TextBox::fontsInitialized = false;
 TextBox::TextBox(Vector2 pos, Vector2 size, const char* text)
     : pos(pos), size(size)
 {
+    SetLocalPosition(pos);
     strncpy_s(textBuffer, text, sizeof(textBuffer) - 1);
 }
 
@@ -55,11 +56,18 @@ void TextBox::Render()
     if (!ImGui::GetCurrentContext())
         return;
 
-    static int windowId = 0;
-    std::string windowName = "TextBox_" + std::to_string(windowId++);
+    // this 포인터의 주소값을 문자열로 변환하여 윈도우 이름 생성
+    std::string windowName = "TextBox_" + std::to_string(reinterpret_cast<uintptr_t>(this));
+
+    // 부모의 위치를 포함한 최종 위치 계산
+    Vector2 finalPos = GetGlobalPosition();
+    
+    // 좌표계 변환 (게임 좌표계 -> ImGui 좌표계)
+    // y좌표를 반전시켜 ImGui 좌표계로 변환
+    ImVec2 imguiPos(finalPos.x, SCREEN_HEIGHT - finalPos.y);
 
     // 윈도우 위치와 크기 설정
-    ImGui::SetNextWindowPos(ImVec2(pos.x, pos.y));
+    ImGui::SetNextWindowPos(imguiPos);
     ImGui::SetNextWindowSize(ImVec2(size.x, size.y));
     
     // 윈도우 플래그 설정

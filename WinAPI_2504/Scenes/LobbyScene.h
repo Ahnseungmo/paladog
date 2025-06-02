@@ -12,7 +12,8 @@ public:
 
 	void Battle();
 
-	void Shop();
+	void Gotcha();
+
 
 	void Unit();
 

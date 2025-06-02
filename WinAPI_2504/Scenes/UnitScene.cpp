@@ -7,8 +7,9 @@ UnitScene::UnitScene()
 	backGround->SetLocalPosition(CENTER);
 	backGround->UpdateWorld();
 
-	buttons.insert(make_pair("Lobby", new Button(L"Resources/Textures/Paladog/Lobby/btn_ui_battle_up.png", Vector2(100, 50), Vector2(SCREEN_WIDTH - 100, SCREEN_HEIGHT - 50))));
+	buttons.insert(make_pair("Lobby", new Button(L"Resources/Textures/Paladog/buttons/Lobby.png", Vector2(330, 108), Vector2(SCREEN_WIDTH - 100, SCREEN_HEIGHT - 50))));
 	buttons["Lobby"]->SetOnClick(bind(&UnitScene::Lobby, this));
+	buttons["Lobby"]->SetLocalScale(Vector2(0.7f, 0.7f));
 	buttons["Lobby"]->Update();
 
 	unitPanel = new UnitPanel(Vector2(100, 550));
