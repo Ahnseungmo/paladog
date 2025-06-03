@@ -35,7 +35,7 @@ GameManager::GameManager()
 	SCENE->AddScene("GameOver", new GameEndingScene(L"Resources/Textures/GameOver_BackGround.png"));
 	SCENE->AddScene("GameClear", new GameEndingScene(L"Resources/Textures/GameClear_BackGround.png"));
 
-	SCENE->ChangeScene("Intro");
+	SCENE->ChangeScene("Battle");
 
 
 }

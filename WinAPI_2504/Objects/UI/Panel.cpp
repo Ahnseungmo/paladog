@@ -246,3 +246,9 @@ void Panel::HealSkill()
 		}
 	}
 }
+
+void Panel::ResetGauge()
+{
+	spawnBar->SetCurGauge(0.0);
+	manaBar->SetCurGauge(0.0);
+}

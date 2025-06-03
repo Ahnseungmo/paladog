@@ -141,7 +141,7 @@ void EnemyManager::SpawnEnemy(Enemy_Type key)
 			continue;
 		enemy->SetActive(true);
 		enemy->SetLocalPosition(RendomPos());
-		enemy->SetStat(enemy->GetStat());
+		enemy->SetStat(enemy->GetBaseStat());
 		enemy->SetTargetList(unit);
 		
 		return;
@@ -161,14 +161,14 @@ void EnemyManager::ResetEnemy()
 	{
 		for (Character* myEnemy : enemy.second)
 		{
-			if (!myEnemy->IsActive())
-				continue;
 			myEnemy->SetActive(false);
 			myEnemy->SetStat(myEnemy->GetBaseStat());
+			myEnemy->SetCurStateToRun();
 		}
 	}
 
-	enemies[Enemy_Type::Castle][0]->SetActive(true);
+	castle = (Enemy_Castle*)enemies[Enemy_Type::Castle][0];
+	castle->SetActive(true);
 
 	isSpawnBoss = false;
 	isSpawnHalf = false;

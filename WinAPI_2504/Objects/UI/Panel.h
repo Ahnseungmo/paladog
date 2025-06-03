@@ -28,6 +28,8 @@ public:
     void HealSkill();
 
     void SetPaladog(Paladog* paladog) { this->paladog = paladog; }
+    
+    void ResetGauge();
 
 private:
     Quad* panelTexture;

@@ -240,6 +240,7 @@ void Character::MappingCharacterData(int key)
     stat.attackCount = data.attackCount;
 
     this->baseStat = stat;
+    hp = baseStat.maxHp;
 }
 
 void Character::MappingAllyData(int key)
@@ -255,5 +256,6 @@ void Character::MappingAllyData(int key)
     stat.moveSpeed += data.speedPerLevel * level;
     stat.attackSpeed += data.attackSpeedPerLevel * level;
 
-    //this->baseStat = stat; 
+    this->baseStat = stat; 
+    hp = baseStat.maxHp;
 }

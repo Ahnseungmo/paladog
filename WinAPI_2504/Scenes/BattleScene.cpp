@@ -9,14 +9,12 @@ BattleScene::BattleScene()
 	playerPanel->UpdateWorld();
 
 	paladog = new Paladog();
-	paladog->SetLocalPosition(CENTER + Vector2(0, 100));
-	paladog->UpdateWorld();
 
 	playerPanel->SetPaladog(paladog);
 
-	EnemyManager::Get()->SpawnEnemy(Enemy_Type::Castle);
-
 	AllyManager::Get()->AddPalaDog(paladog);
+
+
 	AllyManager::Get()->SetTargetList(EnemyManager::Get()->GetAllUnits());
 	EnemyManager::Get()->SetTargetList(AllyManager::Get()->GetAllUnits());
 }
@@ -71,10 +69,15 @@ void BattleScene::Start()
 	playerPanel->Start();
 	Environment::Get()->GetMainCamera()->SetTarget(paladog);
 	Environment::Get()->GetMainCamera()->SetLimits(LEFT_EDGE, RIGHT_EDGE + 500);
+
 	EnemyManager::Get()->ResetEnemy();
 	AllyManager::Get()->ResetUnit();
 
 	paladog->ResetStat(); // 팔라독 마나도 리셋해야됨
+	playerPanel->ResetGauge();
+
+	paladog->SetLocalPosition(CENTER + Vector2(0, 100));
+	paladog->UpdateWorld();
 }
 
 void BattleScene::End()

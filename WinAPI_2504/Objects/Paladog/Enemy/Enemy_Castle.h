@@ -7,8 +7,6 @@ enum CastleStatus
 
 class Enemy_Castle :public Character
 {
-private:
-	const int MAX_HP = 200;
 public : 
 	Enemy_Castle();
 	~Enemy_Castle();

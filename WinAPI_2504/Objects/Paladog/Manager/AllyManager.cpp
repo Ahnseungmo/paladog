@@ -198,8 +198,7 @@ void AllyManager::ResetUnit()
         {
             units[i]->SetActive(false);
             units[i]->ResetStat();
-            units[i]->SetLocalPosition({ 0,0 });
-            units[i]->UpdateWorld();
+            units[i]->SetCurStateToRun();
         }
     }
 
