@@ -25,6 +25,7 @@ void AllyManager::Update()
         {
             if (units[i]->IsActive())
                 units[i]->Update();
+            UnitOut(units[i]);
         }
     }
 }
@@ -175,4 +176,31 @@ void AllyManager::RegistAlly()
 void AllyManager::AddPalaDog(Character* paladog)
 {
     player = paladog;
+}
+
+void AllyManager::UnitOut(Character* unit)
+{
+    if (!unit->IsActive()) return;
+
+    Vector2 pos = unit->GetGlobalPosition();
+    if (pos.x < 1780)
+        return;
+    SceneManager::Get()->ChangeScene("GameClear");
+}
+
+void AllyManager::ResetUnit()
+{
+
+    for (auto it = totalUnits.begin(); it != totalUnits.end(); ++it)
+    {
+        vector<Character*>& units = it->second;
+        for (int i = 0; i < units.size(); i++)
+        {
+            units[i]->SetActive(false);
+            units[i]->ResetStat();
+            units[i]->SetLocalPosition({ 0,0 });
+            units[i]->UpdateWorld();
+        }
+    }
+
 }

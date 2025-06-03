@@ -36,6 +36,11 @@ public:
 
     void RegistAlly();
     void AddPalaDog(Character* paladog);
+
+    void UnitOut(Character* unit);
+
+    void ResetUnit();
+
 private:
 
     unordered_map<ALLY_TYPE, vector<Character*>> totalUnits;

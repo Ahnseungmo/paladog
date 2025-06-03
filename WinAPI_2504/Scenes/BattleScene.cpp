@@ -72,6 +72,9 @@ void BattleScene::Start()
 	Environment::Get()->GetMainCamera()->SetTarget(paladog);
 	Environment::Get()->GetMainCamera()->SetLimits(LEFT_EDGE, RIGHT_EDGE + 500);
 	EnemyManager::Get()->ResetEnemy();
+	AllyManager::Get()->ResetUnit();
+
+	paladog->ResetStat(); // 팔라독 마나도 리셋해야됨
 }
 
 void BattleScene::End()
